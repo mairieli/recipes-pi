@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/LogAcesso.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Dificuldade.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/web/index.jsp</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/daos/HibernateConfiguration.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/web/cadastrar_usuario.jsp</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/ItemReceita.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/FotoReceita.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/daos/UsuarioDao.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Categoria.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Comentario.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/UnidadeMedida.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/app/UsuarioManager.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Ingrediente.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Usuario.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/beans/Receita.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/daos/DaoGenerics.java</file>
+            <file>file:/D:/projetos%20web/ImHungry/src/java/util/Criptografia.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,14 @@
+/* 
+    Document   : principal
+    Created on : 25/04/2013, 20:45:39
+    Author     : josimar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+#conteudo{
+    padding: 25px;
+}
