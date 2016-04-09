@@ -22,8 +22,8 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
-            <version>SNAPSHOT</version>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>4.3.1.Final</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
