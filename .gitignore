@@ -8,3 +8,4 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 src/main/resources/META-INF/persistence.xml
+lib/unknown/binary/hibernate-jpamodelgen-4.3.1.Final/SNAPSHOT/hibernate-jpamodelgen-4.3.1.Final-SNAPSHOT.jar
