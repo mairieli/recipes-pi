@@ -16,21 +16,24 @@
     <body>
         <h1>Cadastro de Receita</h1>
         <form class="form-horizontal" role="form">
-            <!-- TÃ­tulo da receita -->
+            <!-- Título da receita -->
             <div class="form-group">
-                <label class="control-label col-md-2" for="titulo">TÃ­tulo da receita:</label>
+                <label class="control-label col-md-2" for="titulo">Título:</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" id="titulo">
                 </div>
             </div>
             <!-- Quantidade Unidade Ingrediente -->
             <div class="form-group">
+                <label class="control-label col-md-2" for="ingrediente">Ingrediente:</label>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-md-1" for="ingredientecomp1"></label>
                 <div class="col-md-1">
                     <input type="text" class="form-control" id="quantidade1" placeholder="quantidade">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="unidademedida1" placeholder="ex: colher de sopa, colher de chÃ¡">
+                    <input type="text" class="form-control" id="unidademedida1" placeholder="ex: colher de sopa, colher de chá">
                 </div>
                 <div class="col-md-5">
                     <input type="text" class="form-control" id="ingrediente1" placeholder="ingrediente">
@@ -42,7 +45,7 @@
                     <input type="text" class="form-control" id="quantidade2" placeholder="quantidade">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="unidademedida2" placeholder="ex: colher de sopa, colher de chÃ¡">
+                    <input type="text" class="form-control" id="unidademedida2" placeholder="ex: colher de sopa, colher de chá">
                 </div>
                 <div class="col-md-5">
                     <input type="text" class="form-control" id="ingrediente2" placeholder="ingrediente">
@@ -54,7 +57,7 @@
                     <input type="text" class="form-control" id="quantidade3" placeholder="quantidade">
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="unidademedida3" placeholder="ex: colher de sopa, colher de chÃ¡">
+                    <input type="text" class="form-control" id="unidademedida3" placeholder="ex: colher de sopa, colher de chá">
                 </div>
                 <div class="col-md-5">
                     <input type="text" class="form-control" id="ingrediente3" placeholder="ingrediente">
@@ -71,51 +74,39 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="rendimento">Rendimento:</label>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" id="rendimento" placeholder="Em PorÃ§Ãµes">
+                    <input type="text" class="form-control" id="rendimento" placeholder="Em Porções">
                 </div>
             </div>
-            <!-- Categoria da Receita (Somente a label)-->
+            <!-- Categoria da Receita -->
             <div class="form-group">
-                <label class="control-label col-md-2" for="categoria">Categoria da receita:</label>
+                <label class="control-label col-md-2" for="dificuldade">Categoria:</label>
+                <div class="col-md-4">
+                    <select class="form-control" id="categoria">
+                      <option>Aves</option>
+                      <option>Bebidas</option>
+                      <option>Bolos E Tortas</option>
+                      <option>Carnes</option>
+                      <option>Doces E Sobremesas</option>
+                      <option>Lanches</option>
+                      <option>Massas</option>
+                      <option>Molhos E Acompanhamentos</option>
+                      <option>Peixes E Frutos do Mar</option>
+                      <option>Saladas</option>
+                      <option>Sopas</option>
+                    </select> 
+                </div>
             </div>
-        </form>
-        <form class="form-inline" role="form">
-            <!-- Categoria da Receita (Com as opÃ§Ãµes)-->
-            <label class="control-label col-md-1" for="espacocategoria"></label>
+            <!-- Dificuldade da Receita -->
             <div class="form-group">
-                <select class="form-control" id="categoria">
-                  <option>Aves</option>
-                  <option>Bebidas</option>
-                  <option>Bolos E Tortas</option>
-                  <option>Carnes</option>
-                  <option>Doces E Sobremesas</option>
-                  <option>Lanches</option>
-                  <option>Massas</option>
-                  <option>Molhos E Acompanhamentos</option>
-                  <option>Peixes E Frutos do Mar</option>
-                  <option>Saladas</option>
-                  <option>Sopas</option>
-                </select>
+                <label class="control-label col-md-2" for="dificuldade">Dificuldade:</label>
+                <div class="col-md-4">
+                    <select class="form-control" id="dificuldade">
+                      <option>Fácil</option>
+                      <option>Médio</option>
+                      <option>Díficil</option>
+                    </select> 
+                </div>
             </div>
-        </form>
-        <form class="form-horizontal" role="form">
-            <!-- Dificuldade da Receita (Somente a label)-->
-            <div class="form-group">
-                <label class="control-label col-md-2" for="dificuldade">Dificuldade da receita:</label>
-            </div>
-        </form>
-        <form class="form-inline" role="form">
-            <!-- Dificuldade da Receita (Com as opÃ§Ãµes)-->
-            <label class="control-label col-md-1" for="espacocategoria"></label>
-            <div class="form-group">
-                <select class="form-control" id="categoria">
-                  <option>FÃ¡cil</option>
-                  <option>MÃ©dio</option>
-                  <option>DifÃ­cil</option>
-                </select>
-            </div>
-        </form>
-        <form class="form-horizontal" role="form">
             <!-- Modo de preparo -->
             <div class="form-group">
                 <label class="control-label col-md-2" for="modopreparo">Modo de preparo:</label>
@@ -125,6 +116,7 @@
                 <textarea class="control-label col-md-8" row="8" id="modopreparo"></textarea>
             </div>
         </form>
+        <!-- Botão -->
         <button type="submit" class="btn-success col-lg-offset-9 btn-lg">Enviar receita!</button>
     </body>
 </html>
