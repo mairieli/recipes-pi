@@ -7,3 +7,6 @@
 .escondido{
     display: none;
 }
+.alertRed{
+    color: #f00;
+}
