@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  *
  * @author noemi
@@ -23,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Tag_1.findByIdTag", query = "SELECT t FROM Tag_1 t WHERE t.idTag = :idTag"),
     @NamedQuery(name = "Tag_1.findByNome", query = "SELECT t FROM Tag_1 t WHERE t.nome = :nome")})
 public class Tag implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -70,15 +72,12 @@ public class Tag implements Serializable {
             return false;
         }
         Tag other = (Tag) object;
-        if ((this.idTag == null && other.idTag != null) || (this.idTag != null && !this.idTag.equals(other.idTag))) {
-            return false;
-        }
-        return true;
+        return !((this.idTag == null && other.idTag != null) || (this.idTag != null && !this.idTag.equals(other.idTag)));
     }
 
     @Override
     public String toString() {
         return "br.edu.utfpr.recipes.entidade.Tag_1[ idTag=" + idTag + " ]";
     }
-    
+
 }

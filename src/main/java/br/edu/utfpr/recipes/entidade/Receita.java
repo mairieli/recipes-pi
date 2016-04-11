@@ -173,10 +173,7 @@ public class Receita implements Serializable {
             return false;
         }
         Receita other = (Receita) object;
-        if ((this.idReceita == null && other.idReceita != null) || (this.idReceita != null && !this.idReceita.equals(other.idReceita))) {
-            return false;
-        }
-        return true;
+        return !((this.idReceita == null && other.idReceita != null) || (this.idReceita != null && !this.idReceita.equals(other.idReceita)));
     }
 
     @Override

@@ -29,23 +29,23 @@ public class Ingredientes implements Serializable {
         return id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
-    
-    public boolean getStatus(){
+
+    public boolean getStatus() {
         return status;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
-    
-    public void setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    public void setStatus(boolean status){
+
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -63,15 +63,12 @@ public class Ingredientes implements Serializable {
             return false;
         }
         Ingredientes other = (Ingredientes) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override
     public String toString() {
         return "br.edu.utfpr.recipes.entidade.ingredientes[ id=" + id + " ]";
     }
-    
+
 }
