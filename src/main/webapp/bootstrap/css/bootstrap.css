@@ -6731,6 +6731,7 @@ button.close {
 .visible-print-block {
   display: none !important;
 }
+
 @media print {
   .visible-print-block {
     display: block !important;
