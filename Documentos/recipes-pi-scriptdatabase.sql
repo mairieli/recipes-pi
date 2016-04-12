@@ -135,9 +135,116 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Tag` (
   `idTag` INT NOT NULL,
   `nome` VARCHAR(45) NULL,
   PRIMARY KEY (`idTag`))
+
 ENGINE = InnoDB;
+-- INSERTS
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Micro-ondas', 1);
 
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Forno', 2);
 
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Fogão', 3);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Freezer', 4);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Liquidificador', 5);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Batedeira', 6);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Processador', 7);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Grill', 8);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Sanduicheira', 9);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Cafeteira', 10);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Colher de café', 11);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Colher de chá', 12);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Colher de sopa', 13);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Garfo', 14);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Copo', 15);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Taça', 16);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Espátula', 17);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Xícara', 18);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Concha', 19);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Descascador de legumes', 20);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Escorredor de macarrão', 21);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Escumadeira', 22);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Faca', 23);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Fouet', 24);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Tigela', 25);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Prato', 26);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Panela de pressão', 27);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Panela', 28);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Frigideira', 29);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Peneira', 30);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Chaleira', 31);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Ralador', 32);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Funil', 33);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Tábua', 34);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Descascador', 35);
+
+INSERT INTO `mydb`.`Tag`(nome, idTag)
+VALUES ('Forma', 36);
 -- -----------------------------------------------------
 -- Table `mydb`.`TagReceita`
 -- -----------------------------------------------------
@@ -227,7 +334,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Qualificacao` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+ 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
