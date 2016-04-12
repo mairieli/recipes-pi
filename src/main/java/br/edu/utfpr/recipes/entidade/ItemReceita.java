@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
@@ -23,7 +18,7 @@ import javax.validation.constraints.Size;
 @Table(name = "itemReceita")
 public class ItemReceita implements Serializable {
 
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -32,14 +27,13 @@ public class ItemReceita implements Serializable {
     @Size(max = 45)
     @Column(name = "unidadeMedida")
     private String unidadeMedida;
-   @ManyToOne
+    @ManyToOne
     private Ingrediente ingrediente;
     @ManyToOne(optional = false)
     private Receita receita;
 
     public ItemReceita() {
     }
-
 
     @Override
     public int hashCode() {
@@ -105,5 +99,5 @@ public class ItemReceita implements Serializable {
     public void setReceita(Receita receita) {
         this.receita = receita;
     }
-    
+
 }

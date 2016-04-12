@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
@@ -19,7 +14,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class TagReceita implements Serializable {
 
-     private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -31,7 +26,6 @@ public class TagReceita implements Serializable {
     public TagReceita() {
     }
 
-   
     @Override
     public int hashCode() {
         int hash = 0;
@@ -80,5 +74,5 @@ public class TagReceita implements Serializable {
     public void setTag(Tag tag) {
         this.tag = tag;
     }
-    
+
 }

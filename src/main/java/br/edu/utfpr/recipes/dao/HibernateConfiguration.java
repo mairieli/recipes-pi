@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.dao;
 
-/**
- *
- * @author Josimar
- */
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
@@ -24,14 +15,14 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
  * @author josimar
  */
 public class HibernateConfiguration {
+
     //usuario banco
     public static final String userName = "root";
     // senha usuario banco
-    public static final String password = "senha";
+    public static final String password = "root";
     //base de dados.
-    public static final String dataBase = "recipes";
+    public static final String dataBase = "mydb";
 
-   
     // build  valida somente uma vez
     // Session uma sessão para cada transação ou um conjunto de transações
     private static Configuration cfg = null;
@@ -51,7 +42,7 @@ public class HibernateConfiguration {
             cfg.setProperty("hibernate.current_session_context_class", "thread");
             //a linha a seguir atualiza o banco automaticamente caso haja diferença entro o banco e as entidade.
             cfg.setProperty("hibernate.hbm2ddl.auto", "update");
-            
+
             mapear();
 
             factory = cfg.buildSessionFactory();// construindo uma fabrica de sessão
@@ -71,7 +62,6 @@ public class HibernateConfiguration {
     }
 
     // Entidades para serem mapeadas
-
     private static void mapear() {
         cfg.addAnnotatedClass(Ingrediente.class);
         cfg.addAnnotatedClass(ItemReceita.class);

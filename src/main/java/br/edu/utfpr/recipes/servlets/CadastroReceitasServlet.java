@@ -25,7 +25,7 @@ public class CadastroReceitasServlet extends HttpServlet {
 
         //pega os parametros do request
         String titulo = request.getParameter("titulo");
-        
+
         //Esta pegando 3 ingredientes, mas é temporário 
         String ingrediente1 = request.getParameter("ingrediente1");
         String unidadeMedida1 = request.getParameter("unidade_medida1");
@@ -48,8 +48,10 @@ public class CadastroReceitasServlet extends HttpServlet {
         i.setNome(ingrediente1);
         i.setStatus(true);
 
-        //monta um objeto receita (instanciar entidades abaixo)     
+        //monta um objeto receita (instanciar entidades abaixo)   
+        
         //salva a recceita (utilizar o DAO abaixo)
+        
         //redireciona para a tela de cadastro de receitas
         response.sendRedirect("CadastroReceitas.jsp");
     }
