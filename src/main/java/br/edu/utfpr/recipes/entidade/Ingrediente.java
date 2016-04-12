@@ -7,18 +7,14 @@ package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -26,42 +22,31 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Leonardo
  */
 @Entity
-@Table(name = "Ingrediente")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Ingrediente.findAll", query = "SELECT i FROM Ingrediente i"),
-    @NamedQuery(name = "Ingrediente.findByIdIngrediente", query = "SELECT i FROM Ingrediente i WHERE i.idIngrediente = :idIngrediente"),
-    @NamedQuery(name = "Ingrediente.findByNome", query = "SELECT i FROM Ingrediente i WHERE i.nome = :nome"),
-    @NamedQuery(name = "Ingrediente.findByStatus", query = "SELECT i FROM Ingrediente i WHERE i.status = :status")})
 public class Ingrediente implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idIngrediente")
-    private Integer idIngrediente;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
     @Column(name = "status")
     private Boolean status;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idIngrediente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingrediente")
     private List<ItemReceita> itemReceitaList;
 
     public Ingrediente() {
     }
 
-    public Ingrediente(Integer idIngrediente) {
-        this.idIngrediente = idIngrediente;
+   
+
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getIdIngrediente() {
-        return idIngrediente;
-    }
-
-    public void setIdIngrediente(Integer idIngrediente) {
-        this.idIngrediente = idIngrediente;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -92,7 +77,7 @@ public class Ingrediente implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idIngrediente != null ? idIngrediente.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -103,7 +88,7 @@ public class Ingrediente implements Serializable {
             return false;
         }
         Ingrediente other = (Ingrediente) object;
-        if ((this.idIngrediente == null && other.idIngrediente != null) || (this.idIngrediente != null && !this.idIngrediente.equals(other.idIngrediente))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -111,7 +96,7 @@ public class Ingrediente implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.utfpr.recipes.entidade.Ingrediente[ idIngrediente=" + idIngrediente + " ]";
+        return "br.edu.utfpr.recipes.entidade.Ingrediente[ idIngrediente=" + id + " ]";
     }
     
 }

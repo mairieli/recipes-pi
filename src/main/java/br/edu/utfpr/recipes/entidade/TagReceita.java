@@ -6,78 +6,36 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author mairieliw
  */
 @Entity
-@Table(name = "TagReceita")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "TagReceita.findAll", query = "SELECT t FROM TagReceita t"),
-    @NamedQuery(name = "TagReceita.findByIdTags", query = "SELECT t FROM TagReceita t WHERE t.idTags = :idTags")})
 public class TagReceita implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idTags")
-    private Integer idTags;
-    @JoinColumn(name = "idReceita", referencedColumnName = "idReceita")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @ManyToOne(optional = false)
-    private Receita idReceita;
-    @JoinColumn(name = "idTag", referencedColumnName = "idTag")
+    private Receita receita;
     @ManyToOne(optional = false)
-    private Tag idTag;
+    private Tag tag;
 
     public TagReceita() {
     }
 
-    public TagReceita(Integer idTags) {
-        this.idTags = idTags;
-    }
-
-    public Integer getIdTags() {
-        return idTags;
-    }
-
-    public void setIdTags(Integer idTags) {
-        this.idTags = idTags;
-    }
-
-    public Receita getIdReceita() {
-        return idReceita;
-    }
-
-    public void setIdReceita(Receita idReceita) {
-        this.idReceita = idReceita;
-    }
-
-    public Tag getIdTag() {
-        return idTag;
-    }
-
-    public void setIdTag(Tag idTag) {
-        this.idTag = idTag;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idTags != null ? idTags.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -88,7 +46,7 @@ public class TagReceita implements Serializable {
             return false;
         }
         TagReceita other = (TagReceita) object;
-        if ((this.idTags == null && other.idTags != null) || (this.idTags != null && !this.idTags.equals(other.idTags))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -96,7 +54,31 @@ public class TagReceita implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.utfpr.recipes.entidade.TagReceita[ idTags=" + idTags + " ]";
+        return "br.edu.utfpr.recipes.entidade.TagReceita[ id=" + id + " ]";
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Receita getReceita() {
+        return receita;
+    }
+
+    public void setReceita(Receita receita) {
+        this.receita = receita;
+    }
+
+    public Tag getTag() {
+        return tag;
+    }
+
+    public void setTag(Tag tag) {
+        this.tag = tag;
     }
     
 }

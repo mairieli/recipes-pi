@@ -11,12 +11,13 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -27,22 +28,12 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "Usuario")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u"),
-    @NamedQuery(name = "Usuario.findByIdUsuario", query = "SELECT u FROM Usuario u WHERE u.idUsuario = :idUsuario"),
-    @NamedQuery(name = "Usuario.findByNome", query = "SELECT u FROM Usuario u WHERE u.nome = :nome"),
-    @NamedQuery(name = "Usuario.findByEmail", query = "SELECT u FROM Usuario u WHERE u.email = :email"),
-    @NamedQuery(name = "Usuario.findBySenha", query = "SELECT u FROM Usuario u WHERE u.senha = :senha"),
-    @NamedQuery(name = "Usuario.findByAdmin", query = "SELECT u FROM Usuario u WHERE u.admin = :admin")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idUsuario")
-    private Integer idUsuario;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
@@ -55,22 +46,52 @@ public class Usuario implements Serializable {
     private String senha;
     @Column(name = "admin")
     private Boolean admin;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Receita> receitaCollection;
+    
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    
+
+    @XmlTransient
+    public List<Receita> getReceitaCollection() {
+        return receitaCollection;
     }
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public void setReceitaCollection(List<Receita> receitaCollection) {
+        this.receitaCollection = receitaCollection;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof Usuario)) {
+            return false;
+        }
+        Usuario other = (Usuario) object;
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    }
+
+    @Override
+    public String toString() {
+        return "br.edu.utfpr.recipes.entidade.Usuario[ idUsuario=" + id + " ]";
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -103,37 +124,6 @@ public class Usuario implements Serializable {
 
     public void setAdmin(Boolean admin) {
         this.admin = admin;
-    }
-
-    @XmlTransient
-    public List<Receita> getReceitaCollection() {
-        return receitaCollection;
-    }
-
-    public void setReceitaCollection(List<Receita> receitaCollection) {
-        this.receitaCollection = receitaCollection;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idUsuario != null ? idUsuario.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
-            return false;
-        }
-        Usuario other = (Usuario) object;
-        return !((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario)));
-    }
-
-    @Override
-    public String toString() {
-        return "br.edu.utfpr.recipes.entidade.Usuario[ idUsuario=" + idUsuario + " ]";
     }
 
 }

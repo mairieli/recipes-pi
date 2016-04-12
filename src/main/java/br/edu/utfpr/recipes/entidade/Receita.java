@@ -7,21 +7,16 @@ package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -30,31 +25,18 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "Receita")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Receita.findAll", query = "SELECT r FROM Receita r"),
-    @NamedQuery(name = "Receita.findByIdReceita", query = "SELECT r FROM Receita r WHERE r.idReceita = :idReceita"),
-    @NamedQuery(name = "Receita.findByNome", query = "SELECT r FROM Receita r WHERE r.nome = :nome"),
-    @NamedQuery(name = "Receita.findByModoPreparo", query = "SELECT r FROM Receita r WHERE r.modoPreparo = :modoPreparo"),
-    @NamedQuery(name = "Receita.findByRendimento", query = "SELECT r FROM Receita r WHERE r.rendimento = :rendimento"),
-    @NamedQuery(name = "Receita.findByTempoPreparo", query = "SELECT r FROM Receita r WHERE r.tempoPreparo = :tempoPreparo"),
-    @NamedQuery(name = "Receita.findByDificuldade", query = "SELECT r FROM Receita r WHERE r.dificuldade = :dificuldade"),
-    @NamedQuery(name = "Receita.findByCategoria", query = "SELECT r FROM Receita r WHERE r.categoria = :categoria"),
-    @NamedQuery(name = "Receita.findByStatus", query = "SELECT r FROM Receita r WHERE r.status = :status")})
 public class Receita implements Serializable {
 
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "idReceita")
-    private Integer idReceita;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
-    @Size(max = 45)
-    @Column(name = "modoPreparo")
+   
+    @Column(name = "modoPreparo", columnDefinition = "TEXT")
     private String modoPreparo;
     @Size(max = 45)
     @Column(name = "rendimento")
@@ -70,30 +52,28 @@ public class Receita implements Serializable {
     private String categoria;
     @Column(name = "status")
     private Boolean status;
-    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(optional = false)
-    private Usuario idUsuario;
-    @Lob
-    @Column(name = "imagem")
+    private Usuario usuario;
+    @Column(name = "imagem", columnDefinition = "LONGBLOB")
     private byte[] imagem;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idReceita")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<ItemReceita> itemReceitaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idReceita")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<TagReceita> tagReceitaList;
 
     public Receita() {
     }
 
     public Receita(Integer idReceita) {
-        this.idReceita = idReceita;
+        this.id = idReceita;
     }
 
     public Integer getIdReceita() {
-        return idReceita;
+        return id;
     }
 
     public void setIdReceita(Integer idReceita) {
-        this.idReceita = idReceita;
+        this.id = idReceita;
     }
 
     public String getNome() {
@@ -153,18 +133,18 @@ public class Receita implements Serializable {
     }
 
 
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idReceita != null ? idReceita.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -175,12 +155,12 @@ public class Receita implements Serializable {
             return false;
         }
         Receita other = (Receita) object;
-        return !((this.idReceita == null && other.idReceita != null) || (this.idReceita != null && !this.idReceita.equals(other.idReceita)));
+        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
     }
 
     @Override
     public String toString() {
-        return "br.edu.utfpr.recipes.entidade.Receita[ idReceita=" + idReceita + " ]";
+        return "br.edu.utfpr.recipes.entidade.Receita[ idReceita=" + id + " ]";
     }
 
     public byte[] getImagem() {
