@@ -6,7 +6,9 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,10 +17,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,6 +42,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Receita.findByCategoria", query = "SELECT r FROM Receita r WHERE r.categoria = :categoria"),
     @NamedQuery(name = "Receita.findByStatus", query = "SELECT r FROM Receita r WHERE r.status = :status")})
 public class Receita implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -65,12 +70,16 @@ public class Receita implements Serializable {
     private String categoria;
     @Column(name = "status")
     private Boolean status;
-    @Lob
-    @Column(name = "imagem")
-    private byte[] imagem;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(optional = false)
     private Usuario idUsuario;
+    @Lob
+    @Column(name = "imagem")
+    private byte[] imagem;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idReceita")
+    private List<ItemReceita> itemReceitaList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idReceita")
+    private List<TagReceita> tagReceitaList;
 
     public Receita() {
     }
@@ -143,13 +152,6 @@ public class Receita implements Serializable {
         this.status = status;
     }
 
-    public byte[] getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(byte[] imagem) {
-        this.imagem = imagem;
-    }
 
     public Usuario getIdUsuario() {
         return idUsuario;
@@ -179,6 +181,32 @@ public class Receita implements Serializable {
     @Override
     public String toString() {
         return "br.edu.utfpr.recipes.entidade.Receita[ idReceita=" + idReceita + " ]";
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
+    @XmlTransient
+    public List<ItemReceita> getItemReceitaList() {
+        return itemReceitaList;
+    }
+
+    public void setItemReceitaList(List<ItemReceita> itemReceitaList) {
+        this.itemReceitaList = itemReceitaList;
+    }
+
+    @XmlTransient
+    public List<TagReceita> getTagReceitaList() {
+        return tagReceitaList;
+    }
+
+    public void setTagReceitaList(List<TagReceita> tagReceitaList) {
+        this.tagReceitaList = tagReceitaList;
     }
 
 }

@@ -1,16 +1,20 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -24,6 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Tag_1.findByIdTag", query = "SELECT t FROM Tag_1 t WHERE t.idTag = :idTag"),
     @NamedQuery(name = "Tag_1.findByNome", query = "SELECT t FROM Tag_1 t WHERE t.nome = :nome")})
 public class Tag implements Serializable {
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idTag")
+    private List<TagReceita> tagReceitaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -78,6 +85,15 @@ public class Tag implements Serializable {
     @Override
     public String toString() {
         return "br.edu.utfpr.recipes.entidade.Tag_1[ idTag=" + idTag + " ]";
+    }
+
+    @XmlTransient
+    public List<TagReceita> getTagReceitaList() {
+        return tagReceitaList;
+    }
+
+    public void setTagReceitaList(List<TagReceita> tagReceitaList) {
+        this.tagReceitaList = tagReceitaList;
     }
 
 }

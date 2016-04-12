@@ -6,7 +6,7 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -56,7 +56,7 @@ public class Usuario implements Serializable {
     @Column(name = "admin")
     private Boolean admin;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
-    private Collection<Receita> receitaCollection;
+    private List<Receita> receitaCollection;
 
     public Usuario() {
     }
@@ -106,11 +106,11 @@ public class Usuario implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Receita> getReceitaCollection() {
+    public List<Receita> getReceitaCollection() {
         return receitaCollection;
     }
 
-    public void setReceitaCollection(Collection<Receita> receitaCollection) {
+    public void setReceitaCollection(List<Receita> receitaCollection) {
         this.receitaCollection = receitaCollection;
     }
 
