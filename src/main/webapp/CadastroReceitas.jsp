@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Receita - Receita da VovÃ³</title>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script type="text/javascript" language="javascript">
             /* Mostrar TAG que pode ser opcional */
             function mostrarTAG(id1, id2, id3) {
@@ -82,12 +83,19 @@
                 if(i == 1){    
                     return false
                 }
+                
+                else {
+                    document.getElementById("myModal").style.display = "block";
+                }
            }
-        </script>    
+           function fecharModal() {
+                    document.getElementById("myModal").style.display = "none";
+           }
+        </script>
     </head>
     <body>
         <h1>Cadastro de Receita</h1>
-        <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="return validaForm(this)">
+        <form class="form-horizontal" role="form" action="CadastroReceitas" method="post">
             <!-- Título da receita -->
             <div class="form-group">
                 <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
@@ -220,8 +228,25 @@
             </div>
             <!-- Botão -->        
             <div class="form-group">
-                <button type="submit" class="btn-success col-lg-offset-9 btn-lg">Enviar receita!</button>
+                <button type="button" onclick="validaForm(this)" class="btn-success col-lg-offset-9 btn-lg">Enviar receita!</button>
             </div>
+            <div class="modal" tabindex="-1" role="dialog" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="fecharModal()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Confirmação de cadastro</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Você deseja cadastrar esta receita?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fecharModal()">Não</button>
+                      <button type="submit" class="btn btn-primary">Sim</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
         </form>
     </body>
 
