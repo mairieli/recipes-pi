@@ -91,11 +91,14 @@
            function fecharModal() {
                     document.getElementById("myModal").style.display = "none";
            }
+           function cadRealizado() {
+               alert("Cadastro realizado com sucesso!");
+           }
         </script>
     </head>
     <body>
         <h1>Cadastro de Receita</h1>
-        <form class="form-horizontal" role="form" action="CadastroReceitas" method="post">
+        <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="cadRealizado()">
             <!-- Título da receita -->
             <div class="form-group">
                 <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
