@@ -25,7 +25,7 @@ public class CadastroReceitasServlet extends HttpServlet {
 
         //pega os parametros do request
         String titulo = request.getParameter("titulo");
-
+        System.out.println(titulo);
         //Esta pegando 3 ingredientes, mas é temporário 
         String ingrediente1 = request.getParameter("ingrediente1");
         String unidadeMedida1 = request.getParameter("unidade_medida1");

@@ -91,6 +91,7 @@
            function fecharModal() {
                     document.getElementById("myModal").style.display = "none";
            }
+<<<<<<< HEAD
            function cadRealizado() {
                alert("Cadastro realizado com sucesso!"); 
            }
@@ -99,6 +100,14 @@
     <body>
         <h1>Cadastro de Receita</h1>
         <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="cadRealizado()">
+=======
+           
+    </script>    
+</head>
+<body>
+    <h1>Cadastro de Receita</h1>
+        <form class="form-horizontal" role="form" action="CadastroReceitasServelet" method="post" onsubmit="return validaForm(this)">
+>>>>>>> xandao
             <!-- Título da receita -->
             <div class="form-group">
                 <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
