@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Cadastro de Receita - Receita da VovÃ³</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script type="text/javascript" language="javascript">
         /* Mostrar TAG que pode ser opcional */
         function mostrarTAG(id1, id2, id3) {
