@@ -35,34 +35,3 @@ Com o merge feito, enviar as alterações para o repositório:
 git push origin master
 
 ~Repetir o precesso~
-
-=========Conexão com o Banco de Dados=========
-Todos precisam seguir os seguintes passos para criar uma conexão com o banco de dados:
-OBS: Nos campos onde você tiver que digitar algo, coloque exatamente como eu especifiquei 
-----Rodar o Script no banco de dados----
-- Se o banco já estiver criado, pule para a próxima etapa
-----Copiar o caminho do Driver do MySQl-----
-- Clicar em Dependências
-- Encontrar nas dependias o mysqlconnector e clicar com o botão direito, e copiar localização
-----Criar Unidade de Persistência------
-- Clicar com o botão direito sobre o projeto
-- Clicar em Novo
-- Clicar em outros
-- Escolher categoria: Persistência
-- Escolher tipos de arquivos: Unidade de persistência
-- Colocar PU no nome da unidade de persistencia
-- Escolher biclioteca de persistencia: Hibernate
-- Conexão ao banco de dados: Clicar em Adicionar Nova Conexão
-- Escolher driver: Mysql
-- Arquivos de driver: Clicar em Adicionar e colocar o caminho do driver
-- Não esquecer de remover o driver que já estava lá (só clicar nele e vai habilitar o botão de 
-  excluir)
-- Clicar em próximo
-- Colocar mydb no campo Banco de Dados
-- Colocar a senha do seu usuário root
-- Clicar em Testar Conexão
-- Se aparecer "Conexão Bem-sucedida.", siga clicando em Próximo -> Próximo -> Finalizar, senão corre 
-  pro Slack e pede um auxílio.
-- Ao voltar na tela "new Unidade de Persistência", escolha a estratégia de geração de tabelas como 
-  "Nenhum"
-- Clicar em Finalizar
