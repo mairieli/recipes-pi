@@ -92,7 +92,7 @@
                     document.getElementById("myModal").style.display = "none";
            }
            function cadRealizado() {
-               alert("Cadastro realizado com sucesso!");
+               alert("Cadastro realizado com sucesso!"); 
            }
         </script>
     </head>
