@@ -91,8 +91,10 @@
            function fecharModal() {
                     document.getElementById("myModal").style.display = "none";
            }
-
-    </script>
+           function cadRealizado() {
+               alert("Cadastro realizado com sucesso!"); 
+           }
+        </script>
     </head>
     <body>
         <h1>Cadastro de Receita</h1>
