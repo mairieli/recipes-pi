@@ -23,9 +23,7 @@
     <h1>Cadastro de Receita</h1>
     <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="cadRealizado()">
         <!-- Título da receita -->
-        <div class="form-group">
-            <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
-        </div>
+        
         <div class="form-group"  id="alert1">
             <label class="control-label col-md-2" for="titulo">Título*:</label>
             <div class="col-md-4">
