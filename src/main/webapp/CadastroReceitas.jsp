@@ -12,7 +12,7 @@
     <title>Cadastro de Receita</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery.min.js"></script>
-    <script src="scripts.js"></script>
+    <script src="CadastroReceitas.js"></script>
 </head>
 <body>
     <h1>Cadastro de Receita</h1>
