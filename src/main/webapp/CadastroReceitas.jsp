@@ -13,6 +13,11 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery.min.js"></script>
     <script src="CadastroReceitas.js"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
     <h1>Cadastro de Receita</h1>
@@ -102,7 +107,7 @@
         <div class="form-group" id="alert6">
             <label class="control-label col-md-2" for="modo_preparo">Modo de preparo*:</label>
             <div class="col-md-8">
-            <textarea class="form-control" row="10" name="modo_preparo" id="modo_preparo"></textarea>
+                <textarea class="form-control" row="10" name="modo_preparo" id="modo_preparo"></textarea>
             </div>
         </div>        
     </div>
