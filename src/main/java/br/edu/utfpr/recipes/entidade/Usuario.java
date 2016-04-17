@@ -40,9 +40,6 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Receita> receitaCollection;
 
-    public Usuario() {
-    }
-
     @XmlTransient
     public List<Receita> getReceitaCollection() {
         return receitaCollection;

@@ -55,9 +55,6 @@ public class Receita implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<TagReceita> tagReceitaList;
 
-    public Receita() {
-    }
-
     public Receita(Integer idReceita) {
         this.id = idReceita;
     }
