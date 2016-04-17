@@ -13,6 +13,21 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery.min.js"></script>
     <script type="text/javascript" language="javascript">
+
+
+        $(document).ready(function ($) {
+            var i = 1;
+            $("#add").click(function (e) {
+                $("#items").append('<div class="col-md-12"><label class="col-md-2"></label><div class="col-md-1"><input type="text" class="form-control" name="quantidade' + i + '" id="quantidade1" placeholder="quantidade"></div><div class="col-md-3"><input type="text" class="form-control" name="unidade_medida' + i + '" id="unidade_medida1" placeholder="ex: colher de sopa, colher de chá"></div><div class="col-md-5"><input type="text" class="form-control" name="ingrediente' + i + '" id="ingrediente1" placeholder="ingrediente"></div><button  class="delete btn btn-danger">Remover</button></div>');
+                i = i + 1;
+            });
+
+            $("body").on("click", ".delete", function (e) {
+                $(this).parent("div").remove();
+            });
+
+        });
+
         /* Mostrar TAG que pode ser opcional */
         function mostrarTAG(id1, id2, id3) {
             var div1 = document.getElementById(id1);
@@ -98,6 +113,10 @@
     <h1>Cadastro de Receita</h1>
     <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="cadRealizado()">
 
+
+
+
+
         <!-- Título da receita -->
         <div class="form-group">
             <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
@@ -110,16 +129,34 @@
         </div>
         <!-- Quantidade Unidade Ingrediente -->
         <div class="form-group" id="alert2">
+
             <label class="control-label col-md-2" for="ingrediente">Ingrediente*:</label>
-            <div class="col-md-1">
-                <input type="text" class="form-control" name="quantidade1" id="quantidade1" placeholder="quantidade">
+            <button class="btn btn-success" id="add" type="button">Adicionar</button>
+            <div id="items">
+                <div class="col-md-12">
+                    <label class="col-md-2"></label>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control" name="quantidade0" id="quantidade1" placeholder="quantidade">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" name="unidade_medida0" id="unidade_medida1" placeholder="ex: colher de sopa, colher de chá">
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="ingrediente0" id="ingrediente1" placeholder="ingrediente">
+                    </div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <input type="text" class="form-control" name="unidade_medida1" id="unidade_medida1" placeholder="ex: colher de sopa, colher de chá">
+
+            <!--
+            <div><input type="text" name="input[]"><button  class="delete">Delete</button></div>
+            
+            <button id="add">Add Field</button>
+            <div id="items">
+                <div><input type="text" name="input[]"></div>
             </div>
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="ingrediente1" id="ingrediente1" placeholder="ingrediente">
-            </div>
+            -->
+
+
         </div>
         <!-- Tempo de Preparo -->
         <div class="form-group">
