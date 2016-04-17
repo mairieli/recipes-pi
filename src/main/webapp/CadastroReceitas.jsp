@@ -101,19 +101,17 @@
         <!-- Modo de preparo -->
         <div class="form-group" id="alert6">
             <label class="control-label col-md-2" for="modo_preparo">Modo de preparo*:</label>
-        </div>
-        <label class="control-label col-md-1" for="espaco_categoria"></label>
-    </div>
-    <label class="control-label col-md-1" for="espaco_categoria"></label>
-    <div class="form-group">
-        <textarea class="control-label col-md-8" row="8" name="modo_preparo" id="modo_preparo"></textarea>
+            <div class="col-md-8">
+            <textarea class="form-control" row="10" name="modo_preparo" id="modo_preparo"></textarea>
+            </div>
+        </div>        
     </div>
     <!-- Adicionar TAG's -->
     <div class="form-group">
         <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" onclick="mostrarTAG('div_tag1', 'div_tag2', 'div_tag3');";>TAG</button>
     </div>
-    <div class="form-group" id="div_tag1" style="display:none">
-        <label class="control-label col-md-2" for="utensilios1">Utensílios:</label>
+    <div class="form-group col-md-10" id="div_tag1" style="display:none">
+        <label class="col-md-1"></label>
         <label class="checkbox-inline "><input type="checkbox" value="">Batedeira</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Bandeja</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Cafeteira</label>
@@ -125,9 +123,6 @@
         <label class="checkbox-inline "><input type="checkbox" value="">Colher de chá</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Colher de sopa</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Descascador de legumes</label>
-    </div>
-    <div class="form-group" id="div_tag2" style="display:none">
-        <label class="control-label col-md-2" for="utensilios2"></label>
         <label class="checkbox-inline "><input type="checkbox" value="">Escorredor de macarrão</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Escumadeira</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Espá¡tula</label>
@@ -142,9 +137,6 @@
         <label class="checkbox-inline "><input type="checkbox" value="">Garfo</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Grill</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Liquidificador</label>
-    </div>
-    <div class="form-group" id="div_tag3" style="display:none">
-        <label class="control-label col-md-2" for="utensilios3"></label>
         <label class="checkbox-inline "><input type="checkbox" value="">Micro-ondas</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Mixer</label>
         <label class="checkbox-inline "><input type="checkbox" value="">Prato</label>                
