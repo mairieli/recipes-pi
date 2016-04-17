@@ -23,9 +23,6 @@ public class TagReceita implements Serializable {
     @ManyToOne(optional = false)
     private Tag tag;
 
-    public TagReceita() {
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;

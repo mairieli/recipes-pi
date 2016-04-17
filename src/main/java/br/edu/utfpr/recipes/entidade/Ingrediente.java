@@ -31,9 +31,6 @@ public class Ingrediente implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ingrediente")
     private List<ItemReceita> itemReceitaList;
 
-    public Ingrediente() {
-    }
-
     public Integer getId() {
         return id;
     }
@@ -89,7 +86,7 @@ public class Ingrediente implements Serializable {
 
     @Override
     public String toString() {
-        return "br.edu.utfpr.recipes.entidade.Ingrediente[ idIngrediente=" + id + " ]";
+        return " " + id + "";
     }
 
 }

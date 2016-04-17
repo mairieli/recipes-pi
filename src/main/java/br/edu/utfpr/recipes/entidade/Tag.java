@@ -17,7 +17,6 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author noemi
  */
 @Entity
-
 public class Tag implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag")
@@ -30,9 +29,6 @@ public class Tag implements Serializable {
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
-
-    public Tag() {
-    }
 
     public Tag(Integer idTag) {
         this.id = idTag;

@@ -27,13 +27,10 @@ public class ItemReceita implements Serializable {
     @Size(max = 45)
     @Column(name = "unidadeMedida")
     private String unidadeMedida;
-    @ManyToOne
+    @ManyToOne(optional = true)
     private Ingrediente ingrediente;
     @ManyToOne(optional = false)
     private Receita receita;
-
-    public ItemReceita() {
-    }
 
     @Override
     public int hashCode() {
