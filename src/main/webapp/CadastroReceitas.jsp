@@ -9,114 +9,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cadastro de Receita - Receita da VovÃ³</title>
+    <title>Cadastro de Receita</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery.min.js"></script>
-    <script type="text/javascript" language="javascript">
-
-
-        $(document).ready(function ($) {
-            var i = 1;
-            $("#add").click(function (e) {
-                $("#items").append('<div class="col-md-12"><label class="col-md-2"></label><div class="col-md-1"><input type="text" class="form-control" name="quantidade' + i + '" id="quantidade1" placeholder="quantidade"></div><div class="col-md-3"><input type="text" class="form-control" name="unidade_medida' + i + '" id="unidade_medida1" placeholder="ex: colher de sopa, colher de chá"></div><div class="col-md-5"><input type="text" class="form-control" name="ingrediente' + i + '" id="ingrediente1" placeholder="ingrediente"></div><button  class="delete btn btn-danger">Remover</button></div>');
-                i = i + 1;
-            });
-
-            $("body").on("click", ".delete", function (e) {
-                $(this).parent("div").remove();
-            });
-
-        });
-
-        /* Mostrar TAG que pode ser opcional */
-        function mostrarTAG(id1, id2, id3) {
-            var div1 = document.getElementById(id1);
-            var div2 = document.getElementById(id2);
-            var div3 = document.getElementById(id3);
-            if (div1.style.display !== "none") {
-                div1.style.display = "none";
-                div2.style.display = "none";
-                div3.style.display = "none";
-            } else {
-                div1.style.display = "block";
-                div2.style.display = "block";
-                div3.style.display = "block";
-            }
-        }
-        function validaForm() {
-            i = 0;
-            if (document.getElementById("titulo").value == "") {
-                document.getElementById("alert1").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert1").className = "form-group";
-            }
-
-            if (document.getElementById("quantidade1").value == "") {
-                document.getElementById("alert2").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert2").className = "form-group";
-            }
-
-            if (document.getElementById("unidade_medida1").value == "") {
-                document.getElementById("alert2").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert2").className = "form-group";
-            }
-            if (document.getElementById("ingrediente1").value == "") {
-                document.getElementById("alert2").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert2").className = "form-group";
-            }
-            if (document.getElementById("rendimento").value == "") {
-                document.getElementById("alert3").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert3").className = "form-group";
-            }
-            if (document.getElementById("categoria").value == "Nenhum") {
-                document.getElementById("alert4").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert4").className = "form-group";
-            }
-            if (document.getElementById("dificuldade").value == "Nenhuma") {
-                document.getElementById("alert5").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert5").className = "form-group";
-            }
-            if (document.getElementById("modo_preparo").value == "") {
-                document.getElementById("alert6").className = "form-group has-error";
-                i = 1;
-            } else {
-                document.getElementById("alert6").className = "form-group";
-            }
-            if (i == 1) {
-                return false
-            } else {
-                document.getElementById("myModal").style.display = "block";
-            }
-        }
-        function fecharModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-        function cadRealizado() {
-            alert("Cadastro realizado com sucesso!");
-        }
-    </script>
+    <script src="scripts.js"></script>
 </head>
 <body>
     <h1>Cadastro de Receita</h1>
     <form class="form-horizontal" role="form" action="CadastroReceitas" method="post" onsubmit="cadRealizado()">
-
-
-
-
-
         <!-- Título da receita -->
         <div class="form-group">
             <label class="control-label col-md-2" for="campos">(*)Campos Obrigatórios</label>
@@ -128,35 +28,28 @@
             </div>
         </div>
         <!-- Quantidade Unidade Ingrediente -->
-        <div class="form-group" id="alert2">
-
+        <div class="form-group">
             <label class="control-label col-md-2" for="ingrediente">Ingrediente*:</label>
-            <button class="btn btn-success" id="add" type="button">Adicionar</button>
+            <div class="col-md-3">
+                <button class="btn btn-success" id="add" type="button">Adicionar</button>
+            </div>
+            <label class="col-md-8"></label>
             <div id="items">
-                <div class="col-md-12">
-                    <label class="col-md-2"></label>
-                    <div class="col-md-1">
-                        <input type="text" class="form-control" name="quantidade0" id="quantidade1" placeholder="quantidade">
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" name="unidade_medida0" id="unidade_medida1" placeholder="ex: colher de sopa, colher de chá">
-                    </div>
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" name="ingrediente0" id="ingrediente1" placeholder="ingrediente">
+                <div class="form-group" id="alert2">
+                    <div class="col-md-12">
+                        <label class="col-md-2"></label>
+                        <div class="col-md-1">
+                            <input type="text" class="form-control" name="quantidade0" id="quantidade0" placeholder="quantidade">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" name="unidade_medida0" id="unidade_medida0" placeholder="ex: colher de sopa, colher de chá">
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" name="ingrediente0" id="ingrediente0" placeholder="ingrediente">
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!--
-            <div><input type="text" name="input[]"><button  class="delete">Delete</button></div>
-            
-            <button id="add">Add Field</button>
-            <div id="items">
-                <div><input type="text" name="input[]"></div>
-            </div>
-            -->
-
-
         </div>
         <!-- Tempo de Preparo -->
         <div class="form-group">
@@ -217,7 +110,7 @@
     </div>
     <!-- Adicionar TAG's -->
     <div class="form-group">
-        <button type="button" class="btn-info col-lg-offset-2 btn-lg" onclick="mostrarTAG('div_tag1', 'div_tag2', 'div_tag3');";>TAG</button>
+        <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" onclick="mostrarTAG('div_tag1', 'div_tag2', 'div_tag3');";>TAG</button>
     </div>
     <div class="form-group" id="div_tag1" style="display:none">
         <label class="control-label col-md-2" for="utensilios1">Utensílios:</label>
@@ -269,7 +162,7 @@
     </div>
     <!-- Botão -->        
     <div class="form-group">
-        <button type="button" onclick="validaForm(this)" class="btn-success col-lg-offset-9 btn-lg">Enviar receita!</button>
+        <button type="button" onclick="validaForm(this)" class="btn btn-success col-lg-offset-9 btn-lg">Enviar receita!</button>
     </div>
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
         <div class="modal-dialog">
