@@ -1,6 +1,7 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,17 +32,17 @@ public class TagReceita implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TagReceita)) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        TagReceita other = (TagReceita) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+        final TagReceita other = (TagReceita) obj;
+        return Objects.equals(this.id, other.id);
     }
+
 
     @Override
     public String toString() {

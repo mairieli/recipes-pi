@@ -10,7 +10,7 @@ import org.hibernate.Session;
 
 public class DaoGenerics<T> {
 
-    static Session session = null;
+    protected static Session session;
     protected Class clazz;
 
     public DaoGenerics() {

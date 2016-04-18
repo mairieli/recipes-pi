@@ -3,7 +3,6 @@ package br.edu.utfpr.recipes.servlets;
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

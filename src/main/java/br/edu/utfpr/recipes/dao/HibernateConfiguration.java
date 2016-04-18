@@ -53,7 +53,7 @@ public class HibernateConfiguration {
 
     public static void createSchema() {
         getSessionFactory().close();
-        org.hibernate.tool.hbm2ddl.SchemaExport schemaEx = new SchemaExport(cfg);
+        SchemaExport schemaEx = new SchemaExport(cfg);
         schemaEx.create(true, true);
     }
 
