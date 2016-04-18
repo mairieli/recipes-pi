@@ -27,9 +27,9 @@ public class CadastroReceitasServlet extends HttpServlet {
             throws ServletException, IOException {
 
         //exemplo de como usar o método que recupera todos os ingredientes da receita
-        String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
-        List<Ingrediente> listaIngrediente = new LinkedList<>();
-        recuperaIngredientesReceita(nomes, listaIngrediente);
+        //String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
+        //List<Ingrediente> listaIngrediente = new LinkedList<>();
+        //recuperaIngredientesReceita(nomes, listaIngrediente);
 
         response.sendRedirect("CadastroReceitas.jsp");
     }
