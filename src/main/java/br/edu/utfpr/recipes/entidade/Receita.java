@@ -59,6 +59,10 @@ public class Receita implements Serializable {
         this.id = idReceita;
     }
 
+    public Receita() {
+    }
+    
+
     public Integer getIdReceita() {
         return id;
     }
