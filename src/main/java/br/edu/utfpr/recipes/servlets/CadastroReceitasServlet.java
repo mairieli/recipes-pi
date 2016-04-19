@@ -3,6 +3,8 @@ package br.edu.utfpr.recipes.servlets;
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +27,12 @@ public class CadastroReceitasServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //mostra qual tags foram marcadas
+        String[] tag = request.getParameterValues("tag");
+        ArrayList<String> listaTag = new ArrayList<String>();
+        listaTag.addAll(Arrays.asList(tag));
+        System.out.println(Arrays.toString(listaTag.toArray()));
+        
         //exemplo de como usar o método que recupera todos os ingredientes da receita
         //String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
         //List<Ingrediente> listaIngrediente = new LinkedList<>();
