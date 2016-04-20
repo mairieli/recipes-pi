@@ -5,7 +5,9 @@ import br.edu.utfpr.recipes.entidade.Ingrediente;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,14 +30,14 @@ public class CadastroReceitasServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-        
+
         String titulo = request.getParameter("titulo");
         String tempo_preparo = request.getParameter("tempo_preparo");
-        
-        if(tempo_preparo == null || tempo_preparo.trim().equals("")){
+
+        if (tempo_preparo == null || tempo_preparo.trim().equals("")) {
             tempo_preparo = "null";
         }
-        
+
         String rendimento = request.getParameter("rendimento");
         String categoria = request.getParameter("categoria");
         String dificuldade = request.getParameter("dificuldade");
@@ -43,16 +45,30 @@ public class CadastroReceitasServlet extends HttpServlet {
         //mostra qual tags foram marcadas
         String[] tag = request.getParameterValues("tag");
         ArrayList<String> listaTag = new ArrayList<String>();
-        
-        if(tag == null){
+
+        if (tag == null) {
             listaTag = null;
         }
-        
+        // Captura Quantidades. Unidade de Medidas e Ingredientes
+        List<String> Quantidades = new LinkedList<>();
+        List<String> Unidades = new LinkedList<>();
+        List<String> Ingredientes = new LinkedList<>();
+        Map<String, String[]> parametrosRecebidos = request.getParameterMap();
+        for (Map.Entry<String, String[]> entrada : parametrosRecebidos.entrySet()) {
+            String parametro = entrada.getKey();
+            if (parametro.startsWith("quantidade")) {
+                Integer i = Integer.parseInt(parametro.substring(parametro.length() - 1));
+                Quantidades.add(request.getParameter("quantidade" + i));
+                Unidades.add(request.getParameter("unidade_medida" + i));
+                Ingredientes.add(request.getParameter("ingrediente" + i));
+            }
+        }
+        // Fim da captura de Quantidades. Unidade de Medidas e Ingredientes.
+
         //exemplo de como usar o método que recupera todos os ingredientes da receita
         //String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
         //List<Ingrediente> listaIngrediente = new LinkedList<>();
         //recuperaIngredientesReceita(nomes, listaIngrediente);
-
         response.sendRedirect("CadastroReceitas.jsp");
     }
 
