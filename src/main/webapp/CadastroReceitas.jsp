@@ -122,17 +122,17 @@
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Chapa">Chapa</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Concha">Concha</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Copo">Copo</label>
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Colher de cafe">Colher de café</label>
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Colher de cha">Colher de chá</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Colher de café">Colher de café</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Colher de chá">Colher de chá</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Colher de sopa">Colher de sopa</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Descascador de legumes"></label>
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Escorredor de macarrao">Escorredor de macarrão</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Escorredor de macarrão">Escorredor de macarrão</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Escumadeira">Escumadeira</label>
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Espatula">Espátula</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Espátula">Espátula</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Faca">Faca</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Forma">Forma</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Forno">Forno</label>
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Fogao">Fogão</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Fogão">Fogão</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Fouet">Fouet</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Freezer">Freezer</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Frigideira">Frigideira</label>                
@@ -144,16 +144,16 @@
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Mixer">Mixer</label>
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Prato">Prato</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Panela">Panela</label>                
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Panela de Pressao">Panela de Pressão</label>                
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Panela de Pressão">Panela de Pressão</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Peneira">Peneira</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Ralador">Ralador</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Sanduicheira">Sanduicheira</label>                
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Taca">Taça</label>                
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Tabua">Tábua</label>                
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Taça">Taça</label>                
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Tábua">Tábua</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Torradeira">Torradeira</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Tigela">Tigela</label>                
         <label class="checkbox-inline "><input type="checkbox" name="tag" value="Triturador">Triturador</label>                
-        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Xicara">Xícara</label>
+        <label class="checkbox-inline "><input type="checkbox" name="tag" value="Xícara">Xícara</label>
     </div>
     <!-- Botão -->        
     <div class="form-group">

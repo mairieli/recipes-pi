@@ -27,11 +27,26 @@ public class CadastroReceitasServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
+        
+        String titulo = request.getParameter("titulo");
+        String tempo_preparo = request.getParameter("tempo_preparo");
+        
+        if(tempo_preparo == null || tempo_preparo.trim().equals("")){
+            tempo_preparo = "null";
+        }
+        
+        String rendimento = request.getParameter("rendimento");
+        String categoria = request.getParameter("categoria");
+        String dificuldade = request.getParameter("dificuldade");
+        String modo_preparo = request.getParameter("modo_preparo");
         //mostra qual tags foram marcadas
         String[] tag = request.getParameterValues("tag");
         ArrayList<String> listaTag = new ArrayList<String>();
-        listaTag.addAll(Arrays.asList(tag));
-        System.out.println(Arrays.toString(listaTag.toArray()));
+        
+        if(tag == null){
+            listaTag = null;
+        }
         
         //exemplo de como usar o método que recupera todos os ingredientes da receita
         //String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
