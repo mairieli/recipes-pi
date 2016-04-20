@@ -23,18 +23,20 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class ImageUpload extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final String UPLOAD_DIRECTORY = "C:/csv/";
 
     @Override
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-
+        String UPLOAD_DIRECTORY = this.getServletContext().getRealPath("") + "/upload/";
         // process only if its multipart content
         if (isMultipart) {
             // Create a factory for disk-based file items
             FileItemFactory factory = new DiskFileItemFactory();
-
+            File dirUpload = new File(UPLOAD_DIRECTORY);
+            if (!dirUpload.isDirectory()) {
+                dirUpload.mkdir();
+            }
             // Create a new file upload handler
             ServletFileUpload upload = new ServletFileUpload(factory);
             File imagem = null;
@@ -45,7 +47,7 @@ public class ImageUpload extends HttpServlet {
 
                 for (FileItem item : multiparts) {
                     if ("receita_id".equals(item.getFieldName())) {
-                        receita_id= Integer.parseInt(item.getString());
+                        receita_id = Integer.parseInt(item.getString());
                     }
                     if (!item.isFormField()) {
                         String name = new File(item.getName()).getName();
@@ -54,28 +56,35 @@ public class ImageUpload extends HttpServlet {
                     }
                 }
             } catch (Exception e) {
-                e.printStackTrace();
                 System.out.println("File upload failed");
-                request.getSession().setAttribute("message_error", "Não foi possivel salvar a imagem pelo seguinte motivo: "+e);
+                request.getSession().setAttribute("message_error", "Não foi possivel salvar a imagem pelo seguinte motivo: " + e);
                 response.sendRedirect("upload_image_recipe.jsp");
             }
-            if (imagem != null) {
-                DaoReceita dr = new DaoReceita();
-                if(receita_id!=0){
-                    Receita r = dr.findById(receita_id);
-                    ImageResizerService irs = new ImageResizerService(imagem);
-                    r.setImagem(irs.read(imagem));
-                    dr.save(r);
-                    ImgUtil imgUtil = new ImgUtil();
-                    imgUtil.ExibeImagemByte(response.getOutputStream(), r.getImagem());
-                }else{
-                    Receita r = new Receita();
-                    ImageResizerService irs = new ImageResizerService(imagem);
-                    r.setImagem(irs.read(imagem));
-                   // dr.save(r);
-                    ImgUtil imgUtil = new ImgUtil();
-                    imgUtil.ExibeImagemByte(response.getOutputStream(), r.getImagem());
+            try {
+                if (imagem != null) {
+                    DaoReceita dr = new DaoReceita();
+                    if (receita_id != 0) {
+                        Receita r = dr.findById(receita_id);
+                        ImageResizerService irs = new ImageResizerService(imagem);
+                        r.setImagem(irs.getNormal(900));
+                        dr.save(r);
+                        ImgUtil imgUtil = new ImgUtil();
+                        imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
+                    } else {
+                        Receita r = new Receita();
+                        ImageResizerService irs = new ImageResizerService(imagem);
+                        //se a largura da imagem for maior que 900 pixels, redimenciona pra 900...
+                        r.setImagem(irs.getNormal(900));
+                        // dr.save(r);
+                        request.getSession().setAttribute("message", "Imagen Salva com Sucesso!");
+                        response.sendRedirect("upload_image_recipe.jsp");
+                        //ImgUtil imgUtil = new ImgUtil();
+                        // imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
+                    }
                 }
+            } catch (Exception e) {
+                request.getSession().setAttribute("message_error", "Não foi possivel salvar a imagem pelo seguinte motivo: " + e);
+                response.sendRedirect("upload_image_recipe.jsp");
             }
         }
     }

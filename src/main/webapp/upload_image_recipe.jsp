@@ -13,18 +13,23 @@
         <title>Inserir Imagem da Receita</title>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+        <script type="text/javascript">
+             function carregando(div_id, message) {
+                document.getElementById(div_id).innerHTML = "<h2 class=\"alert-info\">" + message + "<img src='img/loading.gif'/></h2>";
+            }
+                </script>
     </head>
-    <body>
+    <body onsubmit="carregando('carregando','Por Favor Aguarde, salvando imgem...')">
         <c:if test="${message!=null}">
-            <h4 class="alert-success"> <c:out value="${message}" /></h4>
+            <h4 class="alert-success"> ${message}</h4>
             <c:remove var="message"/>
         </c:if>
         <c:if test="${message_error!=null}">
             <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
             <c:remove var="message_error"/>
         </c:if>
-        <h1>Inserir Imagem da Receita</h1>
+            <h1 >Inserir Imagem da Receita</h1>
+            <span id="carregando"></span>
         <form class="form-horizontal" role="form" action="ImageUpload" method="post" ENCTYPE="multipart/form-data">
             <!-- Título da receita -->
             <div class="form-group">

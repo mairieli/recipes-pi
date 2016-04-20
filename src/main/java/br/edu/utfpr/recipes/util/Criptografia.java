@@ -11,7 +11,7 @@ public class Criptografia {
         try {
             md = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException ex) {
-            ex.printStackTrace();
+            System.out.println(ex);
         }
     }
 

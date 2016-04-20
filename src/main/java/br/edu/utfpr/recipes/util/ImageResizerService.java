@@ -85,8 +85,8 @@ public class ImageResizerService {
         
        
     }
-    private byte[] processa(int larguraAlvo) throws IOException {
-
+    private byte[] processa(int largura) throws IOException {
+        int larguraAlvo = largura;
         String file = this.arquivo.getCanonicalPath();
         boolean isPng = file.toUpperCase().endsWith("PNG");
         boolean isJpg = file.toUpperCase().endsWith("JPG");
