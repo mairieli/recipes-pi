@@ -708,7 +708,6 @@ INSERT INTO Ingrediente(nome, status) VALUES ('zimbro', true);
 
 INSERT INTO Ingrediente(nome, status) VALUES ('abóbora', true);
 INSERT INTO Ingrediente(nome, status) VALUES ('abobrinha', true);
-INSERT INTO Ingrediente(nome, status) VALUES ('abacate', true);
 INSERT INTO Ingrediente(nome, status) VALUES ('abacaxi', true);
 INSERT INTO Ingrediente(nome, status) VALUES ('açúcar', true);
 INSERT INTO Ingrediente(nome, status) VALUES ('alface', true);
