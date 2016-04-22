@@ -54,9 +54,13 @@ public class CadastroReceitasServlet extends HttpServlet {
             String parametro = entrada.getKey();
             if (parametro.startsWith("quantidade")) {
                 Integer i = Integer.parseInt(parametro.substring(parametro.length() - 1));
-                quantidades.add(request.getParameter("quantidade" + i));
-                unidades.add(request.getParameter("unidade_medida" + i));
-                ingredientes.add(request.getParameter("ingrediente" + i));
+                if (!request.getParameter("quantidade" + i).isEmpty() && 
+                        !request.getParameter("unidade_medida" + i).isEmpty() &&
+                        !request.getParameter("ingrediente" + i).isEmpty()) {
+                    quantidades.add(request.getParameter("quantidade" + i));
+                    unidades.add(request.getParameter("unidade_medida" + i));
+                    ingredientes.add(request.getParameter("ingrediente" + i));
+                }
             }
         }
         // Fim da captura de Quantidades. Unidade de Medidas e Ingredientes.
