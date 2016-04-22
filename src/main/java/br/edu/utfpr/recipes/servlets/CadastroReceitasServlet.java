@@ -70,11 +70,11 @@ public class CadastroReceitasServlet extends HttpServlet {
         receita.setDificuldade(dificuldade);
         receita.setModoPreparo(modoPreparo);
         receita.setNome(titulo);
-        if (rendimento != null) {
-            receita.setRendimento(Integer.parseInt(rendimento));
-        }
+        receita.setRendimento(Integer.parseInt(rendimento));
         receita.setStatus(statusReceita);
-        receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
+        if (!tempoPreparo.isEmpty()) {
+            receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
+        }
         daoReceita.save(receita);
 
         DaoItemReceita daoItemReceita = new DaoItemReceita();
@@ -88,22 +88,29 @@ public class CadastroReceitasServlet extends HttpServlet {
         }
 
         List<Tag> listaTag = new LinkedList<>();
-        for (String tagInformada : tags) {
-            if (tagInformada != null) {
-                Tag tag = new DaoTag().buscarPorNome(tagInformada);
-                listaTag.add(tag);
-                System.out.println(tag);
+        if (tags != null) {
+            for (String tagInformada : tags) {
+                if (tagInformada != null) {
+                    Tag tag = new DaoTag().buscarPorNome(tagInformada);
+                    listaTag.add(tag);
+                    System.out.println(tag);
+                }
+            }
+
+            DaoTagReceita daoTagReceita = new DaoTagReceita();
+            for (Tag tag : listaTag) {
+                TagReceita tagReceita = new TagReceita();
+                tagReceita.setReceita(receita);
+                tagReceita.setTag(tag);
+                daoTagReceita.save(tagReceita);
             }
         }
 
-        DaoTagReceita daoTagReceita = new DaoTagReceita();
-        for (Tag tag : listaTag) {
-            TagReceita tagReceita = new TagReceita();
-            tagReceita.setReceita(receita);
-            tagReceita.setTag(tag);
-            daoTagReceita.save(tagReceita);
+        String mensagem = "Sua receita foi enviada para Aprovação!";
+        if (statusReceita) {
+            mensagem = "Sua receita foi cadastrada. Obrigado!";
         }
-
+        request.getSession().setAttribute("message", mensagem);
         response.sendRedirect("CadastroReceitas.jsp");
     }
 
