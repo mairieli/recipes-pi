@@ -32,6 +32,10 @@ public class ItemReceita implements Serializable {
     @ManyToOne(optional = false)
     private Receita receita;
 
+    public ItemReceita() {
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

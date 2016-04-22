@@ -24,6 +24,15 @@ public class TagReceita implements Serializable {
     @ManyToOne(optional = false)
     private Tag tag;
 
+    public TagReceita() {
+    }
+
+    public TagReceita(Integer id, Receita receita, Tag tag) {
+        this.id = id;
+        this.receita = receita;
+        this.tag = tag;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

@@ -3,9 +3,13 @@ package br.edu.utfpr.recipes.servlets;
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
 import br.edu.utfpr.recipes.dao.DaoItemReceita;
 import br.edu.utfpr.recipes.dao.DaoReceita;
+import br.edu.utfpr.recipes.dao.DaoTag;
+import br.edu.utfpr.recipes.dao.DaoTagReceita;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
+import br.edu.utfpr.recipes.entidade.Tag;
+import br.edu.utfpr.recipes.entidade.TagReceita;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +43,7 @@ public class CadastroReceitasServlet extends HttpServlet {
         String categoria = request.getParameter("categoria");
         String dificuldade = request.getParameter("dificuldade");
         String modoPreparo = request.getParameter("modo_preparo");
-        String[] tag = request.getParameterValues("tag");
+        String[] tags = request.getParameterValues("tag");
 
         // Captura Quantidades. Unidade de Medidas e Ingredientes
         List<String> quantidades = new LinkedList<>();
@@ -66,7 +70,9 @@ public class CadastroReceitasServlet extends HttpServlet {
         receita.setDificuldade(dificuldade);
         receita.setModoPreparo(modoPreparo);
         receita.setNome(titulo);
-        receita.setRendimento(Integer.parseInt(rendimento));
+        if (rendimento != null) {
+            receita.setRendimento(Integer.parseInt(rendimento));
+        }
         receita.setStatus(statusReceita);
         receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
         daoReceita.save(receita);
@@ -79,6 +85,23 @@ public class CadastroReceitasServlet extends HttpServlet {
             item.setQuantidade(Integer.parseInt(quantidades.get(i)));
             item.setUnidadeMedida(unidades.get(i));
             daoItemReceita.save(item);
+        }
+
+        List<Tag> listaTag = new LinkedList<>();
+        for (String tagInformada : tags) {
+            if (tagInformada != null) {
+                Tag tag = new DaoTag().buscarPorNome(tagInformada);
+                listaTag.add(tag);
+                System.out.println(tag);
+            }
+        }
+
+        DaoTagReceita daoTagReceita = new DaoTagReceita();
+        for (Tag tag : listaTag) {
+            TagReceita tagReceita = new TagReceita();
+            tagReceita.setReceita(receita);
+            tagReceita.setTag(tag);
+            daoTagReceita.save(tagReceita);
         }
 
         response.sendRedirect("CadastroReceitas.jsp");

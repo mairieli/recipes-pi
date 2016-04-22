@@ -30,6 +30,9 @@ public class Tag implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag")
     private List<TagReceita> tagReceitaList;
 
+    public Tag() {
+    }
+
     public Tag(Integer idTag) {
         this.id = idTag;
     }
