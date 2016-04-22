@@ -58,14 +58,14 @@
         <div class="form-group">
             <label class="control-label col-md-2" for="tempopreparo">Tempo de Preparo:</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="tempo_preparo" id="tempo_preparo" placeholder="Horas ou Minutos">
+                <input type="text" class="form-control" name="tempo_preparo" id="tempo_preparo" placeholder="Em minutos">
             </div>
         </div>
         <!-- Rendimento -->
         <div class="form-group" id="alert3">
             <label class="control-label col-md-2" for="rendimento">Rendimento*:</label>
             <div class="col-md-4">
-                <input type="text" class="form-control" name="rendimento" id="rendimento" placeholder="Em Porções">
+                <input type="text" class="form-control" name="rendimento" id="rendimento" placeholder="Em porções">
             </div>
         </div>
         <!-- Categoria da Receita -->
@@ -169,7 +169,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fecharModal()">Não</button>
-                    <button type="submit" class="btn btn-primary">Sim</button>
+                    <button type="submit" class="btn btn-primary" onclick="fecharModal()">Sim</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

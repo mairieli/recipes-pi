@@ -27,7 +27,7 @@ public class ItemReceita implements Serializable {
     @Size(max = 45)
     @Column(name = "unidadeMedida")
     private String unidadeMedida;
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = false)
     private Ingrediente ingrediente;
     @ManyToOne(optional = false)
     private Receita receita;

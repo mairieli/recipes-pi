@@ -29,15 +29,12 @@ public class Receita implements Serializable {
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
-
-    @Column(name = "modoPreparo", columnDefinition = "TEXT")
+    @Column(name = "modoPreparo", columnDefinition = "LONGTEXT")
     private String modoPreparo;
-    @Size(max = 45)
     @Column(name = "rendimento")
-    private String rendimento;
-    @Size(max = 45)
+    private Integer rendimento;
     @Column(name = "tempoPreparo")
-    private String tempoPreparo;
+    private Integer tempoPreparo;
     @Size(max = 45)
     @Column(name = "dificuldade")
     private String dificuldade;
@@ -46,7 +43,7 @@ public class Receita implements Serializable {
     private String categoria;
     @Column(name = "status")
     private Boolean status;
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Usuario usuario;
     @Column(name = "imagem", columnDefinition = "LONGBLOB")
     private byte[] imagem;
@@ -87,19 +84,19 @@ public class Receita implements Serializable {
         this.modoPreparo = modoPreparo;
     }
 
-    public String getRendimento() {
+    public Integer getRendimento() {
         return rendimento;
     }
 
-    public void setRendimento(String rendimento) {
+    public void setRendimento(Integer rendimento) {
         this.rendimento = rendimento;
     }
 
-    public String getTempoPreparo() {
+    public Integer getTempoPreparo() {
         return tempoPreparo;
     }
 
-    public void setTempoPreparo(String tempoPreparo) {
+    public void setTempoPreparo(Integer tempoPreparo) {
         this.tempoPreparo = tempoPreparo;
     }
 
