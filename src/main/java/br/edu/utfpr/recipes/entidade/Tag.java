@@ -19,8 +19,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 public class Tag implements Serializable {
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag")
-    private List<TagReceita> tagReceitaList;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -29,6 +27,11 @@ public class Tag implements Serializable {
     @Size(max = 45)
     @Column(name = "nome")
     private String nome;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tag")
+    private List<TagReceita> tagReceitaList;
+
+    public Tag() {
+    }
 
     public Tag(Integer idTag) {
         this.id = idTag;

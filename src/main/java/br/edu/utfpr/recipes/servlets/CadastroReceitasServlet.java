@@ -1,10 +1,16 @@
 package br.edu.utfpr.recipes.servlets;
 
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
+import br.edu.utfpr.recipes.dao.DaoItemReceita;
+import br.edu.utfpr.recipes.dao.DaoReceita;
+import br.edu.utfpr.recipes.dao.DaoTag;
+import br.edu.utfpr.recipes.dao.DaoTagReceita;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
+import br.edu.utfpr.recipes.entidade.ItemReceita;
+import br.edu.utfpr.recipes.entidade.Receita;
+import br.edu.utfpr.recipes.entidade.Tag;
+import br.edu.utfpr.recipes.entidade.TagReceita;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -32,43 +38,83 @@ public class CadastroReceitasServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         String titulo = request.getParameter("titulo");
-        String tempo_preparo = request.getParameter("tempo_preparo");
-
-        if (tempo_preparo == null || tempo_preparo.trim().equals("")) {
-            tempo_preparo = "null";
-        }
-
+        String tempoPreparo = request.getParameter("tempo_preparo");
         String rendimento = request.getParameter("rendimento");
         String categoria = request.getParameter("categoria");
         String dificuldade = request.getParameter("dificuldade");
-        String modo_preparo = request.getParameter("modo_preparo");
-        //mostra qual tags foram marcadas
-        String[] tag = request.getParameterValues("tag");
-        ArrayList<String> listaTag = new ArrayList<String>();
+        String modoPreparo = request.getParameter("modo_preparo");
+        String[] tags = request.getParameterValues("tag");
 
-        if (tag == null) {
-            listaTag = null;
-        }
         // Captura Quantidades. Unidade de Medidas e Ingredientes
-        List<String> Quantidades = new LinkedList<>();
-        List<String> Unidades = new LinkedList<>();
-        List<String> Ingredientes = new LinkedList<>();
+        List<String> quantidades = new LinkedList<>();
+        List<String> unidades = new LinkedList<>();
+        List<String> ingredientes = new LinkedList<>();
         Map<String, String[]> parametrosRecebidos = request.getParameterMap();
         for (Map.Entry<String, String[]> entrada : parametrosRecebidos.entrySet()) {
             String parametro = entrada.getKey();
             if (parametro.startsWith("quantidade")) {
                 Integer i = Integer.parseInt(parametro.substring(parametro.length() - 1));
-                Quantidades.add(request.getParameter("quantidade" + i));
-                Unidades.add(request.getParameter("unidade_medida" + i));
-                Ingredientes.add(request.getParameter("ingrediente" + i));
+                if (!request.getParameter("quantidade" + i).isEmpty() && 
+                        !request.getParameter("unidade_medida" + i).isEmpty() &&
+                        !request.getParameter("ingrediente" + i).isEmpty()) {
+                    quantidades.add(request.getParameter("quantidade" + i));
+                    unidades.add(request.getParameter("unidade_medida" + i));
+                    ingredientes.add(request.getParameter("ingrediente" + i));
+                }
             }
         }
         // Fim da captura de Quantidades. Unidade de Medidas e Ingredientes.
 
-        //exemplo de como usar o método que recupera todos os ingredientes da receita
-        //String[] nomes = {"Cebolinha", "Calabresa", "páprica verde"};
-        //List<Ingrediente> listaIngrediente = new LinkedList<>();
-        //recuperaIngredientesReceita(nomes, listaIngrediente);
+        List<Ingrediente> listaIngrediente = new LinkedList<>();
+        boolean statusReceita = recuperaIngredientesReceita(ingredientes, listaIngrediente);
+
+        DaoReceita daoReceita = new DaoReceita();
+        Receita receita = new Receita();
+        receita.setCategoria(categoria);
+        receita.setDificuldade(dificuldade);
+        receita.setModoPreparo(modoPreparo);
+        receita.setNome(titulo);
+        receita.setRendimento(Integer.parseInt(rendimento));
+        receita.setStatus(statusReceita);
+        if (!tempoPreparo.isEmpty()) {
+            receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
+        }
+        daoReceita.save(receita);
+
+        DaoItemReceita daoItemReceita = new DaoItemReceita();
+        for (int i = 0; i < listaIngrediente.size(); i++) {
+            ItemReceita item = new ItemReceita();
+            item.setReceita(receita);
+            item.setIngrediente(listaIngrediente.get(i));
+            item.setQuantidade(Integer.parseInt(quantidades.get(i)));
+            item.setUnidadeMedida(unidades.get(i));
+            daoItemReceita.save(item);
+        }
+
+        List<Tag> listaTag = new LinkedList<>();
+        if (tags != null) {
+            for (String tagInformada : tags) {
+                if (tagInformada != null) {
+                    Tag tag = new DaoTag().buscarPorNome(tagInformada);
+                    listaTag.add(tag);
+                    System.out.println(tag);
+                }
+            }
+
+            DaoTagReceita daoTagReceita = new DaoTagReceita();
+            for (Tag tag : listaTag) {
+                TagReceita tagReceita = new TagReceita();
+                tagReceita.setReceita(receita);
+                tagReceita.setTag(tag);
+                daoTagReceita.save(tagReceita);
+            }
+        }
+
+        String mensagem = "Sua receita foi enviada para Aprovação!";
+        if (statusReceita) {
+            mensagem = "Sua receita foi cadastrada. Obrigado!";
+        }
+        request.getSession().setAttribute("message", mensagem);
         response.sendRedirect("CadastroReceitas.jsp");
     }
 
@@ -81,7 +127,7 @@ public class CadastroReceitasServlet extends HttpServlet {
      * os ingredientes do banco de dados
      * @return status da receita
      */
-    private boolean recuperaIngredientesReceita(String[] nomes, List<Ingrediente> ingredientes) {
+    private boolean recuperaIngredientesReceita(List<String> nomes, List<Ingrediente> ingredientes) {
         DaoIngrediente daoIngrediente = new DaoIngrediente();
         boolean statusIngrediente = true;
         for (String nome : nomes) {

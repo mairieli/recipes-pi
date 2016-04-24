@@ -2,7 +2,7 @@
 $(document).ready(function ($) {
     var i = 1;
     $("#add").click(function (e) {
-        $("#items").append('<div class="form-group col-md-12"><label class="col-md-2"></label><div class="col-md-1"><input type="text" class="form-control" name="quantidade' + i + '" placeholder="quant."></div><div class="col-md-3"><input type="text" class="form-control" name="unidade_medida' + i + '" placeholder="ex: colher de sopa, colher de chá"></div><div class="col-md-5"><input type="text" class="form-control" name="ingrediente' + i + '" placeholder="ingrediente"></div><button  class="delete btn btn-danger">Remover</button></div>');
+        $("#items").append('<div class="form-group col-md-12"><label class="col-md-2"></label><div class="col-md-1"><input type="text" class="form-control" name="quantidade' + i + '" placeholder="quant." pattern="[0-9]+$"></div><div class="col-md-3"><input type="text" class="form-control" name="unidade_medida' + i + '" placeholder="ex: colher de sopa, colher de chá"></div><div class="col-md-5"><input type="text" class="form-control" name="ingrediente' + i + '" placeholder="ingrediente"></div><button  class="delete btn btn-danger">Remover</button></div>');
         i = i + 1;
     });
 
@@ -57,8 +57,4 @@ function verificaCampo(i, id, alert, valor) {
 
 function fecharModal() {
     document.getElementById("myModal").style.display = "none";
-}
-
-function cadRealizado() {
-    alert("Cadastro realizado com sucesso!");
 }
