@@ -8,6 +8,10 @@
         <servlet-name>ImageUpload</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.servlets.ImageUpload</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VisualizacaoReceitasServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.servlets.VisualizacaoReceitasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ImageUpload</servlet-name>
         <url-pattern>/ImageUpload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VisualizacaoReceitasServlet</servlet-name>
+        <url-pattern>/VisualizacaoReceitas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
