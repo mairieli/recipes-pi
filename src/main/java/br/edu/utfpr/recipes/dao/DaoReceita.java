@@ -1,8 +1,6 @@
 package br.edu.utfpr.recipes.dao;
 
-import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.Receita;
-import java.sql.ResultSet;
 import org.hibernate.Query;
 
 /**
