@@ -3,6 +3,7 @@ package br.edu.utfpr.recipes.dao;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.ArrayList;
+
 import org.hibernate.Query;
 
 /**
@@ -22,5 +23,5 @@ public class DaoReceita extends DaoGenerics<Receita> {
         receita = (ArrayList<Receita>) query.setParameter("nome", nomeIngrediente).uniqueResult();
         return null;
     }
-  
+
 }
