@@ -3,7 +3,6 @@ package br.edu.utfpr.recipes.dao;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.ArrayList;
-import java.util.List;
 import org.hibernate.Query;
 
 /**
