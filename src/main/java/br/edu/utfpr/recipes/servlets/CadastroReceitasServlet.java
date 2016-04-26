@@ -10,7 +10,9 @@ import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
 import br.edu.utfpr.recipes.entidade.Tag;
 import br.edu.utfpr.recipes.entidade.TagReceita;
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +30,18 @@ public class CadastroReceitasServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json");
+        try {
+            String ternoBusca = request.getParameter("term");
 
+            DaoIngrediente dataDao = new DaoIngrediente();
+            ArrayList<String> listaNomesIngrediente = dataDao.buscarPorInicioNome(ternoBusca);
+
+            String listaNomesJson = new Gson().toJson(listaNomesIngrediente);
+            response.getWriter().write(listaNomesJson);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     @Override
@@ -54,9 +67,9 @@ public class CadastroReceitasServlet extends HttpServlet {
             String parametro = entrada.getKey();
             if (parametro.startsWith("quantidade")) {
                 Integer i = Integer.parseInt(parametro.substring(parametro.length() - 1));
-                if (!request.getParameter("quantidade" + i).isEmpty() && 
-                        !request.getParameter("unidade_medida" + i).isEmpty() &&
-                        !request.getParameter("ingrediente" + i).isEmpty()) {
+                if (!request.getParameter("quantidade" + i).isEmpty()
+                        && !request.getParameter("unidade_medida" + i).isEmpty()
+                        && !request.getParameter("ingrediente" + i).isEmpty()) {
                     quantidades.add(request.getParameter("quantidade" + i));
                     unidades.add(request.getParameter("unidade_medida" + i));
                     ingredientes.add(request.getParameter("ingrediente" + i));
