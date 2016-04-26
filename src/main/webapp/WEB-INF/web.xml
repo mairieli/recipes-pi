@@ -12,6 +12,10 @@
         <servlet-name>VisualizacaoReceitasServlet</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.servlets.VisualizacaoReceitasServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscaReceitasServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.servlets.BuscaReceitasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>VisualizacaoReceitasServlet</servlet-name>
         <url-pattern>/VisualizacaoReceitas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscaReceitasServlet</servlet-name>
+        <url-pattern>/BuscaReceitasServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
