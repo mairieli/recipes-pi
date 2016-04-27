@@ -13,9 +13,8 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/cadastroreceitas.js"></script>
-    <script src="scripts/jquery-1.10.2.js"></script>
     <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/cadastroreceitas.js"></script>
     <script src="scripts/autocompleter.js"></script>
     <style>
         body {
@@ -31,7 +30,7 @@
         <div class="form-group"  id="alert1">
             <label class="control-label col-md-2" for="titulo">Título*:</label>
             <div class="col-md-4">
-            <input type="text" class="form-control" name="titulo" id="titulo">
+                <input type="text" class="form-control" name="titulo" id="titulo">
             </div>
         </div>
         <!-- Quantidade Unidade Ingrediente -->
@@ -42,24 +41,24 @@
             </div>
             <label class="col-md-8"></label>
             <div id="items">
-                <div class="form-group" id="alert2">
+                <div class="form-group" id="alertIngrediente0">
                     <div class="col-md-12">
                         <label class="col-md-2"></label>
                         <div class="col-md-1">
                             <input type="text" class="form-control" name="quantidade0" id="quantidade0" placeholder="quant." pattern="[0-9]+$">
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control" name="unidade_medida0" id="unidade_medida0" placeholder="ex: colher de sopa, colher de chá">
+                            <input type="text" class="form-control" name="unidade_medida0" id="unidade_medida0" placeholder="ex: colher de chá, unidades">
                         </div>
                         <div class="col-md-5">
                             <input type="text" class="form-control" name="ingrediente0" id="ingrediente0" placeholder="ingrediente">
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
         <!-- Tempo de Preparo -->
-        <div class="form-group">
+        <div class="form-group" id="alert9">
             <label class="control-label col-md-2" for="tempopreparo">Tempo de Preparo:</label>
             <div class="col-md-4">
                 <input type="text" class="form-control" name="tempo_preparo" id="tempo_preparo" placeholder="Em minutos" pattern="[0-9]+$">
@@ -180,4 +179,3 @@
     </div><!-- /.modal -->
 </form>
 </body>
-
