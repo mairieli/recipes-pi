@@ -28,23 +28,6 @@ import javax.servlet.http.HttpServletResponse;
 public class CadastroReceitasServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("application/json");
-        try {
-            String ternoBusca = request.getParameter("term");
-
-            DaoIngrediente dataDao = new DaoIngrediente();
-            ArrayList<String> listaNomesIngrediente = dataDao.buscarPorInicioNome(ternoBusca);
-
-            String listaNomesJson = new Gson().toJson(listaNomesIngrediente);
-            response.getWriter().write(listaNomesJson);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -129,7 +112,7 @@ public class CadastroReceitasServlet extends HttpServlet {
         }
         request.getSession().setAttribute("message", mensagem);
         request.getSession().setAttribute("addimg", "ok");
-        response.sendRedirect("CadastroReceitas.jsp?receita_id="+receita.getIdReceita());
+        response.sendRedirect("CadastroReceitas.jsp?receita_id=" + receita.getIdReceita());
     }
 
     /**

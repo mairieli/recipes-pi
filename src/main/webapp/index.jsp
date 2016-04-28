@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Recepes</title>
+        <title>Recipes</title>
         <c:import url="head.jsp"/>
     </head>
     <body>

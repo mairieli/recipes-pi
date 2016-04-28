@@ -3,7 +3,7 @@ $(document).ready(function () {
         $("#ingrediente0").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "CadastroReceitas",
+                    url: "BuscaIngrediente",
                     type: "GET",
                     data: {
                         term: request.term

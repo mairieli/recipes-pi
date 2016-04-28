@@ -10,7 +10,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Cadastro de Receita - Receita da Vovó</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <script src="scripts/jquery.min.js"></script>
