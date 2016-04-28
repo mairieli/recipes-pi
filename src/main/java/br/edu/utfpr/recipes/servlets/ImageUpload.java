@@ -46,6 +46,7 @@ public class ImageUpload extends HttpServlet {
                 List<FileItem> multiparts = upload.parseRequest(request);
 
                 for (FileItem item : multiparts) {
+
                     if ("receita_id".equals(item.getFieldName())) {
                         receita_id = Integer.parseInt(item.getString());
                     }
@@ -56,9 +57,9 @@ public class ImageUpload extends HttpServlet {
                     }
                 }
             } catch (Exception e) {
-                System.out.println("File upload failed");
                 request.getSession().setAttribute("message_error", "Não foi possivel salvar a imagem pelo seguinte motivo: " + e);
-                response.sendRedirect("upload_image_recipe.jsp");
+                request.getSession().setAttribute("addimg", "ok");
+                response.sendRedirect("CadastroReceitas.jsp?receita_id=" + receita_id);
             }
             try {
                 if (imagem != null) {
@@ -68,8 +69,10 @@ public class ImageUpload extends HttpServlet {
                         ImageResizerService irs = new ImageResizerService(imagem);
                         r.setImagem(irs.getNormal(900));
                         dr.save(r);
-                        ImgUtil imgUtil = new ImgUtil();
-                        imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
+                        request.getSession().setAttribute("message", "Imagem Salva com Sucesso!");
+                        response.sendRedirect("index.jsp");
+                        //ImgUtil imgUtil = new ImgUtil();
+                       // imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
                     } else {
                         Receita r = new Receita();
                         ImageResizerService irs = new ImageResizerService(imagem);
@@ -84,7 +87,8 @@ public class ImageUpload extends HttpServlet {
                 }
             } catch (Exception e) {
                 request.getSession().setAttribute("message_error", "Não foi possivel salvar a imagem pelo seguinte motivo: " + e);
-                response.sendRedirect("upload_image_recipe.jsp");
+                request.getSession().setAttribute("addimg", "ok");
+                response.sendRedirect("CadastroReceitas.jsp?receita_id=" + receita_id);
             }
         }
     }

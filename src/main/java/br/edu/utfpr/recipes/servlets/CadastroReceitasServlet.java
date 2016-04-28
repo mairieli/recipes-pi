@@ -128,7 +128,8 @@ public class CadastroReceitasServlet extends HttpServlet {
             mensagem = "Sua receita foi cadastrada. Obrigado!";
         }
         request.getSession().setAttribute("message", mensagem);
-        response.sendRedirect("CadastroReceitas.jsp");
+        request.getSession().setAttribute("addimg", "ok");
+        response.sendRedirect("CadastroReceitas.jsp?receita_id="+receita.getIdReceita());
     }
 
     /**

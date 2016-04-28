@@ -116,3 +116,6 @@ function verificaCampo(i, id, alert, valor) {
 function fecharModal() {
     document.getElementById("myModal").style.display = "none";
 }
+function carregando(div_id, message) {
+    document.getElementById(div_id).innerHTML = "<h3 class=\"alert-info\">" + message + "<img src='img/loading.gif'/></h3>";
+}
