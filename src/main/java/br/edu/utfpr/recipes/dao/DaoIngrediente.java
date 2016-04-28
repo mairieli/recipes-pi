@@ -33,7 +33,7 @@ public class DaoIngrediente extends DaoGenerics<Ingrediente> {
         if (!nome.isEmpty()) {
             session = getsession();
             Query query = session.createQuery(
-                    "From " + clazz.getSimpleName() + " where lower(nome) like :nome ");
+                    "From " + clazz.getSimpleName() + " where lower(nome) like :nome and status = true");
             query.setParameter("nome", nome + "%");
             query.setMaxResults(10);
             ingrediente = (List<Ingrediente>) query.list();
