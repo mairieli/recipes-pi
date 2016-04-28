@@ -183,7 +183,7 @@
         </form>
         <c:if test="${addimg eq 'ok'}">
             <c:remove var="addimg"/>
-            <div  class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="false" id="modalconfirmimg">
+            <div  class="modal " tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="false" id="modalconfirmimg">
                 <form class="form-horizontal" role="form" action="ImageUpload" method="post" ENCTYPE="multipart/form-data" onsubmit="carregando('carregando', 'Por Favor Aguarde, salvando imagem...')">
                     <input type="hidden" name="receita_id" value="${param.receita_id}">
                     <div class="modal-dialog">

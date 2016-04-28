@@ -11,3 +11,4 @@
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/jquery-ui.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="shortcut icon" href="img/recipe_search.ico">
