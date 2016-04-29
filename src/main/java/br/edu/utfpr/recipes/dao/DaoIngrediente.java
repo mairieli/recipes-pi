@@ -37,7 +37,7 @@ public class DaoIngrediente extends DaoGenerics<Ingrediente> {
             query.setParameter("nome", nome + "%");
             query.setMaxResults(10);
             ingrediente = (List<Ingrediente>) query.list();
-            session.flush();
+            //session.flush();
         }
 
         ArrayList<String> nomes = new ArrayList<>();

@@ -3,7 +3,6 @@ package br.edu.utfpr.recipes.servlets;
 import br.edu.utfpr.recipes.dao.DaoReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
 import br.edu.utfpr.recipes.util.ImageResizerService;
-import br.edu.utfpr.recipes.util.ImgUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;

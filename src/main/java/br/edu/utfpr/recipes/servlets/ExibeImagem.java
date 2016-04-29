@@ -9,7 +9,6 @@ import br.edu.utfpr.recipes.dao.DaoReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
 import br.edu.utfpr.recipes.util.ImgUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,7 +37,6 @@ public class ExibeImagem extends HttpServlet {
         if (null != id) {
             DaoReceita dr = new DaoReceita();
             Receita receita = dr.findById(Integer.parseInt(id));
-        //    receita.getItemReceitaList()
             ImgUtil imgUtil = new ImgUtil();
             if ("mini".equals(tipo)) {
                 if (receita.getImagemMini() != null) {
