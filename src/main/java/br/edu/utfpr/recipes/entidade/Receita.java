@@ -62,7 +62,7 @@ public class Receita implements Serializable {
     }
     
 
-    public Integer getIdReceita() {
+    public Integer getId() {
         return id;
     }
 

@@ -24,6 +24,7 @@
       <ul class="nav navbar-nav">
           <li class="active"><a href="index.jsp">Início <span class="sr-only">(current)</span></a></li>
           <li><a href="CadastroReceitas.jsp">+ Nova Receita</a></li>
+          <li><a href="ConsultarReceitas.jsp"><i class="icon-search"></i>Consula Receita</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

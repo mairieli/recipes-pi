@@ -110,7 +110,7 @@ public class CadastroReceitasServlet extends HttpServlet {
         }
         request.getSession().setAttribute("message", mensagem);
         request.getSession().setAttribute("addimg", "ok");
-        response.sendRedirect("CadastroReceitas.jsp?receita_id=" + receita.getIdReceita());
+        response.sendRedirect("CadastroReceitas.jsp?receita_id=" + receita.getId());
     }
 
     /**
