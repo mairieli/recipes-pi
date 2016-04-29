@@ -65,7 +65,7 @@ public class ImageResizerService {
     }
 
     public byte[] getMiniatura() throws IOException {
-        return processa(200);
+        return processa(120);
     }
 
     public byte[] getNormal() throws IOException {

@@ -68,6 +68,7 @@ public class ImageUpload extends HttpServlet {
                         Receita r = dr.findById(receita_id);
                         ImageResizerService irs = new ImageResizerService(imagem);
                         r.setImagem(irs.getNormal(900));
+                        r.setImagemMini(irs.getMiniatura());
                         dr.save(r);
                         request.getSession().setAttribute("message", "Imagem Salva com Sucesso!");
                         response.sendRedirect("index.jsp");

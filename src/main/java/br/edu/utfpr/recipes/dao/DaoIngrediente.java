@@ -23,7 +23,7 @@ public class DaoIngrediente extends DaoGenerics<Ingrediente> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where lower(nome) =:nome ");
             ingrediente = (Ingrediente) query.setParameter("nome", nome.toLowerCase()).uniqueResult();
-            session.flush();
+          //  session.flush();
         }
         return ingrediente;
     }

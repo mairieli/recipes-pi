@@ -47,6 +47,8 @@ public class Receita implements Serializable {
     private Usuario usuario;
     @Column(name = "imagem", columnDefinition = "LONGBLOB")
     private byte[] imagem;
+    @Column(name = "imagemMini", columnDefinition = "LONGBLOB")
+    private byte[] imagemMini;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<ItemReceita> itemReceitaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
@@ -178,6 +180,14 @@ public class Receita implements Serializable {
 
     public void setTagReceitaList(List<TagReceita> tagReceitaList) {
         this.tagReceitaList = tagReceitaList;
+    }
+
+    public byte[] getImagemMini() {
+        return imagemMini;
+    }
+
+    public void setImagemMini(byte[] imagemMini) {
+        this.imagemMini = imagemMini;
     }
 
 }
