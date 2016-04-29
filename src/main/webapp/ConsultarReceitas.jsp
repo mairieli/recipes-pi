@@ -5,10 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
 <html>
     <head>
+        <c:import url="head.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consulta de Receitas</title>
         <script type="text/javascript" src="scripts/jquery.min.js"></script>
@@ -41,11 +43,14 @@
         </script>
     </head>
     <body>
+        <c:import url="menu.jsp"/>
         <form class="form-horizontal" role="form" action="ConsultaReceitas" method="post">
             <div class="form-group"  id="alert1" style="float: left; width: 100%">
-                <h2 class="control-label col-md-2" for="titulo" style="float: left;">Pesquisa:</h2>
-                <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 500px; float: left"> 
-                <button type="button" class="btn btn-default" style="float: left; margin-top: 24px; margin-left: 5px;">pesquisar</button>
+                <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;width: initial;margin-left: 10px;">Pesquisa:</h2>
+                <div class="col-md-5" style="width: 1050px;">
+                <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 900px; float: left"> 
+                </div>
+                <button type="button" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
             </div>
         </form>
 
