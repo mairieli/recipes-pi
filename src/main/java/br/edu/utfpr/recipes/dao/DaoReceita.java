@@ -1,8 +1,6 @@
 package br.edu.utfpr.recipes.dao;
 
-import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.Receita;
-import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 
@@ -16,27 +14,32 @@ public class DaoReceita extends DaoGenerics<Receita> {
         super.clazz = Receita.class;
     }
 
-    public List<Receita> BuscaIngredienteEspecificado(ArrayList<Ingrediente> ingreditentes) {
+    /**
+     * Método que recupera as receitas que contenham os ingredientes passados 
+     * por parâmetro.
+     *
+     * @author Noemi e Mairieli
+     * @param nomesIngrediente lista de nomes dos ingredientes informados pelo usuário
+     * @return lista de receitas
+     */
+    public List<Receita> buscaReceitaPorIngredientes(List<String> nomesIngrediente) {
         session = getsession();
-        String hql = "i.ingrediente.nome = ";
-        if (ingreditentes.isEmpty()) {
-            System.out.println("Lista de ingredientes vazia.");
-        } else {
-            for (int i = 0; i < ingreditentes.size(); i++) {
-                Ingrediente ingrediente = ingreditentes.get(i);
-                if (ingreditentes.size() > 1 && i < ingreditentes.size() - 1) {
-                    hql += "'" + ingrediente.getNome() + "' AND i.ingrediente.nome = ";
-                } else if (i == ingreditentes.size() - 1) {
-                    hql += "'" + ingrediente.getNome() + "'";
-                } else {
-                    hql += "'" + ingrediente.getNome() + "'";
-                }
-            }
-
+        String sql = "SELECT * "
+                + "FROM Receita r "
+                + "WHERE r.status = true "
+                + "AND r.id IN ("
+                + "    select distinct i.receita_id from itemReceita i where i.ingrediente_id in ("
+                + "		select id from Ingrediente where nome = '" + nomesIngrediente.get(0) + "') "
+                + ") ";
+        nomesIngrediente.remove(0);
+        for (String nomeIngrediente : nomesIngrediente) {
+            sql += " AND r.id IN ("
+                    + "	select distinct i.receita_id from itemReceita i where i.ingrediente_id in ("
+                    + "		select id from Ingrediente where nome = '" + nomeIngrediente + "') "
+                    + ") ";
         }
-        Query query = session.createQuery("select i.receita FROM ItemReceita i WHERE " + hql);
+        Query query = session.createSQLQuery(sql).addEntity(Receita.class);
         return query.list();
-
     }
 
 }
