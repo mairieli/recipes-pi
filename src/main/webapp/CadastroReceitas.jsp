@@ -63,7 +63,7 @@
             </div>
             <!-- Tempo de Preparo -->
             <div class="form-group" id="alert9">
-                <label class="control-label col-md-2" for="tempopreparo">Tempo de Preparo:</label>
+                <label class="control-label col-md-2" for="tempopreparo">Tempo de Preparo*:</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="tempo_preparo" id="tempo_preparo" placeholder="Em minutos" pattern="[0-9]+$">
                 </div>
