@@ -2,7 +2,6 @@ package br.edu.utfpr.recipes.servlets;
 
 import br.edu.utfpr.recipes.dao.DaoReceita;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,11 +40,11 @@ public class BuscaReceitasServlet extends HttpServlet {
 //        }
         String pesquisa = request.getParameter("pesquisa");
         if (!pesquisa.isEmpty()) {
-            DaoReceita dr = new DaoReceita();
+            DaoReceita daoReceita = new DaoReceita();
             String[] ingredientes = pesquisa.split(",");
-            List l = new ArrayList<>();
-            l.addAll(Arrays.asList(ingredientes));
-            List receitas = dr.buscaReceitaPorIngredientesEspecificos(l);
+            List listaIngredientes = new ArrayList<>();
+            listaIngredientes.addAll(Arrays.asList(ingredientes));
+            List receitas = daoReceita.buscaReceitaPorIngredientesEspecificos(listaIngredientes);
             if (receitas.isEmpty()) {
                 request.setAttribute("filtro",pesquisa);
                 request.setAttribute("vazia", "Sua pesquisa nào retornou nenhum resultado, por favor refaça o filtro!");

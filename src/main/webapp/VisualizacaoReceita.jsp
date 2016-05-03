@@ -6,7 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="daor" class="br.edu.utfpr.recipes.dao.DaoReceita" scope="request" />
+<jsp:useBean id="daoTagR" class="br.edu.utfpr.recipes.dao.DaoTagReceita" scope="request" />
+<c:set var="tempo" value="${0}"/>
 <c:set var="r" value="${daor.findById(param.receita_id)}" scope="request"/>
 <!DOCTYPE html>
 <html>
@@ -34,7 +37,14 @@
                     <h3>
                         Tempo de preparo:
                         <small>
+                            <c:if test="${r.tempoPreparo < 60}">
                             ${r.tempoPreparo} Minutos.
+                                 
+                            </c:if>
+                            <c:if test="${r.tempoPreparo >= 60}">
+                                <fmt:formatNumber  value="${r.tempoPreparo/60}" pattern="##0"  />:${r.tempoPreparo mod 60} Horas
+                            
+                            </c:if>
                         </small>
                     </h3>
                 </label>
@@ -60,27 +70,28 @@
             </div>                 
             <div class="form-group">
                 <label class="control-label col-md-offset-2">
-                    <h5>
-                        Espátula, Faca, Forma, Forno, Garfo.
-                    </h5>
-                </label> 
-            </div>
-            <!-- Ingredientes -->
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="ingredientes">
-                    <h3>
-                        Ingredientes:
-                    </h3>
+                    <h5><ul>
+                            <c:forEach items="${daoTagR.buscaPorReceita(r)}" var="tagR"><li>${tagR.tag.nome}</li></c:forEach>
+                            </ul>
+                        </h5>
+                    </label> 
+                </div>
+                <!-- Ingredientes -->
+                <div class="form-group">
+                    <label class="control-label col-md-offset-1" for="ingredientes">
+                        <h3>
+                            Ingredientes:
+                        </h3>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-offset-2" for="ingrediente">
+                        <ul>
+                        <c:forEach items="${r.getItemReceitaList()}" var="item">
+                            <li>${item.quantidade} ${item.unidadeMedida} de ${item.ingrediente.nome}</li>
+                        </c:forEach>
+                    </ul>
                 </label>
-            </div>
-            <div class="form-group">
-                 <label class="control-label col-md-offset-2" for="ingrediente">
-                <ul>
-                    <c:forEach items="${r.getItemReceitaList()}" var="item">
-                        <li>${item.quantidade} ${item.unidadeMedida} de ${item.ingrediente.nome}</li>
-                    </c:forEach>
-                </ul>
-                 </label>
             </div>
             <!-- Modo de preparo -->
             <div class="form-group">
@@ -97,7 +108,7 @@
                     </h5>
                 </label>
             </div>
-           
+
         </div>
     </body>
 </html>

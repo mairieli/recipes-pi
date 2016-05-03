@@ -44,7 +44,6 @@
     </head>
     <body>
         <c:import url="menu.jsp?menu=pesquisa"/>
-        <div class="container">
             <c:if test="${vazia!=null}">
                 <h4 class="alert-info" style="padding: 6px"> ${vazia}</h4>
                 <c:remove var="vazia"/>
@@ -57,14 +56,13 @@
                 <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
                 <c:remove var="message_error"/>
             </c:if>
-        </div>
         <form class="form-horizontal" role="form" action="BuscaReceitasServlet" method="post">
             <div class="form-group"  id="alert1" style="float: left; width: 100%">
                 <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;width: initial;margin-left: 10px;">Pesquisa:</h2>
                 <div class="col-md-5" style="width: 1050px;">
                     <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 900px; float: left" value="${filtro}"> 
-                </div>
                 <button type="submit" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
+                </div>
             </div>
         </form>
 
