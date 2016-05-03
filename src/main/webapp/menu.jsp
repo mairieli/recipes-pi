@@ -4,6 +4,7 @@
     Author     : josimar
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <nav class="navbar navbar-default">
@@ -16,15 +17,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Recipes</a>
+        <a class="navbar-brand" href="index.jsp"><img src="img/recipe_search.png" style="float: left"/>Recipes</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li class="active"><a href="index.jsp">Início <span class="sr-only">(current)</span></a></li>
-          <li><a href="CadastroReceitas.jsp">+ Nova Receita</a></li>
-          <li><a href="ConsultarReceitas.jsp"><i class="icon-search"></i>Consula Receita</a></li>
+          <li <c:if test="${param.menu eq 'home'}"> class="active" </c:if>><a href="index.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span> Início <span class="sr-only">(current)</span></a></li>
+          <li <c:if test="${param.menu eq 'nova'}"> class="active" </c:if>><a href="CadastroReceitas.jsp"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nova Receita</a></li>
+          <li  <c:if test="${param.menu eq 'pesquisa'}"> class="active" </c:if>><a href="ConsultarReceitas.jsp"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Pesquisar Receita</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <c:import url="menu.jsp"/>
+    <c:import url="menu.jsp?menu=nova"/>
     <div class="container">
         <h1>Cadastro de Receita</h1>
         <form class="form-horizontal" role="form" action="CadastroReceitas" method="post">

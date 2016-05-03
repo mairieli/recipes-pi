@@ -14,7 +14,7 @@
         <c:import url="head.jsp"/>
     </head>
     <body>
-        <c:import url="menu.jsp"/>
+        <c:import url="menu.jsp?menu=home"/>
         <div class="container">
 
             <div class="page-header">

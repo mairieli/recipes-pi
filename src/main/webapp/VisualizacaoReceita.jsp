@@ -16,7 +16,7 @@
         <title>${r.nome} - Receita da Vovó</title>
     </head>
     <body>
-        <c:import url="menu.jsp"/>
+        <c:import url="menu.jsp?menu=pesquisa"/>
         <div class="container">
             <!-- Título -->
             <div class="form-group">
