@@ -24,20 +24,10 @@ public class BuscaReceitasServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        System.out.println("aaaaa"+request.getParameter("pesquisa"));
-//          response.setContentType("text/html;charset=UTF-8");
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet NovoServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet NovoServlet at " + request.getParameter("pesquisa").isEmpty() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
+        
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String pesquisa = request.getParameter("pesquisa");
         if (!pesquisa.isEmpty()) {
             DaoReceita daoReceita = new DaoReceita();
