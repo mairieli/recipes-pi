@@ -60,7 +60,7 @@ function mostrarTAG(id1) {
 function validaForm() {
     var i = {valor: 0};
     verificaCampo(i, "titulo", "alert1", "");
-
+    
     var quantidades = [];
     var inputs = document.getElementsByTagName("input");
     for (var a = 0; a < inputs.length; a++) {
@@ -96,6 +96,7 @@ function validaForm() {
     verificaCampo(i, "categoria", "alert4", "Nenhum");
     verificaCampo(i, "dificuldade", "alert5", "Nenhuma");
     verificaCampo(i, "modo_preparo", "alert6", "");
+    verificaCampo(i, "tempo_preparo", "alert9", "");
 
     if (i.valor == 1) {
         return false;

@@ -61,6 +61,8 @@
                 </label>
             </div>
             <!-- Utensílios -->
+            <c:set var="utensilios" value="${daoTagR.buscaPorReceita(r)}"/>
+            <c:if test="${!utensilios.isEmpty()}">
             <div class="form-group">
                 <label class="control-label col-md-offset-1" for="utensilios">
                     <h3>
@@ -76,6 +78,7 @@
                         </h5>
                     </label> 
                 </div>
+            </c:if>
                 <!-- Ingredientes -->
                 <div class="form-group">
                     <label class="control-label col-md-offset-1" for="ingredientes">

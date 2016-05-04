@@ -26,7 +26,7 @@
           <li <c:if test="${param.menu eq 'home'}"> class="active" </c:if>><a href="index.jsp"><span class="glyphicon glyphicon-home" aria-hidden="true"> </span> Início <span class="sr-only">(current)</span></a></li>
           <li <c:if test="${param.menu eq 'nova'}"> class="active" </c:if>><a href="CadastroReceitas.jsp"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nova Receita</a></li>
           <li  <c:if test="${param.menu eq 'pesquisa'}"> class="active" </c:if>><a href="ConsultarReceitas.jsp"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Pesquisar Receita</a></li>
-        <li class="dropdown">
+        <!--<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
@@ -37,9 +37,9 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
+        </li>-->
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <!--<ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -51,7 +51,7 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li>
-      </ul>
+      </ul>-->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
