@@ -76,13 +76,17 @@
         <hr class="featurette-divider" style="width: 100%; float: left">
         <c:forEach items="${receitas}" var="r">
             <div class="row featurette" style="width: 100%; float: left; margin-left: 226px;">
-                <div class="col-md-5" style="float: left; width: 120px; height: 120px; padding-left: 0px">
+                <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                     <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${r.id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
                 </div>
-                <h2 class="featurette-heading" style="margin-top: 0px; width: 50%; float: left">${r.nome}</h2>
-                <div style="float: left; width: 50%">Rendimento: ${r.rendimento} porções</div>
-                <div style="float: left; width: 50%; margin-top: 5px;">Tempo de preparo: ${r.tempoPreparo} Minutos</div>
-                <div style="float: left; width: 50%; margin-top: 5px;"><a class="btn btn-default" href="VisualizacaoReceita.jsp?receita_id=${r.id}" role="button">Ler mais »</a></div>
+                <div class="col-md-8">                    
+                    <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${r.nome}</h2>
+                    <div class="col-md-8" style="float: left">                
+                        <div style="float: left; width: 100%;">Rendimento: ${r.rendimento} porções</div>
+                        <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${r.tempoPreparo} Minutos</div>
+                        <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="VisualizacaoReceita.jsp?receita_id=${r.id}" role="button">Ler mais »</a></div>
+                    </div>
+                </div>
             </div>
 
             <hr class="featurette-divider" style="width: 100%; float: left">
