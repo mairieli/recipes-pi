@@ -4,7 +4,7 @@
     Author     : xaaaandao
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html"  pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body>
+<body  onload="history.go(+1)">
     <c:import url="menu.jsp?menu=nova"/>
     <div class="container">
         <h1>Cadastro de Receita</h1>
@@ -213,8 +213,8 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="index.jsp" class="btn btn-default" >Cancelar</a>
-                                <button type="submit" class="btn btn-primary" >Salvar Imagen</button>
+                                <a href="index.jsp" class="btn btn-default" ><span class="glyphicon glyphicon-remove" aria-hidden="true"> </span> Fechar</a>
+                                <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-ok" aria-hidden="true"> </span> Salvar Imagen</button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
