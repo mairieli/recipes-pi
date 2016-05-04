@@ -44,6 +44,7 @@
     </head>
     <body>
         <c:import url="menu.jsp?menu=pesquisa"/>
+        <div class="container">
             <c:if test="${vazia!=null}">
                 <h4 class="alert-info" style="padding: 6px"> ${vazia}</h4>
                 <c:remove var="vazia"/>
@@ -58,10 +59,14 @@
             </c:if>
         <form class="form-horizontal" role="form" action="BuscaReceitasServlet" method="post">
             <div class="form-group"  id="alert1" style="float: left; width: 100%">
-                <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;width: initial;margin-left: 10px;">Pesquisa:</h2>
-                <div class="col-md-5" style="width: 1050px;">
-                    <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 900px; float: left" value="${filtro}"> 
-                <button type="submit" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
+                <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;margin-left: 10px;">Pesquisa:</h2>
+                <div class="col-md-8">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 100%;float: left" value="${filtro}"> 
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -86,5 +91,7 @@
 
 
 
-        <svg style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;" preserveAspectRatio="none" viewBox="0 0 500 500" height="500" width="500"><defs><style type="text/css"></style></defs><text style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif" y="25" x="0">500x500</text></svg></body>
+        <svg style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;" preserveAspectRatio="none" viewBox="0 0 500 500" height="500" width="500"><defs><style type="text/css"></style></defs><text style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif" y="25" x="0">500x500</text></svg>
+        </body>
+</div>
 </html>
