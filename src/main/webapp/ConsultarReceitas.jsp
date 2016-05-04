@@ -60,11 +60,11 @@
         <form class="form-horizontal" role="form" action="BuscaReceitasServlet" method="post">
             <div class="form-group"  id="alert1" style="float: left; width: 100%">
                 <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;margin-left: 10px;">Pesquisa:</h2>
-                <div class="col-md-8">
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 100%;float: left" value="${filtro}"> 
+                <div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 67%;float: left" value="${filtro}"> 
                     </div>
-                    <div class="col-md-2">
+                    <div>
                         <button type="submit" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
                     </div>
                 </div>
