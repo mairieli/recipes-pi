@@ -9,6 +9,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="daor" class="br.edu.utfpr.recipes.dao.DaoReceita" scope="request" />
 <jsp:useBean id="daoTagR" class="br.edu.utfpr.recipes.dao.DaoTagReceita" scope="request" />
+<jsp:useBean id="daoItemR" class="br.edu.utfpr.recipes.dao.DaoItemReceita" scope="request" />
 <c:set var="tempo" value="${0}"/>
 <c:set var="r" value="${daor.findById(param.receita_id)}" scope="request"/>
 <!DOCTYPE html>
@@ -106,7 +107,7 @@
                     <label class="control-label" for="ingrediente">
                         <ul>
                             <h4>
-                                <c:forEach items="${r.getItemReceitaList()}" var="item">
+                                <c:forEach items="${daoItemR.buscaPorReceita(r)}" var="item">
                                     <li>${item.quantidade} ${item.unidadeMedida} de ${item.ingrediente.nome}</li>
                                     </c:forEach>
                             </h4>

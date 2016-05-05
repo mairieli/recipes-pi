@@ -20,7 +20,6 @@ public class DaoTag extends DaoGenerics<Tag> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where lower(nome) =:nome ");
             tag = (Tag) query.setParameter("nome", nome.toLowerCase()).uniqueResult();
-            session.flush();
         }
         return tag;
     }

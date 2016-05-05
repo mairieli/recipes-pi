@@ -32,7 +32,6 @@ public class DaoGenerics<T> {
     }
 
     public void save(T o) {
-
         getsession().saveOrUpdate(o);
         getsession().flush();
 
@@ -68,7 +67,7 @@ public class DaoGenerics<T> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where id =:id ");
             objeto = (T) query.setParameter("id", id).uniqueResult();
-            session.flush();
+            //session.flush();
         }
         return objeto;
     }
@@ -79,7 +78,7 @@ public class DaoGenerics<T> {
             session = HibernateConfiguration.getSessionFactory().openSession();
             Query query = session.createQuery(filtro);
             lista = query.list();
-            session.flush();
+            //session.flush();
         }
         return lista;
     }
@@ -88,7 +87,7 @@ public class DaoGenerics<T> {
         session = HibernateConfiguration.getSessionFactory().openSession();
         Query query = session.createQuery("From " + clazz.getSimpleName());
         List<T> lista = query.list();
-        session.flush();
+        //session.flush();
         return lista;
     }
 //    public List<T> getPorUsuario(Usuario usuario ) {
