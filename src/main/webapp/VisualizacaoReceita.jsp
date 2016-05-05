@@ -15,103 +15,120 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <c:import url="head.jsp"/>
-        <title>${r.nome} - Receita da Vovó</title>
+        <title>${r.nome}</title>
     </head>
     <body>
         <c:import url="menu.jsp?menu=pesquisa"/>
         <div class="container">
+
+            <!-- Foto -->
+            <div class="col-md-12" align="center">
+                <img src="ExibeImagem?receita_id=${r.id}&tipo=normal" class="img-responsive">
+            </div>
             <!-- Título -->
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="titulo">
+            <div class="col-md-10 col-md-offset-1">
+                <label class="control-label" for="titulo">
                     <h1>
                         ${r.nome}
                     </h1>
                 </label>
-            </div>      
-            <!-- Foto -->
-            <img src="ExibeImagem?receita_id=${r.id}&tipo=normal" class="img-rounded img-responsive" >
+            </div>     
             <!-- Rendimento-->
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="tempo_preparo">
+            <div class="col-md-12 col-md-offset-1">
+                <label class="control-label" for="tempo_preparo">
                     <h3>
-                        Tempo de preparo:
-                        <small>
-                            <c:if test="${r.tempoPreparo < 60}">
-                            ${r.tempoPreparo} Minutos.
-                                 
-                            </c:if>
-                            <c:if test="${r.tempoPreparo >= 60}">
-                                <fmt:formatNumber  value="${r.tempoPreparo/60}" pattern="##0"  />:${r.tempoPreparo mod 60} Horas
-                            
-                            </c:if>
-                        </small>
+                        Tempo de Preparo:
                     </h3>
+                </label>
+                <label class="control-label" for="tempo_preparo">
+                    <h4>
+                        <c:if test="${r.tempoPreparo <= 60}">
+                            ${r.tempoPreparo} Minutos
+                        </c:if>
+                        <c:if test="${r.tempoPreparo > 60}">
+                            <fmt:formatNumber value="${r.tempoPreparo/60}" pattern="##0"/> Horas 
+                            <c:if test="${r.tempoPreparo mod 60 > 0}">
+                                e ${r.tempoPreparo mod 60} Minutos
+                            </c:if>
+                        </c:if>
+                    </h4>
                 </label>
             </div>            
             <!-- Rendimento-->
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="rendimento">
+            <div class="col-md-12 col-md-offset-1">
+                <label class="control-label" for="rendimento">
                     <h3>
                         Rendimento:
-                        <small>
-                            ${r.rendimento} porções.
-                        </small>
                     </h3>
+                </label>
+                <label class="control-label" for="rendimento">
+                    <h4>
+                        ${r.rendimento} Porções
+                    </h4>
                 </label>
             </div>
             <!-- Utensílios -->
             <c:set var="utensilios" value="${daoTagR.buscaPorReceita(r)}"/>
             <c:if test="${!utensilios.isEmpty()}">
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="utensilios">
-                    <h3>
-                        Utensílios:
-                    </h3>
-                </label>
-            </div>                 
-            <div class="form-group">
-                <label class="control-label col-md-offset-2">
-                    <h5><ul>
-                            <c:forEach items="${daoTagR.buscaPorReceita(r)}" var="tagR"><li>${tagR.tag.nome}</li></c:forEach>
+                <div class="col-md-12 col-md-offset-1">
+                    <div>
+                        <label class="control-label" for="utensilios">
+                            <h3>
+                                Utensílios:
+                            </h3>
+                        </label>
+                    </div>                 
+                    <div>
+                        <label class="control-label">
+                            <ul>
+                                <h4>
+                                    <c:forEach items="${daoTagR.buscaPorReceita(r)}" var="tagR">
+                                        <li>${tagR.tag.nome}</li>
+                                        </c:forEach>
+                                </h4>
                             </ul>
-                        </h5>
-                    </label> 
+                        </label> 
+                    </div>
                 </div>
             </c:if>
-                <!-- Ingredientes -->
-                <div class="form-group">
-                    <label class="control-label col-md-offset-1" for="ingredientes">
+            <!-- Ingredientes -->
+            <div class="col-md-12 col-md-offset-1">
+                <div>
+                    <label class="control-label" for="ingredientes">
                         <h3>
                             Ingredientes:
                         </h3>
                     </label>
                 </div>
-                <div class="form-group">
-                    <label class="control-label col-md-offset-2" for="ingrediente">
+                <div>
+                    <label class="control-label" for="ingrediente">
                         <ul>
-                        <c:forEach items="${r.getItemReceitaList()}" var="item">
-                            <li>${item.quantidade} ${item.unidadeMedida} de ${item.ingrediente.nome}</li>
-                        </c:forEach>
-                    </ul>
-                </label>
+                            <h4>
+                                <c:forEach items="${r.getItemReceitaList()}" var="item">
+                                    <li>${item.quantidade} ${item.unidadeMedida} de ${item.ingrediente.nome}</li>
+                                    </c:forEach>
+                            </h4>
+                        </ul>
+                    </label>
+                </div>
             </div>
             <!-- Modo de preparo -->
-            <div class="form-group">
-                <label class="control-label col-md-offset-1" for="modo_preparo">
-                    <h3>
-                        Modo de preparo:
-                    </h3>
-                </label>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-md-offset-2" for="modo_preparo">
-                    <h5>
+            <div class="col-md-12 col-md-offset-1">
+                <div>
+                    <label class="control-label" for="modo_preparo">
+                        <h3>
+                            Modo de Preparo:
+                        </h3>
+                    </label>
+                </div>
+                <div>
+                    <label class=" text-justify col-md-10" for="modo_preparo">
                         ${r.modoPreparo}
-                    </h5>
-                </label>
+                    </label>
+                </div>
             </div>
-
         </div>
     </body>
 </html>

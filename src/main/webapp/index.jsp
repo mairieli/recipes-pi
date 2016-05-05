@@ -26,7 +26,7 @@
                     <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
                     <c:remove var="message_error"/>
                 </c:if>
-                <h1>Hello World!</h1>
+                <h1>Bem Vindo!</h1>
 
             </div>
         </div>

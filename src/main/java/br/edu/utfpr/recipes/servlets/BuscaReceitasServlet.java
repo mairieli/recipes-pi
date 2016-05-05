@@ -37,14 +37,14 @@ public class BuscaReceitasServlet extends HttpServlet {
             List receitas = daoReceita.buscaReceitaPorIngredientesEspecificos(listaIngredientes);
             if (receitas.isEmpty()) {
                 request.setAttribute("filtro",pesquisa);
-                request.setAttribute("vazia", "Sua pesquisa nào retornou nenhum resultado, por favor refaça o filtro!");
+                request.setAttribute("vazia", "Não há nenhum resultado para sua pequisa");
                 request.getRequestDispatcher("ConsultarReceitas.jsp").forward(request, response);
             } else {
                 request.setAttribute("receitas", receitas);
                 request.getRequestDispatcher("ConsultarReceitas.jsp").forward(request, response);
             }
         } else {
-            request.setAttribute("nula", "por favor, informe ao menos um ingrediente!");
+            request.setAttribute("nula", "Por Favor, Informe ao menos um ingrediente!");
             request.getRequestDispatcher("ConsultarReceitas.jsp").forward(request, response);
 
         }
