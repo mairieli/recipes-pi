@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author josimar
  */
-public class GerenciadorDeUsuariosServlet extends HttpServlet {
+public class CadastroDeUsuariosServlet extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
