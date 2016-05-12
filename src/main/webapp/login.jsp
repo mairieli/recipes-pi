@@ -12,6 +12,14 @@
         <c:import url="menu.jsp"/>
         <div class="container">
             <div class="row">
+                 <c:if test="${message!=null}">
+                    <h4 class="alert-success"> ${message}</h4>
+                    <c:remove var="message"/>
+                </c:if>
+                <c:if test="${message_error!=null}">
+                    <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
+                    <c:remove var="message_error"/>
+                </c:if>
                 <div class="col-sm-6 col-md-4 col-md-offset-4">
                     <h1 class="text-center login-title">Login</h1>
                     <div class="account-wall">

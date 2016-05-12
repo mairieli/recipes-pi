@@ -25,8 +25,8 @@
         <servlet-class>br.edu.utfpr.recipes.servlets.BuscaIngredienteServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GerenciadorDeUsuariosServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.GerenciadorDeUsuariosServlet</servlet-class>
+        <servlet-name>CadastroDeUsuariosServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.servlets.CadastroDeUsuariosServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginDeUsuariosServlet</servlet-name>
@@ -57,8 +57,8 @@
         <url-pattern>/BuscaIngrediente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GerenciadorDeUsuariosServlet</servlet-name>
-        <url-pattern>/GerenciadorDeUsuariosServlet</url-pattern>
+        <servlet-name>CadastroDeUsuariosServlet</servlet-name>
+        <url-pattern>/CadastroDeUsuariosServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginDeUsuariosServlet</servlet-name>
