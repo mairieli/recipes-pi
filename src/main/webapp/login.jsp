@@ -23,7 +23,7 @@
                             <span class="clearfix"></span>
                         </form>
                     </div>
-                    <a href="#" class="text-center new-account">Criar uma conta</a>
+                    <a href="CadastroUsuario.jsp" class="text-center new-account">Criar uma conta</a>
                 </div>
             </div>
         </div>
