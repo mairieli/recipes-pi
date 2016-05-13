@@ -24,6 +24,10 @@
         <servlet-name>BuscaIngredienteServlet</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.servlets.BuscaIngredienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GerenciadorDeUsuariosServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.servlets.GerenciadorDeUsuariosServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -44,11 +48,14 @@
         <servlet-name>ExibeImagem</servlet-name>
         <url-pattern>/ExibeImagem</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>BuscaIngredienteServlet</servlet-name>
         <url-pattern>/BuscaIngrediente</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>GerenciadorDeUsuariosServlet</servlet-name>
+        <url-pattern>/GerenciadorDeUsuariosServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
