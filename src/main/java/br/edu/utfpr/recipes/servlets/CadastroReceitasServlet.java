@@ -134,6 +134,8 @@ public class CadastroReceitasServlet extends HttpServlet {
                 ingrediente.setStatus(statusIngrediente);
                 daoIngrediente.save(ingrediente);
                 ingrediente = daoIngrediente.buscarPorNome(nome);
+            } else if (!ingrediente.getStatus()) {
+                statusIngrediente = false;
             }
             ingredientes.add(ingrediente);
         }
