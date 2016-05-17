@@ -76,36 +76,54 @@
                             </div>
                         </div>    
                         <div class="form-group col-md-8" id="div_tag1" style="display:none; margin: 0px auto; width: 919px; float: none;">
-                            
-                            <label style="width: 286px; float: left; margin-left: 0;"  for="Pesquisar somente com ingredientes">Pesquisar somente com os ingredientes:
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Sim">Sim</label>
-                            </label>    
 
-                            
-                            <label style="width: 286px; float: left; margin-left: 0;"  for="Categoria">Categoria:
+                            <div class="form-group" id="alert4">
+                                <label class="control-label col-md-2" for="Categoria">Categoria:</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="Categoria" id="categoria">
+                                        <option>Nenhum</option> 
+                                        <option>Aves</option>
+                                        <option>Bebidas</option>
+                                        <option>Bolos E Tortas</option>
+                                        <option>Carnes</option>
+                                        <option>Doces E Sobremesas</option>
+                                        <option>Entradas</option>
+                                        <option>Lanches</option>
+                                        <option>Massas</option>
+                                        <option>Molhos E Acompanhamentos</option>
+                                        <option>Peixes E Frutos do Mar</option>
+                                        <option>Saladas</option>
+                                        <option>Sopas</option>
+                                    </select> 
+                                </div>
+                            </div>
 
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Aves">Aves</label> 
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Bebidas">Bebidas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Bolos e Tortas">Bolos e Tortas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Carnes">Carnes</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Doces E Sobremesas">Doces e Sobremesas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Entradas">Entradas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Lanches">Lanches</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Massas">Massas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Molhos e Acompahamentos">Molhos e Acompanhamentos</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Peixes E Frutos do Mar">Peixes E Frutos do Mar</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Saladas">Saladas</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Sopas">Sopas</label>
-                            </label>
+                            <!-- Dificuldade -->
+                            <div class="form-group" id="alert5">
+                                <label class="control-label col-md-2" for="Dificuldade">Dificuldade:</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="Dificuldade" id="dificuldade">
+                                        <option>Nenhuma</option>
+                                        <option>Fácil</option>
+                                        <option>Médio</option>
+                                        <option>Díficil</option>
+                                    </select> 
+                                </div>
+                            </div>
 
-                            <label style="width: 286px; float: left; margin-left: 0;"  for="Dificuldade">Dificuldade:
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Fácil">Fácil</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Médio">Médio</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Difícil">Difícil</label>
-                            </label>
+                            <div class="form-group" id="alert5">
+                                <label class="control-label col-md-2" for="pesquisa">Pesquisar somente com os ingredientes:</label>
+                                <div class="col-md-4">
+                                    <select class="form-control" name="pesquisa" id="dificuldade">
+                                        <option>Nenhuma</option>
+                                        <option>Sim</option>
+                                        <option>Não</option>
+                                    </select> 
+                                </div>
+                            </div>
 
-                            
-                            <label style="width: 286px; float: left; margin-left: 0;"  for="Equipamentos">Equipamentos:
+
+                            <label style="width: 286px; float: right; margin-left: 0;"  for="Equipamentos">Equipamentos:
 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Batedeira">Batedeira</label> 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Cafeteira">Cafeteira</label>
@@ -121,7 +139,7 @@
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Escumadeira">Escumadeira</label>
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Espatula">Espátula</label>
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Faca">Faca</label>
-                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Forma">Forma</label>                
+                                <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Forma">Forma</label>                                           
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Forno">Forno</label>
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Fogao">Fogão</label>
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Fouet">Fouet</label>
@@ -144,7 +162,6 @@
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Tigela">Tigela</label> 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Xicara">Xícara</label> 
                             </label>
-                            
                             
                         </div>     
 
