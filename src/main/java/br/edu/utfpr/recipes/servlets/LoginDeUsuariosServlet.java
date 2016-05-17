@@ -13,14 +13,15 @@ public class LoginDeUsuariosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getSession().removeAttribute("usuarioLogado");
+        response.sendRedirect("login.jsp");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email").trim();
         String senha = request.getParameter("senha").trim();
-
+        
         DaoUsuario daoUsuario = new DaoUsuario();
         Usuario usuario = daoUsuario.buscaUsuarioPorEmail(email);
         if (usuario == null) {
