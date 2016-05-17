@@ -41,7 +41,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">
+                <a href="login">
                     Logout
                 </a>
             </li>
