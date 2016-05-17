@@ -80,7 +80,7 @@
                             <div class="form-group" id="alert4">
                                 <label class="control-label col-md-2" for="Categoria">Categoria:</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="Categoria" id="categoria">
+                                    <select class="form-control" name="categoria" id="categoria">
                                         <option>Nenhum</option> 
                                         <option>Aves</option>
                                         <option>Bebidas</option>
@@ -102,7 +102,7 @@
                             <div class="form-group" id="alert5">
                                 <label class="control-label col-md-2" for="Dificuldade">Dificuldade:</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="Dificuldade" id="dificuldade">
+                                    <select class="form-control" name="dificuldade" id="dificuldade">
                                         <option>Nenhuma</option>
                                         <option>Fácil</option>
                                         <option>Médio</option>
@@ -112,19 +112,19 @@
                             </div>
 
                             <div class="form-group" id="alert5">
-                                <label class="control-label col-md-2" for="pesquisa">Pesquisar somente com os ingredientes:</label>
+                                <label class="control-label col-md-2" for="somente-ingrediente">Filtrar somente os ingredientes:</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="pesquisa" id="dificuldade">
-                                        <option>Nenhuma</option>
+                                    <select class="form-control" name="somente-ingrediente" id="somente-ingrediente">
                                         <option>Sim</option>
                                         <option>Não</option>
                                     </select> 
                                 </div>
                             </div>
-
-
-                            <label style="width: 286px; float: right; margin-left: 0;"  for="Equipamentos">Equipamentos:
-
+                            
+                            <div class ="form-group" id="id1">
+                                <label class="control-label col-md-2" style="width: 286px; float: left; margin-left: 15.5%;" for="equipamentos">Equipamentos:</label>
+                            </div>    
+                                
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Batedeira">Batedeira</label> 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Cafeteira">Cafeteira</label>
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Chaleira">Chaleira</label>
@@ -161,7 +161,6 @@
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Tabua">Tábua</label>                
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Tigela">Tigela</label> 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Xicara">Xícara</label> 
-                            </label>
                             
                         </div>     
 
