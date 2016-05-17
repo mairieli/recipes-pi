@@ -13,7 +13,7 @@ public class LoginDeUsuariosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.removeAttribute("usuarioLogado");
+        request.getSession().removeAttribute("usuarioLogado");
         response.sendRedirect("login.jsp");
     }
 
