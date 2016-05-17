@@ -10,6 +10,7 @@ import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
 import br.edu.utfpr.recipes.entidade.Tag;
 import br.edu.utfpr.recipes.entidade.TagReceita;
+import br.edu.utfpr.recipes.entidade.Usuario;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class CadastroReceitasServlet extends HttpServlet {
         String dificuldade = request.getParameter("dificuldade");
         String modoPreparo = request.getParameter("modo_preparo");
         String[] tags = request.getParameterValues("tag");
-
+        
         // Captura Quantidades. Unidade de Medidas e Ingredientes
         List<String> quantidades = new LinkedList<>();
         List<String> unidades = new LinkedList<>();
@@ -64,12 +65,14 @@ public class CadastroReceitasServlet extends HttpServlet {
 
         DaoReceita daoReceita = new DaoReceita();
         Receita receita = new Receita();
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioLogado");
         receita.setCategoria(categoria);
         receita.setDificuldade(dificuldade);
         receita.setModoPreparo(modoPreparo);
         receita.setNome(titulo);
         receita.setRendimento(Integer.parseInt(rendimento));
         receita.setStatus(statusReceita);
+        receita.setUsuario(usuario);
         if (!tempoPreparo.isEmpty()) {
             receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
         }
