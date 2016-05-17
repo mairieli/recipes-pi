@@ -20,7 +20,7 @@ public class LoginDeUsuariosServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email").trim();
         String senha = request.getParameter("senha").trim();
-
+        System.out.println("Abobrinha");
         DaoUsuario daoUsuario = new DaoUsuario();
         Usuario usuario = daoUsuario.buscaUsuarioPorEmail(email);
         if (usuario == null) {
