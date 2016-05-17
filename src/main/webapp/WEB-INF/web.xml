@@ -32,6 +32,10 @@
         <servlet-name>LoginDeUsuariosServlet</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.servlets.LoginDeUsuariosServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AprovacaoIngredienteServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.servlets.AprovacaoIngredienteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>LoginDeUsuariosServlet</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AprovacaoIngredienteServlet</servlet-name>
+        <url-pattern>/AprovacaoIngredienteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
