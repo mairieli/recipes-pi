@@ -112,9 +112,9 @@
                             </div>
 
                             <div class="form-group" id="alert5">
-                                <label class="control-label col-md-2" for="somente-ingrediente">Filtrar somente os ingredientes:</label>
+                                <label class="control-label col-md-2" for="somente-ingrediente">Somente os ingredientes especificados:</label>
                                 <div class="col-md-4">
-                                    <select class="form-control" name="somente-ingrediente" id="somente-ingrediente">
+                                    <select class="form-control" name="somente_ingrediente" id="somente-ingrediente">
                                         <option>Sim</option>
                                         <option>Não</option>
                                     </select> 
