@@ -27,6 +27,7 @@
                     <c:if test="${usuarioLogado != null}">
                     <li <c:if test="${param.menu eq 'nova'}"> class="active" </c:if>><a href="CadastroReceitas.jsp"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nova Receita</a></li>
                     <li  <c:if test="${param.menu eq 'pesquisa'}"> class="active" </c:if>><a href="ConsultarReceitas.jsp"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Pesquisar Receita</a></li>
+                    <li  <c:if test="${param.menu eq 'pesquisa'}"> class="active" </c:if>><a href="admin/AprovacaoIngrediente.jsp"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span> Ingredientes Pendentes</a></li>    
                     </c:if>
                 <!--<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -52,4 +53,5 @@
             </c:if>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
+
 </nav>

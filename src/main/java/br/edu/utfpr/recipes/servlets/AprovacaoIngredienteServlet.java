@@ -5,6 +5,8 @@
  */
 package br.edu.utfpr.recipes.servlets;
 
+import br.edu.utfpr.recipes.dao.DaoIngrediente;
+import br.edu.utfpr.recipes.entidade.Ingrediente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,7 +37,7 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AprovacaoIngredienteServlet</title>");            
+            out.println("<title>Servlet AprovacaoIngredienteServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AprovacaoIngredienteServlet at " + request.getContextPath() + "</h1>");
@@ -44,33 +46,31 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String id = request.getParameter("ingrediente_id");
+            DaoIngrediente daoIngrediente = new DaoIngrediente();
+            Ingrediente ingrediente = daoIngrediente.findById(Integer.parseInt(id));
+            ingrediente.setStatus(true);
+            daoIngrediente.save(ingrediente);
+            
+            request.getSession().setAttribute("message", "Ingrediente aprovado com sucesso!");
+            response.sendRedirect("AprovacaoIngrediente.jsp");
+            
+        } catch (Exception e) {
+            request.getSession().setAttribute("message_error", "Desculpe, ocorreu um erro! "  +e);
+            response.sendRedirect("AprovacaoIngrediente.jsp");
+            
+        }
     }
 
     /**

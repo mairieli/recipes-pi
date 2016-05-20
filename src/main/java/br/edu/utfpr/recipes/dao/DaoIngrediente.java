@@ -5,6 +5,7 @@ import br.edu.utfpr.recipes.entidade.Ingrediente;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
@@ -46,5 +47,11 @@ public class DaoIngrediente extends DaoGenerics<Ingrediente> {
         }
         return nomes;
     }
+    public List<Ingrediente> buscaIngredientesPendentes(){
+        Session session1 = getsession();
+        Query query = session1.createQuery("SELECT i FROM Ingrediente i WHERE i.status = FALSE");
+        return query.list();
+    }
+    
 
 }

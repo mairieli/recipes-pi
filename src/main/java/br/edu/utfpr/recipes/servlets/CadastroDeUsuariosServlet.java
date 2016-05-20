@@ -45,7 +45,7 @@ public class CadastroDeUsuariosServlet extends HttpServlet {
         String email = request.getParameter("email").trim();
         String senha = request.getParameter("senha").trim();
         String validaSenha = request.getParameter("validaSenha").trim();
-        if (!senha.equals("") && !email.equals("") && senha.equals(validaSenha)) {
+        if (!"".equals(senha) && !"".equals(email) && senha.equals(validaSenha)) {
             DaoUsuario daoUsuario = new DaoUsuario();
             Usuario usuario = daoUsuario.buscaUsuarioPorEmail(email);
             if (usuario != null) {
