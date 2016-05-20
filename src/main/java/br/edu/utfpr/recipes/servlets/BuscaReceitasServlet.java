@@ -20,11 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 public class BuscaReceitasServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -91,10 +86,10 @@ public class BuscaReceitasServlet extends HttpServlet {
             }
         }
 
-        if (!categoria.equals("Nenhum")) {
+        if (!"Nenhum".equals(categoria)) {
             receitas.retainAll(receitaCategoria);
         }
-        if (!dificuldade.equals("Nenhuma")) {
+        if (!"Nenhuma".equals(dificuldade)) {
             receitas.retainAll(receitasDificuldade);
         }
         if (!utensilios.isEmpty()) {
