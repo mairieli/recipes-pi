@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : VisualizacaoReceita
     Created on : 26/04/2016, 20:05:59
     Author     : xaaaandao
@@ -56,7 +56,33 @@
                         </c:if>
                     </h4>
                 </label>
-            </div>            
+            </div>
+            <!-- Categoria -->
+            <div class="col-md-12 col-md-offset-1">
+                <label class="control-label" for="categoria">
+                    <h3>
+                        Categoria:
+                    </h3>
+                </label>
+                <label class="control-label" for="categoria">
+                    <h4>
+                        ${r.categoria}
+                    </h4>
+                </label>
+            </div>      
+            <!-- Dificuldade -->
+            <div class="col-md-12 col-md-offset-1">
+                <label class="control-label" for="categoria">
+                    <h3>
+                        Dificuldade:
+                    </h3>
+                </label>
+                <label class="control-label" for="categoria">
+                    <h4>
+                        ${r.dificuldade}
+                    </h4>
+                </label>
+            </div>     
             <!-- Rendimento-->
             <div class="col-md-12 col-md-offset-1">
                 <label class="control-label" for="rendimento">
