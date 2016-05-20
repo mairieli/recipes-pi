@@ -49,7 +49,9 @@ public class DaoIngrediente extends DaoGenerics<Ingrediente> {
     }
     public List<Ingrediente> buscaIngredientesPendentes(){
         Session session1 = getsession();
-        Query query = session1.createQuery("SELECT i FROM Ingrediente i WHERE i.status = FALSE");
+        Query query = session1.createQuery(
+                "SELECT i FROM Ingrediente i WHERE i.status = FALSE ORDER BY i.id DESC"
+        );
         return query.list();
     }
     
