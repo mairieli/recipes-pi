@@ -56,7 +56,7 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        try {
             String id = request.getParameter("ingrediente_id");
             DaoIngrediente daoIngrediente = new DaoIngrediente();
             Ingrediente ingrediente = daoIngrediente.findById(Integer.parseInt(id));
@@ -65,6 +65,12 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
             
             request.getSession().setAttribute("message", "Ingrediente aprovado com sucesso!");
             response.sendRedirect("AprovacaoIngrediente.jsp");
+            
+        } catch (Exception e) {
+            request.getSession().setAttribute("message_error", "Desculpe, ocorreu um erro! "  +e);
+            response.sendRedirect("AprovacaoIngrediente.jsp");
+            
+        }
     }
 
     /**
