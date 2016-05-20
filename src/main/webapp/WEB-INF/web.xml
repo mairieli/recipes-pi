@@ -78,7 +78,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AprovacaoIngredienteServlet</servlet-name>
-        <url-pattern>/AprovacaoIngredienteServlet</url-pattern>
+        <url-pattern>/admin/AprovacaoIngredienteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

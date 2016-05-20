@@ -15,6 +15,7 @@
             <title>Aprovação de Receitas</title>
     </head>
     <body>
+        <div class="container">
         <c:if test="${message!=null}">
             <h4 class="alert-success"> ${message}</h4>
             <c:remove var="message"/>
@@ -23,6 +24,7 @@
             <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
             <c:remove var="message_error"/>
         </c:if>
+        </div>
         <h1 class="text-center">Aprovação de Ingredientes</h1>
         <c:forEach items="${daoIP.buscaIngredientesPendentes()}" var="i">
             <form class="container" action="AprovacaoIngredienteServlet" method="post">
@@ -35,7 +37,7 @@
                         </label>
                     </div>
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-success">
+                        <button type="submit" class="btn btn-success">
                             Aprovar
                         </button>
                         <input type="hidden" name="ingrediente_id" value="${i.id}">
