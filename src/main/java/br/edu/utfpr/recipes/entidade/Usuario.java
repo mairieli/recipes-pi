@@ -40,6 +40,11 @@ public class Usuario implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
     private List<Receita> receitaCollection;
 
+    public Usuario() {
+        //todo usuario padrao criado não será administrador
+        this.admin = false;
+    }
+
     @XmlTransient
     public List<Receita> getReceitaCollection() {
         return receitaCollection;
