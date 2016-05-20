@@ -183,6 +183,8 @@
                         <div class="col-md-12" style="float: left">                
                             <div style="float: left; width: 100%;">Rendimento: ${r.rendimento} porções</div>
                             <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${r.tempoPreparo} Minutos</div>
+                            <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${r.categoria}</div>
+                            <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${r.dificuldade}</div>
                             <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="VisualizacaoReceita.jsp?receita_id=${r.id}" role="button">Ler mais »</a></div>
                         </div>
                     </div>
