@@ -87,4 +87,17 @@ public class DaoReceita extends DaoGenerics<Receita> {
         return query.list();
     }
 
+    public List<Receita> buscaReceitaPendentePorIngrediente(String nomeIngrediente) {
+        session = getsession();
+        String sql = "SELECT * "
+                + "FROM Receita r "
+                + "WHERE r.status = false "
+                + "AND r.id IN ("
+                + "    select distinct i.receita_id from itemReceita i where i.ingrediente_id in ("
+                + "		select id from Ingrediente where nome = '" + nomeIngrediente + "') "
+                + ") ";
+        Query query = session.createSQLQuery(sql).addEntity(Receita.class);
+        return query.list();
+    }
+
 }

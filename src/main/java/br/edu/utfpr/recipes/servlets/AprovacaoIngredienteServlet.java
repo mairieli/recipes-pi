@@ -6,9 +6,14 @@
 package br.edu.utfpr.recipes.servlets;
 
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
+import br.edu.utfpr.recipes.dao.DaoItemReceita;
+import br.edu.utfpr.recipes.dao.DaoReceita;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
+import br.edu.utfpr.recipes.entidade.ItemReceita;
+import br.edu.utfpr.recipes.entidade.Receita;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,39 +25,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AprovacaoIngredienteServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AprovacaoIngredienteServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AprovacaoIngredienteServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -62,25 +34,43 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
             Ingrediente ingrediente = daoIngrediente.findById(Integer.parseInt(id));
             ingrediente.setStatus(true);
             daoIngrediente.save(ingrediente);
-            
+            //Aprova receita devido a aprovação do ingrediente
+            DaoReceita daoReceita = new DaoReceita();
+            List<Receita> receitas = daoReceita.buscaReceitaPendentePorIngrediente(ingrediente.getNome());
+            verificaReceitaParaAprovacao(receitas);
+            for (Receita receita : receitas) {
+                receita.setStatus(true);
+                daoReceita.save(receita);
+            }
             request.getSession().setAttribute("message", "Ingrediente aprovado com sucesso!");
             response.sendRedirect("AprovacaoIngrediente.jsp");
-            
+
         } catch (Exception e) {
-            request.getSession().setAttribute("message_error", "Desculpe, ocorreu um erro! "  +e);
+            request.getSession().setAttribute("message_error", "Desculpe, ocorreu um erro! " + e);
             response.sendRedirect("AprovacaoIngrediente.jsp");
-            
+
         }
     }
 
     /**
-     * Returns a short description of the servlet.
+     * Método que verifica as receitas que podem ser aprovadas devido a 
+     * aprovação do ingrediente.
      *
-     * @return a String containing servlet description
+     * @param receitas  para serem verificadas
      */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    private void verificaReceitaParaAprovacao(List<Receita> receitas) {
+        List<Receita> receitaNaoAprovar = new LinkedList<>();
+        DaoItemReceita daoItemReceita = new DaoItemReceita();
+        sairLaco:
+        for (Receita receita : receitas) {
+            for (ItemReceita item : daoItemReceita.buscaPorReceita(receita)) {
+                if (!item.getIngrediente().getStatus()) {
+                    receitaNaoAprovar.add(receita);
+                    break sairLaco;
+                }
+            }
+        }
+        receitas.removeAll(receitaNaoAprovar);
+    }
 
 }
