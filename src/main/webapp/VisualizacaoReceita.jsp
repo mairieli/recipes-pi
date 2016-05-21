@@ -17,6 +17,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="bootstrap/css/star-rating.css" media="all" type="text/css"/>
+        <link rel="stylesheet" href="bootstrap/css/theme-krajee-fa.css" media="all" type="text/css"/>
+        <link rel="stylesheet" href="bootstrap/css/theme-krajee-svg.css" media="all" type="text/css"/>
+        <link rel="stylesheet" href="bootstrap/css/theme-krajee-uni.css" media="all" type="text/css"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="bootstrap/js/star-rating.js" type="text/javascript"></script>
         <c:import url="head.jsp"/>
         <title>${r.nome}</title>
     </head>
@@ -35,7 +43,13 @@
                         ${r.nome}
                     </h1>
                 </label>
-            </div>     
+            </div>
+            <div class="col-md-10 col-md-offset-1">
+                <div class="caption">
+                    <span class="label label-primary"></span>
+                </div>
+                <input class="rating hide" value="0" data-size="sm" title="" type="text">
+            </div>
             <!-- Rendimento-->
             <div class="col-md-12 col-md-offset-1">
                 <label class="control-label" for="tempo_preparo">
