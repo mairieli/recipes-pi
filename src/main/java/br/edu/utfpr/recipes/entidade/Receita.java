@@ -53,7 +53,12 @@ public class Receita implements Serializable {
     private List<ItemReceita> itemReceitaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<TagReceita> tagReceitaList;
+    @Size(max = 45)
+    @Column(name = "quantidadeTotalDeClassificacao")
+    private int quantidadeTotalDeClassificacao;
 
+    
+    
     public Receita(Integer idReceita) {
         this.id = idReceita;
     }
@@ -133,6 +138,15 @@ public class Receita implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    public int getQuantidadeTotalDeClassificacao() {
+        return quantidadeTotalDeClassificacao;
+    }
+
+    public void setQuantidadeTotalDeClassificacao(int quantidadeTotalDeClassificacao) {
+        this.quantidadeTotalDeClassificacao = quantidadeTotalDeClassificacao;
+    }
+
 
     @Override
     public int hashCode() {
