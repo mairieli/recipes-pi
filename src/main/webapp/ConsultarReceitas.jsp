@@ -72,57 +72,54 @@
                         <!-- Adicionar TAG's -->
                         <div class="form-group">
                             <div style="width: 895px; margin: 0px auto;">
-                                <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" style="float: left; margin-top: 5px; margin-left: 0;" onclick="mostrarFiltro('div_tag1', 'div_tag2', 'div_tag3');";>Filtro</button>
+                                <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" style="float: left; margin-top: 5px; margin-left: 10.5%;" onclick="mostrarFiltro('div_tag1', 'div_tag2', 'div_tag3');";>Filtro</button>
                             </div>
                         </div>    
                         <div class="form-group col-md-8" id="div_tag1" style="display:none; margin: 0px auto; width: 919px; float: none;">
+                            <div style="float: left;width: 100%;">
+                                <div class="form-group" id="alert4">
+                                    <label class="control-label col-md-1" for="Categoria">Categoria:</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" name="categoria" id="categoria" style="margin-left: 10%">
+                                            <option>Nenhum</option> 
+                                            <option>Aves</option>
+                                            <option>Bebidas</option>
+                                            <option>Bolos E Tortas</option>
+                                            <option>Carnes</option>
+                                            <option>Doces E Sobremesas</option>
+                                            <option>Entradas</option>
+                                            <option>Lanches</option>
+                                            <option>Massas</option>
+                                            <option>Molhos E Acompanhamentos</option>
+                                            <option>Peixes E Frutos do Mar</option>
+                                            <option>Saladas</option>
+                                            <option>Sopas</option>
+                                        </select> 
+                                    </div>
+                                </div>
 
-                            <div class="form-group" id="alert4">
-                                <label class="control-label col-md-2" for="Categoria">Categoria:</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="categoria" id="categoria">
-                                        <option>Nenhum</option> 
-                                        <option>Aves</option>
-                                        <option>Bebidas</option>
-                                        <option>Bolos E Tortas</option>
-                                        <option>Carnes</option>
-                                        <option>Doces E Sobremesas</option>
-                                        <option>Entradas</option>
-                                        <option>Lanches</option>
-                                        <option>Massas</option>
-                                        <option>Molhos E Acompanhamentos</option>
-                                        <option>Peixes E Frutos do Mar</option>
-                                        <option>Saladas</option>
-                                        <option>Sopas</option>
-                                    </select> 
+                                <!-- Dificuldade -->
+                                <div class="form-group" id="alert5">
+                                    <label class="control-label col-md-1" for="Dificuldade">Dificuldade:</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" name="dificuldade" id="dificuldade" style="margin-left: 10%">
+                                            <option>Nenhuma</option>
+                                            <option>Fácil</option>
+                                            <option>Médio</option>
+                                            <option>Díficil</option>
+                                        </select> 
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="alert5">
+                                    <label class="control-label col-md-1" style="text-align: left; width: 34.06%; margin-top: 1.1%" for="somente-ingrediente">Somente os ingredientes especificados:</label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline " style="margin-left: -20px;"><input type="checkbox" name="apenasIngre" value="Sim" checked="true"></label> 
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Dificuldade -->
-                            <div class="form-group" id="alert5">
-                                <label class="control-label col-md-2" for="Dificuldade">Dificuldade:</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="dificuldade" id="dificuldade">
-                                        <option>Nenhuma</option>
-                                        <option>Fácil</option>
-                                        <option>Médio</option>
-                                        <option>Díficil</option>
-                                    </select> 
-                                </div>
-                            </div>
-
-                            <div class="form-group" id="alert5">
-                                <label class="control-label col-md-2" for="somente-ingrediente">Somente os ingredientes especificados:</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="somente_ingrediente" id="somente-ingrediente">
-                                        <option>Sim</option>
-                                        <option>Não</option>
-                                    </select> 
-                                </div>
-                            </div>
-                            
                             <div class ="form-group" id="id1">
-                                <label class="control-label col-md-2" style="width: 286px; float: left; margin-left: 15.5%;" for="equipamentos">Equipamentos:</label>
+                                <label class="control-label col-md-2" style="width: 286px; float: left; text-align: left;" for="equipamentos">Equipamentos:</label>
                             </div>    
                                 
                                 <label class="checkbox-inline " style="width: 286px; float: left; margin-left: 0;"><input type="checkbox" name="tag" value="Batedeira">Batedeira</label> 
