@@ -54,7 +54,7 @@ public class Receita implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<TagReceita> tagReceitaList;
     @Size(max = 45)
-    @Column(name = "quantidadeTotalDeClassificacao")
+    @Column(name = "quantidadeTotalDeClassificacao", nullable = false, columnDefinition = "int default 0")
     private int quantidadeTotalDeClassificacao;
 
     
