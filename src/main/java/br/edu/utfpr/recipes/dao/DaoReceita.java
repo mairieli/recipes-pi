@@ -99,5 +99,4 @@ public class DaoReceita extends DaoGenerics<Receita> {
         Query query = session.createSQLQuery(sql).addEntity(Receita.class);
         return query.list();
     }
-
 }

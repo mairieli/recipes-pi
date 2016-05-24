@@ -53,6 +53,9 @@ public class Receita implements Serializable {
     private List<ItemReceita> itemReceitaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "receita")
     private List<TagReceita> tagReceitaList;
+    @Size(max = 45)
+    @Column(name = "quantidadeClassificacao")
+    private int quantidadeClassificacao;
 
     public Receita(Integer idReceita) {
         this.id = idReceita;
