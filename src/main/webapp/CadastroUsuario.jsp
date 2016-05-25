@@ -38,7 +38,7 @@
                                 Cadastrar</button>
                             <span class="clearfix"></span>
                         </form>
-                    </div>
+                    </div><a href="login.jsp" class="text-center new-account">Login</a>                    
                 </div>
             </div>
         </div>
