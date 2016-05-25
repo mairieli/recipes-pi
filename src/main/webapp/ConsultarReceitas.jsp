@@ -114,7 +114,7 @@
                                 <div class="form-group" id="alert5">
                                     <label class="control-label col-md-1" style="text-align: left; width: 34.06%; margin-top: 1.1%" for="somente-ingrediente">Somente os ingredientes especificados:</label>
                                     <div class="col-md-1">
-                                        <label class="checkbox-inline " style="margin-left: -20px;"><input type="checkbox" name="apenasIngre" value="Sim" checked="true"></label> 
+                                        <label class="checkbox-inline " style="margin-left: -20px;"><input type="checkbox" name="apenas_especificos" value="Sim" checked="true"></label> 
                                     </div>
                                 </div>
                             </div>
