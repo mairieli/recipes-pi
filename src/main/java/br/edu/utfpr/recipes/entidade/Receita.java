@@ -56,16 +56,20 @@ public class Receita implements Serializable {
     @Size(max = 45)
     @Column(name = "quantidadeTotalDeClassificacao", nullable = false, columnDefinition = "int default 0")
     private int quantidadeTotalDeClassificacao;
+    @Column(nullable = false)
+    private double somaQualificacao;
 
-    
-    
     public Receita(Integer idReceita) {
         this.id = idReceita;
     }
 
+    public void qualifica(double nota) {
+       this.quantidadeTotalDeClassificacao++;
+       this.somaQualificacao+=nota;
+    }
+
     public Receita() {
     }
-    
 
     public Integer getId() {
         return id;
@@ -138,7 +142,7 @@ public class Receita implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
     public int getQuantidadeTotalDeClassificacao() {
         return quantidadeTotalDeClassificacao;
     }
@@ -146,7 +150,6 @@ public class Receita implements Serializable {
     public void setQuantidadeTotalDeClassificacao(int quantidadeTotalDeClassificacao) {
         this.quantidadeTotalDeClassificacao = quantidadeTotalDeClassificacao;
     }
-
 
     @Override
     public int hashCode() {
@@ -202,6 +205,14 @@ public class Receita implements Serializable {
 
     public void setImagemMini(byte[] imagemMini) {
         this.imagemMini = imagemMini;
+    }
+
+    public double getSomaQualificacao() {
+        return somaQualificacao;
+    }
+
+    public void setSomaQualificacao(double somaQualificacao) {
+        this.somaQualificacao = somaQualificacao;
     }
 
 }

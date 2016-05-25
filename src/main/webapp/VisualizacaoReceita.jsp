@@ -1,7 +1,7 @@
-    <%-- 
-    Document   : VisualizacaoReceita
-    Created on : 26/04/2016, 20:05:59
-    Author     : xaaaandao
+<%-- 
+Document   : VisualizacaoReceita
+Created on : 26/04/2016, 20:05:59
+Author     : xaaaandao
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,6 +27,28 @@
         <script src="bootstrap/js/star-rating.js" type="text/javascript"></script>
         <c:import url="head.jsp"/>
         <title>${r.nome}</title>
+        <script src="http://code.jquery.com/jquery-latest.js">
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#enviar').click(function () {
+                    $.ajax({
+                        url: 'VisualizacaoReceitas',
+                        type: 'GET',
+                        data: 'raceita_id=' + ${r.id} + '&rating_hide=' + $('#rating_hide').val(),
+                        success: function (data) {
+                            $('#resultado').html(data);
+                        }
+                    });
+                });
+            });
+        </script>
+        <style type="text/css">
+            #resultado{
+                color: #006600;
+                padding: 3px;
+            }
+        </style>
     </head>
     <body>
         <c:import url="menu.jsp?menu=pesquisa"/>
@@ -48,7 +70,12 @@
                 <div class="caption">
                     <span class="label label-primary"></span>
                 </div>
-                <input class="rating hide" value="0" data-size="sm" title="" type="text">
+                <form name="form1" id="form1">
+                    <input id="rating_hide"  class="rating hide" value="0" data-size="sm" title="" type="text">
+                    <input type="button" id="enviar" value="Avaliar" />
+                    <div class="success"><h6 id="resultado" ></h6></div>
+                </form>
+
             </div>
             <!-- Rendimento-->
             <div class="col-md-12 col-md-offset-1">
