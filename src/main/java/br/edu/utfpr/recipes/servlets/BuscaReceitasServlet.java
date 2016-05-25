@@ -29,7 +29,7 @@ public class BuscaReceitasServlet extends HttpServlet {
         String pesquisa = request.getParameter("pesquisa");
         String categoria = request.getParameter("categoria");
         String dificuldade = request.getParameter("dificuldade");
-        boolean somenteIngredienteEspecifico = request.getParameter("somente_ingrediente").equals("Sim");
+        boolean somenteIngredienteEspecifico = request.getParameter("apenasIngre").equals("Sim");
         String[] tags = request.getParameterValues("tag");
         List<String> listaTags = new ArrayList<>();
         if (tags != null) {
