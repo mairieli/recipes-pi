@@ -15,6 +15,7 @@
             <title>Aprovação de Receitas</title>
     </head>
     <body>
+        <c:import url="/menu.jsp?menu=aprovacao"/>
         <div class="container">
         <c:if test="${message!=null}">
             <h4 class="alert-success"> ${message}</h4>
