@@ -27,7 +27,7 @@
                     <c:remove var="message_error"/>
                 </c:if>
                 <div style="text-align: center">
-                    <h1>Top Receitas</h1>
+                    <h1>Receitas Melhor Qualificadas</h1>
                 </div>
                 <div class="col-md-12" style="margin-top: 3%">
                     <div class="row featurette" style="float: left; width: 50%">
