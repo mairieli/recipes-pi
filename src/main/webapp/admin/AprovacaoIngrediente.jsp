@@ -10,21 +10,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="../img/recipe_search.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-            <title>Aprovação de Receitas</title>
+        <title>Aprovação de Receitas</title>
     </head>
     <body>
         <c:import url="/menu.jsp?menu=aprovacao"/>
         <div class="container">
-        <c:if test="${message!=null}">
-            <h4 class="alert-success"> ${message}</h4>
-            <c:remove var="message"/>
-        </c:if>
-        <c:if test="${message_error!=null}">
-            <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
-            <c:remove var="message_error"/>
-        </c:if>
+            <c:if test="${message!=null}">
+                <h4 class="alert-success"> ${message}</h4>
+                <c:remove var="message"/>
+            </c:if>
+            <c:if test="${message_error!=null}">
+                <h4 class="alert-danger"  style="padding: 4px;"> <i class="icon-warning-sign"></i> <c:out value="${message_error}" /></h4>
+                <c:remove var="message_error"/>
+            </c:if>
         </div>
         <h1 class="text-center">Aprovação de Ingredientes</h1>
         <c:forEach items="${daoIP.buscaIngredientesPendentes()}" var="i">
@@ -45,8 +46,8 @@
                     </div>
                 </div>
 
-                </div>
-            </form>
-        </c:forEach>
-    </body>
+            </div>
+        </form>
+    </c:forEach>
+</body>
 </html>

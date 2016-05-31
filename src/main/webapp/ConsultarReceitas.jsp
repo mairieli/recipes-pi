@@ -11,6 +11,7 @@
 
 <html>
     <head>
+        <c:import url="head.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Consulta de Receitas</title>
         <script type="text/javascript" src="scripts/jquery.min.js"></script>

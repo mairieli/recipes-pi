@@ -10,6 +10,7 @@
 
 <html>
     <head>
+        <c:import url="head.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro Usuario - Recipes</title>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
