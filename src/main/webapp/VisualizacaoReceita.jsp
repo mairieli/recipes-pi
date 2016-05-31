@@ -77,6 +77,21 @@ Author     : xaaaandao
                 </form>
 
             </div>
+
+            <!-- Classificação -->
+            <div  class="col-md-10 col-md-offset-1">
+                <label class="control-label" for ="classificacao">
+                    <h3>
+                        Classificação:
+                    </h3>
+                </label>
+                <label class="control-label" for="classificacao">
+                    <h4>
+                        ${(r.somaQualificacao)/(r.quantidadeTotalDeClassificacao)}
+
+                    </h4>
+                </label>              
+            </div>
             <!-- Rendimento-->
             <div class="col-md-12 col-md-offset-1">
                 <label class="control-label" for="tempo_preparo">
