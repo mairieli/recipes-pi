@@ -71,27 +71,13 @@ Author     : xaaaandao
                     <span class="label label-primary"></span>
                 </div>
                 <form name="form1" id="form1">
-                    <input id="rating_hide"  class="rating hide" value="0" data-size="sm" title="" type="text">
+                    <input id="rating_hide"  class="rating hide" value="${r.mediaQualificacao()}" data-size="sm" title="" type="text">
                     <input type="button" id="enviar" value="Avaliar" />
                     <div class="success"><h6 id="resultado" ></h6></div>
                 </form>
 
             </div>
 
-            <!-- Classificação -->
-            <div  class="col-md-10 col-md-offset-1">
-                <label class="control-label" for ="classificacao">
-                    <h3>
-                        Classificação:
-                    </h3>
-                </label>
-                <label class="control-label" for="classificacao">
-                    <h4>
-                        ${(r.somaQualificacao)/(r.quantidadeTotalDeClassificacao)}
-
-                    </h4>
-                </label>              
-            </div>
             <!-- Rendimento-->
             <div class="col-md-12 col-md-offset-1">
                 <label class="control-label" for="tempo_preparo">
