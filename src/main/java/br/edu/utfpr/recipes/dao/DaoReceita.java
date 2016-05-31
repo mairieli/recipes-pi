@@ -99,4 +99,12 @@ public class DaoReceita extends DaoGenerics<Receita> {
         Query query = session.createSQLQuery(sql).addEntity(Receita.class);
         return query.list();
     }
+
+    public List<Receita> buscaReceitasMelhorQualificadas() {
+        session = getsession();
+        String sql = "SELECT * FROM Receita r "
+                + "order by (r.somaQualificacao / r.quantidadeTotalDeClassificacao) desc limit 20";
+        Query query = session.createSQLQuery(sql).addEntity(Receita.class);
+        return query.list();
+    }
 }

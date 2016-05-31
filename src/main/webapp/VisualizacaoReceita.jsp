@@ -34,7 +34,7 @@ Author     : xaaaandao
                 $('#enviar').click(function () {
                     $.ajax({
                         url: 'VisualizacaoReceitas',
-                        type: 'GET',
+                        type: 'POST',
                         data: 'raceita_id=' + ${r.id} + '&rating_hide=' + $('#rating_hide').val(),
                         success: function (data) {
                             $('#resultado').html(data);
