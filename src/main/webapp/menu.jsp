@@ -45,6 +45,11 @@
             <c:if test="${usuarioLogado != null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <p class="navbar-text">
+                            Bem-vindo ${usuarioLogado.nome}!
+                        </p>
+                    </li>
+                    <li>
                         <a href="<c:url value="/login"/>">
                             Logout
                         </a>
