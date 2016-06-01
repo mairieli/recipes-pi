@@ -86,7 +86,7 @@ function validaForm() {
         document.getElementById("alert3").className = "form-group";
     }
 
-    if (isNaN(document.getElementById("tempo_preparo").value)) {
+    if (document.getElementById("tempo_preparo").value == "" || isNaN(document.getElementById("tempo_preparo").value)) {
         document.getElementById("alert9").className = "form-group has-error";
         i.valor = 1;
     } else {
@@ -96,7 +96,7 @@ function validaForm() {
     verificaCampo(i, "categoria", "alert4", "Nenhum");
     verificaCampo(i, "dificuldade", "alert5", "Nenhuma");
     verificaCampo(i, "modo_preparo", "alert6", "");
-    verificaCampo(i, "tempo_preparo", "alert9", "");
+    
 
     if (i.valor == 1) {
         return false;
