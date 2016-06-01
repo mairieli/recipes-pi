@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="melhoresReceitas" class="br.edu.utfpr.recipes.servlets.MelhoresReceitasController" scope="request" />
+<c:set var="receitas" value="${melhoresReceitas.escolheReceitasParaExibir()}"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,63 +34,29 @@
                 <div class="col-md-12" style="margin-top: 3%">
                     <div class="row featurette" style="float: left; width: 50%">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/bolo_chocolate-521x380.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(0).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
                         </div>
                         <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">Bolo</h2>
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(0).nome}</h3>
                             <div class="col-md-12" style="float: left">                
                                 <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 50 Minutos</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Sobremesa</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(0).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(0).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(0).dificuldade}</div>
                             </div>
                         </div>
                     </div>
                     <div class="row featurette" style="float: left; width: 50%">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/cafe-2.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(1).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
                         </div>
                         <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">Cafe</h2>
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(1).nome}</h3>
                             <div class="col-md-12" style="float: left">                
-                                <div style="float: left; width: 100%;">Rendimento: 5 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 20 Minutos</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Bebidas</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12" style="margin-top: 3%">
-                    <div class="row featurette" style="float: left; width: 50%">
-                        <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/torta.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
-                        </div>
-                        <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">Torta</h2>
-                            <div class="col-md-12" style="float: left">                
-                                <div style="float: left; width: 100%;">Rendimento: 10 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 40 Minutos</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Salgados</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row featurette" style="float: left; width: 50%">
-                        <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/cachorro_quente.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
-                        </div>
-                        <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">cachorro quente</h2>
-                            <div class="col-md-12" style="float: left">                
-                                <div style="float: left; width: 100%;">Rendimento: 4 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 45 Minutos</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Lanches</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
+                                <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(1).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(1).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(1).dificuldade}</div>
                             </div>
                         </div>
                     </div>
@@ -96,36 +64,65 @@
                 <div class="col-md-12" style="margin-top: 3%">
                     <div class="row featurette" style="float: left; width: 50%">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/sorvete.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(2).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
                         </div>
                         <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">Sorvete</h2>
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(2).nome}</h3>
                             <div class="col-md-12" style="float: left">                
-                                <div style="float: left; width: 100%;">Rendimento: 20 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 4 horas</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Sobremesa</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
+                                <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(2).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(2).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(2).dificuldade}</div>
                             </div>
                         </div>
                     </div>
                     <div class="row featurette" style="float: left; width: 50%">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
-                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="img/suco.jpg" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(3).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
                         </div>
                         <div class="col-md-8">                    
-                            <h2 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">Suco</h2>
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(3).nome}</h3>
                             <div class="col-md-12" style="float: left">                
-                                <div style="float: left; width: 100%;">Rendimento: 15 porções</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: 10 Minutos</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: Bebidas</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: Media</div>
-                                <div style="float: left; width: 100%; margin-top: 5px;"><a class="btn btn-default" href="" role="button">Ler mais »</a></div>
+                                <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(3).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(3).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(3).dificuldade}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin-top: 3%">
+                    <div class="row featurette" style="float: left; width: 50%">
+                        <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(4).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                        </div>
+                        <div class="col-md-8">                    
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(4).nome}</h3>
+                            <div class="col-md-12" style="float: left">                
+                                <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(4).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(4).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(4).dificuldade}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row featurette" style="float: left; width: 50%">
+                        <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
+                            <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(5).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
+                        </div>
+                        <div class="col-md-8">                    
+                            <h3 class="featurette-heading" style="margin-top: 0px; float: left; margin-left: 12px;">${receitas.get(5).nome}</h3>
+                            <div class="col-md-12" style="float: left">                
+                                <div style="float: left; width: 100%;">Rendimento: 8 porções</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Tempo de preparo: ${receitas.get(5).tempoPreparo} Minutos</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Categoria: ${receitas.get(5).categoria}</div>
+                                <div style="float: left; width: 100%; margin-top: 5px;">Dificuldade: ${receitas.get(5).dificuldade}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <span style="padding: 50px"></span>
     </body>
 </html>
