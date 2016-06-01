@@ -214,5 +214,13 @@ public class Receita implements Serializable {
     public void setSomaQualificacao(double somaQualificacao) {
         this.somaQualificacao = somaQualificacao;
     }
+    
+    public double mediaQualificacao(){
+        if(quantidadeTotalDeClassificacao == 0) {
+            return 0;
+        }else{
+            return somaQualificacao/quantidadeTotalDeClassificacao;
+        }
+    }
 
 }

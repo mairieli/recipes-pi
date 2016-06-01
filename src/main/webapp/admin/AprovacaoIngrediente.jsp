@@ -28,6 +28,13 @@
             </c:if>
         </div>
         <h1 class="text-center">Aprovação de Ingredientes</h1>
+
+        <c:if test="${daoIP.buscaIngredientesPendentes().size() == 0}">
+            <h3 class="text-center">
+                Nada para aprovar no momento
+            </h3>
+        </c:if>
+        
         <c:forEach items="${daoIP.buscaIngredientesPendentes()}" var="i">
             <form class="container" action="AprovacaoIngredienteServlet" method="post">
                 <div class="col-md-12 col-md-offset-2">

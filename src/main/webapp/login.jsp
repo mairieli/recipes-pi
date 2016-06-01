@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 
 <html>
+    <c:if test="${usuarioLogado != null}">
+        <c:redirect url="index.jsp"/>
+    </c:if>
     <head>
         <c:import url="head.jsp"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
