@@ -105,7 +105,7 @@ public class FiltroSessaoUsuario implements Filter {
         Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
         String url = req.getRequestURI();
         
-        if(usuarioLogado == null && !url.endsWith("login.jsp")&& !url.endsWith("CadastroDeUsuariosServlet")&& !url.endsWith("login")&& !url.endsWith("CadastroUsuario.jsp")&& !url.endsWith(".css")&& !url.endsWith(".js")&& !url.endsWith(".ico")&& !url.endsWith(".png")){
+        if(usuarioLogado == null && !url.endsWith("login.jsp")&& !url.endsWith("CadastroDeUsuariosServlet")&& !url.endsWith("login")&& !url.endsWith("CadastroUsuario.jsp")&& !url.endsWith(".css")&& !url.endsWith(".js")&& !url.endsWith(".ico")&& !url.endsWith(".png")&& !url.endsWith(".ttf")&& !url.endsWith(".woff")&& !url.endsWith(".woff2")){
             res.sendRedirect("login.jsp");
             return;
         }
