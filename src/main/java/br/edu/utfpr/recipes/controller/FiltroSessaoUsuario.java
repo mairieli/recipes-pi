@@ -15,35 +15,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class FiltroSessaoUsuario implements Filter {
-    
+
     private static final boolean DEBUG = true;
     private FilterConfig filterConfig = null;
-    
+
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res =  (HttpServletResponse) response;
+        HttpServletResponse res = (HttpServletResponse) response;
         Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
         String uri = req.getRequestURI();
-        
-        if(usuarioLogado == null && !uri.endsWith("login.jsp")&& !uri.endsWith("CadastroDeUsuariosServlet")&& !uri.endsWith("login")&& !uri.endsWith("CadastroUsuario.jsp")&& !uri.endsWith(".css")&& !uri.endsWith(".js")&& !uri.endsWith(".ico")&& !uri.endsWith(".png")&& !uri.endsWith(".ttf")&& !uri.endsWith(".woff")&& !uri.endsWith(".woff2")){
+
+        if (usuarioLogado == null
+                && !uri.endsWith("VisualizacaoReceitas")
+                && !uri.endsWith("login.jsp")
+                && !uri.endsWith("CadastroDeUsuariosServlet")
+                && !uri.endsWith("login")
+                && !uri.endsWith("CadastroUsuario.jsp")
+                && !uri.endsWith(".css")
+                && !uri.endsWith(".js")
+                && !uri.endsWith(".ico")
+                && !uri.endsWith(".png")
+                && !uri.endsWith(".ttf")
+                && !uri.endsWith(".woff")
+                && !uri.endsWith(".woff2")) {
             res.sendRedirect("login.jsp");
             return;
         }
-        
+
         if (DEBUG) {
             log("FiltroSessaoUsuario:doFilter()");
         }
-        
-        
+
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
         } catch (IOException | ServletException exception) {
             problem = exception;
         }
-        
+
         if (problem != null) {
             if (problem instanceof ServletException) {
                 throw (ServletException) problem;
@@ -63,14 +74,14 @@ public class FiltroSessaoUsuario implements Filter {
         this.filterConfig = filterConfig;
     }
 
-    public void destroy() {        
+    public void destroy() {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (DEBUG) {                
+            if (DEBUG) {
                 log("FiltroSessaoUsuario:Initializing filter");
             }
         }
@@ -86,14 +97,14 @@ public class FiltroSessaoUsuario implements Filter {
         stringBuilder.append(")");
         return (stringBuilder.toString());
     }
-    
+
     private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
+        String stackTrace = getStackTrace(t);
+
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
-                try (PrintStream printStream = new PrintStream(response.getOutputStream()); 
+                try (PrintStream printStream = new PrintStream(response.getOutputStream());
                         PrintWriter printWriter = new PrintWriter(printStream)) {
                     printWriter.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
                     printWriter.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
@@ -109,11 +120,11 @@ public class FiltroSessaoUsuario implements Filter {
                     t.printStackTrace(printStream);
                 }
                 response.getOutputStream().close();
-            } catch (Exception ex) {
+            } catch (Exception exception) {
             }
         }
     }
-    
+
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
@@ -127,9 +138,9 @@ public class FiltroSessaoUsuario implements Filter {
         }
         return stackTrace;
     }
-    
-    public void log(String msg) {
-        filterConfig.getServletContext().log(msg);        
+
+    public void log(String message) {
+        filterConfig.getServletContext().log(message);
     }
-    
+
 }
