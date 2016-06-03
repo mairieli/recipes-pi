@@ -25,67 +25,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FiltroAdmin implements Filter {
 
-    private static final boolean debug = true;
+    private static final boolean DEBUG = true;
 
-    // The filter configuration object we are associated with.  If
-    // this value is null, this filter instance is not currently
-    // configured. 
     private FilterConfig filterConfig = null;
-
-    public FiltroAdmin() {
-    }
 
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
-        if (debug) {
+        if (DEBUG) {
             log("FiltroAdmin:DoBeforeProcessing");
         }
-
-        // Write code here to process the request and/or response before
-        // the rest of the filter chain is invoked.
-        // For example, a logging filter might log items on the request object,
-        // such as the parameters.
-        /*
-	for (Enumeration en = request.getParameterNames(); en.hasMoreElements(); ) {
-	    String name = (String)en.nextElement();
-	    String values[] = request.getParameterValues(name);
-	    int n = values.length;
-	    StringBuffer buf = new StringBuffer();
-	    buf.append(name);
-	    buf.append("=");
-	    for(int i=0; i < n; i++) {
-	        buf.append(values[i]);
-	        if (i < n-1)
-	            buf.append(",");
-	    }
-	    log(buf.toString());
-	}
-         */
-    }
-
-    private void doAfterProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
-        if (debug) {
-            log("FiltroAdmin:DoAfterProcessing");
-        }
-
-        // Write code here to process the request and/or response after
-        // the rest of the filter chain is invoked.
-        // For example, a logging filter might log the attributes on the
-        // request object after the request has been processed. 
-        /*
-	for (Enumeration en = request.getAttributeNames(); en.hasMoreElements(); ) {
-	    String name = (String)en.nextElement();
-	    Object value = request.getAttribute(name);
-	    log("attribute: " + name + "=" + value.toString());
-
-	}
-         */
-        // For example, a filter might append something to the response.
-        /*
-	PrintWriter respOut = new PrintWriter(response.getWriter());
-	respOut.println("<P><B>This has been appended by an intrusive filter.</B>");
-         */
     }
 
     /**
@@ -101,23 +49,21 @@ public class FiltroAdmin implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-         HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res =  (HttpServletResponse) response;
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
         Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
-        if(usuarioLogado == null){
+        if (usuarioLogado == null) {
             res.sendRedirect("../login.jsp");
-            return; 
-        }
-        else if(usuarioLogado.getAdmin()==null){
+            return;
+        } else if (usuarioLogado.getAdmin() == null) {
             req.getSession(true).setAttribute("message_error", "Desculpe, mas a página que voce tentou acessar é de uso exclusivo de administradores.");
             res.sendRedirect("../index.jsp");
-        }
-        else if (!usuarioLogado.getAdmin()) {
+        } else if (!usuarioLogado.getAdmin()) {
             req.getSession(true).setAttribute("message_error", "Desculpe, mas a página que voce tentou acessar é de uso exclusivo de administradores.");
             res.sendRedirect("../index.jsp");
         }
 
-        if (debug) {
+        if (DEBUG) {
             log("FiltroAdmin:doFilter()");
         }
 
@@ -126,14 +72,9 @@ public class FiltroAdmin implements Filter {
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
-        } catch (IOException | ServletException t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
-            problem = t;
+        } catch (IOException | ServletException exception) {
+            problem = exception;
         }
-
-        doAfterProcessing(request, response);
 
         // If there was a problem, we want to rethrow it if it is
         // a known type, otherwise log it.
@@ -182,7 +123,7 @@ public class FiltroAdmin implements Filter {
     public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {
+            if (DEBUG) {
                 log("FiltroAdmin:Initializing filter");
             }
         }
@@ -198,14 +139,14 @@ public class FiltroAdmin implements Filter {
         if (filterConfig == null) {
             return ("FiltroAdmin()");
         }
-        StringBuilder sb = new StringBuilder("FiltroAdmin(");
-        sb.append(filterConfig);
-        sb.append(")");
-        return (sb.toString());
+        StringBuilder stringBuilder = new StringBuilder("FiltroAdmin(");
+        stringBuilder.append(filterConfig);
+        stringBuilder.append(")");
+        return (stringBuilder.toString());
     }
 
-    private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);
+    private void sendProcessingError(Throwable throwable, ServletResponse response) {
+        String stackTrace = getStackTrace(throwable);
 
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
@@ -213,8 +154,6 @@ public class FiltroAdmin implements Filter {
                 try (PrintStream ps = new PrintStream(response.getOutputStream());
                         PrintWriter pw = new PrintWriter(ps)) {
                     pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
-
-                    // PENDING! Localize this for next official release
                     pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
                     pw.print(stackTrace);
                     pw.print("</pre></body>\n</html>"); //NOI18N
@@ -224,8 +163,8 @@ public class FiltroAdmin implements Filter {
             }
         } else {
             try {
-                try (PrintStream ps = new PrintStream(response.getOutputStream())) {
-                    t.printStackTrace(ps);
+                try (PrintStream printStream = new PrintStream(response.getOutputStream())) {
+                    throwable.printStackTrace(printStream);
                 }
                 response.getOutputStream().close();
             } catch (Exception ex) {
@@ -236,12 +175,12 @@ public class FiltroAdmin implements Filter {
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            t.printStackTrace(pw);
-            pw.close();
-            sw.close();
-            stackTrace = sw.getBuffer().toString();
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            t.printStackTrace(printWriter);
+            printWriter.close();
+            stringWriter.close();
+            stackTrace = stringWriter.getBuffer().toString();
         } catch (Exception ex) {
         }
         return stackTrace;

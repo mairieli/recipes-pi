@@ -25,68 +25,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class FiltroSessaoUsuario implements Filter {
     
-    private static final boolean debug = true;
+    private static final boolean DEBUG = true;
 
     // The filter configuration object we are associated with.  If
     // this value is null, this filter instance is not currently
     // configured. 
     private FilterConfig filterConfig = null;
     
-    public FiltroSessaoUsuario() {
-    }    
-    
-    private void doBeforeProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
-        if (debug) {
-            log("FiltroSessaoUsuario:DoBeforeProcessing");
-        }
+        
 
-        // Write code here to process the request and/or response before
-        // the rest of the filter chain is invoked.
-        // For example, a logging filter might log items on the request object,
-        // such as the parameters.
-        /*
-	for (Enumeration en = request.getParameterNames(); en.hasMoreElements(); ) {
-	    String name = (String)en.nextElement();
-	    String values[] = request.getParameterValues(name);
-	    int n = values.length;
-	    StringBuffer buf = new StringBuffer();
-	    buf.append(name);
-	    buf.append("=");
-	    for(int i=0; i < n; i++) {
-	        buf.append(values[i]);
-	        if (i < n-1)
-	            buf.append(",");
-	    }
-	    log(buf.toString());
-	}
-         */
-    }    
-    
-    private void doAfterProcessing(ServletRequest request, ServletResponse response)
-            throws IOException, ServletException {
-        if (debug) {
-            log("FiltroSessaoUsuario:DoAfterProcessing");
-        }
-
-        // Write code here to process the request and/or response after
-        // the rest of the filter chain is invoked.
-        // For example, a logging filter might log the attributes on the
-        // request object after the request has been processed. 
-        /*
-	for (Enumeration en = request.getAttributeNames(); en.hasMoreElements(); ) {
-	    String name = (String)en.nextElement();
-	    Object value = request.getAttribute(name);
-	    log("attribute: " + name + "=" + value.toString());
-
-	}
-         */
-        // For example, a filter might append something to the response.
-        /*
-	PrintWriter respOut = new PrintWriter(response.getWriter());
-	respOut.println("<P><B>This has been appended by an intrusive filter.</B>");
-         */
-    }
 
     /**
      *
@@ -103,31 +50,25 @@ public class FiltroSessaoUsuario implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res =  (HttpServletResponse) response;
         Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
-        String url = req.getRequestURI();
+        String uri = req.getRequestURI();
         
-        if(usuarioLogado == null && !url.endsWith("login.jsp")&& !url.endsWith("CadastroDeUsuariosServlet")&& !url.endsWith("login")&& !url.endsWith("CadastroUsuario.jsp")&& !url.endsWith(".css")&& !url.endsWith(".js")&& !url.endsWith(".ico")&& !url.endsWith(".png")&& !url.endsWith(".ttf")&& !url.endsWith(".woff")&& !url.endsWith(".woff2")){
+        if(usuarioLogado == null && !uri.endsWith("login.jsp")&& !uri.endsWith("CadastroDeUsuariosServlet")&& !uri.endsWith("login")&& !uri.endsWith("CadastroUsuario.jsp")&& !uri.endsWith(".css")&& !uri.endsWith(".js")&& !uri.endsWith(".ico")&& !uri.endsWith(".png")&& !uri.endsWith(".ttf")&& !uri.endsWith(".woff")&& !uri.endsWith(".woff2")){
             res.sendRedirect("login.jsp");
             return;
         }
         
-        if (debug) {
+        if (DEBUG) {
             log("FiltroSessaoUsuario:doFilter()");
         }
         
-        doBeforeProcessing(request, response);
         
         Throwable problem = null;
         try {
             chain.doFilter(request, response);
-        } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
-            problem = t;
-            t.printStackTrace();
+        } catch (IOException | ServletException exception) {
+            problem = exception;
         }
         
-        doAfterProcessing(request, response);
 
         // If there was a problem, we want to rethrow it if it is
         // a known type, otherwise log it.
@@ -144,6 +85,7 @@ public class FiltroSessaoUsuario implements Filter {
 
     /**
      * Return the filter configuration object for this filter.
+     * @return 
      */
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);
@@ -166,11 +108,13 @@ public class FiltroSessaoUsuario implements Filter {
 
     /**
      * Init method for this filter
+     * @param filterConfig
      */
+    @Override
     public void init(FilterConfig filterConfig) {        
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {                
+            if (DEBUG) {                
                 log("FiltroSessaoUsuario:Initializing filter");
             }
         }
@@ -178,16 +122,17 @@ public class FiltroSessaoUsuario implements Filter {
 
     /**
      * Return a String representation of this object.
+     * @return 
      */
     @Override
     public String toString() {
         if (filterConfig == null) {
             return ("FiltroSessaoUsuario()");
         }
-        StringBuffer sb = new StringBuffer("FiltroSessaoUsuario(");
-        sb.append(filterConfig);
-        sb.append(")");
-        return (sb.toString());
+        StringBuilder stringBuilder = new StringBuilder("FiltroSessaoUsuario(");
+        stringBuilder.append(filterConfig);
+        stringBuilder.append(")");
+        return (stringBuilder.toString());
     }
     
     private void sendProcessingError(Throwable t, ServletResponse response) {
@@ -196,24 +141,21 @@ public class FiltroSessaoUsuario implements Filter {
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
-                pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
-
-                // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
-                pw.print("</pre></body>\n</html>"); //NOI18N
-                pw.close();
-                ps.close();
+                try (PrintStream printStream = new PrintStream(response.getOutputStream()); 
+                        PrintWriter printWriter = new PrintWriter(printStream)) {
+                    printWriter.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
+                    printWriter.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                    printWriter.print(stackTrace);
+                    printWriter.print("</pre></body>\n</html>"); //NOI18N
+                }
                 response.getOutputStream().close();
-            } catch (Exception ex) {
+            } catch (Exception exception) {
             }
         } else {
             try {
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                t.printStackTrace(ps);
-                ps.close();
+                try (PrintStream printStream = new PrintStream(response.getOutputStream())) {
+                    t.printStackTrace(printStream);
+                }
                 response.getOutputStream().close();
             } catch (Exception ex) {
             }
@@ -223,13 +165,13 @@ public class FiltroSessaoUsuario implements Filter {
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            t.printStackTrace(pw);
-            pw.close();
-            sw.close();
-            stackTrace = sw.getBuffer().toString();
-        } catch (Exception ex) {
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            t.printStackTrace(printWriter);
+            printWriter.close();
+            stringWriter.close();
+            stackTrace = stringWriter.getBuffer().toString();
+        } catch (Exception exception) {
         }
         return stackTrace;
     }
