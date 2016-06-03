@@ -8,10 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-/**
- *
- * @author mairieliw
- */
 @Entity
 public class TagReceita implements Serializable {
 

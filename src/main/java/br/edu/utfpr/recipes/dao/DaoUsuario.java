@@ -3,10 +3,6 @@ package br.edu.utfpr.recipes.dao;
 import br.edu.utfpr.recipes.entidade.Usuario;
 import org.hibernate.Query;
 
-/**
- *
- * @author mairieliw
- */
 public class DaoUsuario extends DaoGenerics<Usuario> {
 
     public DaoUsuario() {
@@ -20,4 +16,5 @@ public class DaoUsuario extends DaoGenerics<Usuario> {
         Usuario usuario = (Usuario) query.setParameter("email", email).uniqueResult();
         return usuario;
     }
+    
 }

@@ -1,10 +1,5 @@
-<%-- 
-    Document   : head
-    Created on : 28/04/2016, 01:49:30
-    Author     : josimar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">

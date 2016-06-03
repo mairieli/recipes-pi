@@ -1,13 +1,8 @@
-<%-- 
-    Document   : AprovacaoIngrediente
-    Created on : 17/05/2016, 19:58:42
-    Author     : xaaaandao
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="daoIP" class="br.edu.utfpr.recipes.dao.DaoIngrediente" scope="request" />
 <!DOCTYPE html>
+
 <html>
     <head>
         <link rel="shortcut icon" href="../img/recipe_search.ico">
@@ -33,13 +28,11 @@
             </c:if>
         </div>
         <h1 class="text-center">Aprovação de Ingredientes</h1>
-
         <c:if test="${daoIP.buscaIngredientesPendentes().size() == 0}">
             <h3 class="text-center">
                 Nada para aprovar no momento
             </h3>
         </c:if>
-
         <c:forEach items="${daoIP.buscaIngredientesPendentes()}" var="i">
             <form class="container" action="AprovacaoIngredienteServlet" method="post">
                 <div class="col-md-12 col-md-offset-2">

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.controller;
 
 import br.edu.utfpr.recipes.dao.DaoIngrediente;
@@ -19,10 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Leonardo
- */
 public class AprovacaoIngredienteServlet extends HttpServlet {
 
     @Override

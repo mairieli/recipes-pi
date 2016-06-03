@@ -4,10 +4,6 @@ import br.edu.utfpr.recipes.entidade.Receita;
 import br.edu.utfpr.recipes.entidade.TagReceita;
 import java.util.List;
 
-/**
- *
- * @author mairieliw
- */
 public class DaoTagReceita extends DaoGenerics<TagReceita> {
 
     public DaoTagReceita() {

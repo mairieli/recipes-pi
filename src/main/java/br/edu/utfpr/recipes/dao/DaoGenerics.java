@@ -1,9 +1,5 @@
 package br.edu.utfpr.recipes.dao;
 
-/**
- *
- * @author Josimar
- */
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -18,7 +14,6 @@ public class DaoGenerics<T> {
     }
 
     protected Session getsession() {
-        // session = HibernateConfiguration.getSessionFactory().getCurrentSession();
         if (session == null) {
             session = HibernateConfiguration.getSessionFactory().openSession();
             return session;
@@ -55,7 +50,6 @@ public class DaoGenerics<T> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where id =:id ");
             objeto = (T) query.setParameter("id", id).uniqueResult();
-           // session.flush();
         }
         return objeto;
     }
@@ -67,7 +61,6 @@ public class DaoGenerics<T> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where id =:id ");
             objeto = (T) query.setParameter("id", id).uniqueResult();
-            //session.flush();
         }
         return objeto;
     }
@@ -78,7 +71,6 @@ public class DaoGenerics<T> {
             session = HibernateConfiguration.getSessionFactory().openSession();
             Query query = session.createQuery(filtro);
             lista = query.list();
-            //session.flush();
         }
         return lista;
     }
@@ -87,14 +79,7 @@ public class DaoGenerics<T> {
         session = HibernateConfiguration.getSessionFactory().openSession();
         Query query = session.createQuery("From " + clazz.getSimpleName());
         List<T> lista = query.list();
-        //session.flush();
         return lista;
     }
-//    public List<T> getPorUsuario(Usuario usuario ) {
-//        session = HibernateConfiguration.getSessionFactory().openSession();
-//        Query query = session.createQuery(" select o From " + clazz.getSimpleName()+" o where o.usuario.id = "+usuario.getId());
-//        List<T> lista = query.list();
-//        session.flush();
-//        return lista;
-//    }
+
 }

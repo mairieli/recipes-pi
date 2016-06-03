@@ -12,10 +12,6 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Leonardo
- */
 @Entity
 public class Ingrediente implements Serializable {
 
@@ -73,7 +69,6 @@ public class Ingrediente implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Ingrediente)) {
             return false;
         }

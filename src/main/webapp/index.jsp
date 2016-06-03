@@ -1,13 +1,8 @@
-<%-- 
-    Document   : index
-    Created on : 28/04/2016, 01:48:42
-    Author     : josimar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="melhoresReceitas" class="br.edu.utfpr.recipes.controller.MelhoresReceitasController" scope="request" />
 <c:set var="receitas" value="${melhoresReceitas.escolheReceitasParaExibir()}"/>
+
 <!DOCTYPE html>
 <html>
     <head>

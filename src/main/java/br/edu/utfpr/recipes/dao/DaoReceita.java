@@ -4,10 +4,6 @@ import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.List;
 import org.hibernate.Query;
 
-/**
- *
- * @author mairieliw
- */
 public class DaoReceita extends DaoGenerics<Receita> {
 
     public DaoReceita() {

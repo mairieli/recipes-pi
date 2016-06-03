@@ -10,10 +10,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-/**
- *
- * @author josimar
- */
 public class HibernateConfiguration {
 
     //usuario banco
@@ -24,7 +20,6 @@ public class HibernateConfiguration {
     public static final String dataBase = "mydb";
 
     // build  valida somente uma vez
-    // Session uma sessão para cada transação ou um conjunto de transações
     private static Configuration cfg = null;
     private static SessionFactory factory = null;
 
@@ -69,6 +64,6 @@ public class HibernateConfiguration {
         cfg.addAnnotatedClass(Tag.class);
         cfg.addAnnotatedClass(TagReceita.class);
         cfg.addAnnotatedClass(Usuario.class);
-
     }
+    
 }

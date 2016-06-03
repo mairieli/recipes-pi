@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CadastroReceitas
-    Created on : 09/04/2016, 16:44:06
-    Author     : xaaaandao
---%>
-
 <%@page contentType="text/html"  pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -177,9 +171,9 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fecharModal()">Não</button>
                             <button type="submit" class="btn btn-primary" onclick="fecharModal()">Sim</button>
                         </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+                    </div>
+                </div>
+            </div>
         </form>
         <c:if test="${addimg eq 'ok'}">
             <c:remove var="addimg"/>
@@ -216,17 +210,15 @@
                                 <a href="index.jsp" class="btn btn-default" ><span class="glyphicon glyphicon-remove" aria-hidden="true"> </span> Fechar</a>
                                 <button type="submit" class="btn btn-primary" ><span class="glyphicon glyphicon-ok" aria-hidden="true"> </span> Salvar Imagen</button>
                             </div>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
+                        </div>
+                    </div>
                 </form>
-            </div><!-- /.modal -->
+            </div>
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#modalconfirmimg').modal('show');
                 });
             </script>
         </c:if>
-
-
     </div>
 </body>

@@ -5,10 +5,6 @@ import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *
- * @author xaaaandao
- */
 public class MelhoresReceitasController {
 
     public List<Receita> escolheReceitasParaExibir() {

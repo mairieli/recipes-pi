@@ -1,9 +1,3 @@
-<%-- 
-Document   : VisualizacaoReceita
-Created on : 26/04/2016, 20:05:59
-Author     : xaaaandao
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,6 +6,7 @@ Author     : xaaaandao
 <jsp:useBean id="daoItemR" class="br.edu.utfpr.recipes.dao.DaoItemReceita" scope="request" />
 <c:set var="tempo" value="${0}"/>
 <c:set var="r" value="${daor.findById(param.receita_id)}" scope="request"/>
+
 <!DOCTYPE html>
 <html>
     <head>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.controller;
 
 import br.edu.utfpr.recipes.entidade.Usuario;
@@ -19,10 +14,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author josimar
- */
 public class FiltroAdmin implements Filter {
 
     private static final boolean DEBUG = true;
@@ -36,15 +27,6 @@ public class FiltroAdmin implements Filter {
         }
     }
 
-    /**
-     *
-     * @param request The servlet request we are processing
-     * @param response The servlet response we are creating
-     * @param chain The filter chain we are processing
-     *
-     * @exception IOException if an input/output error occurs
-     * @exception ServletException if a servlet error occurs
-     */
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
@@ -76,8 +58,6 @@ public class FiltroAdmin implements Filter {
             problem = exception;
         }
 
-        // If there was a problem, we want to rethrow it if it is
-        // a known type, otherwise log it.
         if (problem != null) {
             if (problem instanceof ServletException) {
                 throw (ServletException) problem;
@@ -89,36 +69,18 @@ public class FiltroAdmin implements Filter {
         }
     }
 
-    /**
-     * Return the filter configuration object for this filter.
-     *
-     * @return
-     */
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);
     }
 
-    /**
-     * Set the filter configuration object for this filter.
-     *
-     * @param filterConfig The filter configuration object
-     */
     public void setFilterConfig(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
     }
 
-    /**
-     * Destroy method for this filter
-     */
     @Override
     public void destroy() {
     }
 
-    /**
-     * Init method for this filter
-     *
-     * @param filterConfig
-     */
     @Override
     public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
@@ -129,11 +91,6 @@ public class FiltroAdmin implements Filter {
         }
     }
 
-    /**
-     * Return a String representation of this object.
-     *
-     * @return
-     */
     @Override
     public String toString() {
         if (filterConfig == null) {

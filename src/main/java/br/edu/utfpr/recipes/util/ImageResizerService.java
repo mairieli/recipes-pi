@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.utfpr.recipes.util;
 
 import java.awt.AlphaComposite;
@@ -15,10 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 
-/**
- *
- * @author josimar
- */
 public class ImageResizerService {
 
     private File arquivo;
@@ -123,4 +115,5 @@ public class ImageResizerService {
             out.close();
         }
     }
+    
 }

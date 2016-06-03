@@ -15,10 +15,6 @@ import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-/**
- *
- * @author josimar
- */
 public class ImageUpload extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -28,20 +24,16 @@ public class ImageUpload extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
         String UPLOAD_DIRECTORY = this.getServletContext().getRealPath("") + "/upload/";
-        // process only if its multipart content
         if (isMultipart) {
-            // Create a factory for disk-based file items
             FileItemFactory factory = new DiskFileItemFactory();
             File dirUpload = new File(UPLOAD_DIRECTORY);
             if (!dirUpload.isDirectory()) {
                 dirUpload.mkdir();
             }
-            // Create a new file upload handler
             ServletFileUpload upload = new ServletFileUpload(factory);
             File imagem = null;
             int receita_id = 0;
             try {
-                // Parse the request
                 List<FileItem> multiparts = upload.parseRequest(request);
 
                 for (FileItem item : multiparts) {
@@ -71,18 +63,13 @@ public class ImageUpload extends HttpServlet {
                         dr.save(r);
                         request.getSession().setAttribute("message", "Imagem Salva com Sucesso!");
                         response.sendRedirect("index.jsp");
-                        //ImgUtil imgUtil = new ImgUtil();
-                       // imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
                     } else {
                         Receita r = new Receita();
                         ImageResizerService irs = new ImageResizerService(imagem);
                         //se a largura da imagem for maior que 900 pixels, redimenciona pra 900...
                         r.setImagem(irs.getNormal(900));
-                        // dr.save(r);
                         request.getSession().setAttribute("message", "Imagen Salva com Sucesso!");
                         response.sendRedirect("upload_image_recipe.jsp");
-                        //ImgUtil imgUtil = new ImgUtil();
-                        // imgUtil.exibeImagemByte(response.getOutputStream(), r.getImagem());
                     }
                 }
             } catch (Exception e) {

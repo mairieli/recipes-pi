@@ -1,11 +1,6 @@
-<%-- 
-    Document   : uploade_image_recipe
-    Created on : 14/04/2016, 22:07:51
-    Author     : josimar
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>

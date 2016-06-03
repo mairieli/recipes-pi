@@ -1,13 +1,7 @@
-<%-- 
-    Document   : CadastroUsuario
-    Created on : 12/05/2016, 21:50:39
-    Author     : Leonardo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
     <c:if test="${usuarioLogado != null}">
         <c:redirect url="index.jsp"/>
@@ -50,5 +44,4 @@
             </div>
         </div>
     </body>
-</div>
 </html>

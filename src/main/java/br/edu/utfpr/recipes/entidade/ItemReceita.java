@@ -10,10 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author mairieliw
- */
 @Entity
 @Table(name = "itemReceita")
 public class ItemReceita implements Serializable {
@@ -45,7 +41,6 @@ public class ItemReceita implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof ItemReceita)) {
             return false;
         }
