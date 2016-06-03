@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.utfpr.recipes.servlets;
+package br.edu.utfpr.recipes.controller;
 
 import br.edu.utfpr.recipes.dao.DaoReceita;
 import br.edu.utfpr.recipes.entidade.Receita;

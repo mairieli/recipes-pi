@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="melhoresReceitas" class="br.edu.utfpr.recipes.servlets.MelhoresReceitasController" scope="request" />
+<jsp:useBean id="melhoresReceitas" class="br.edu.utfpr.recipes.controller.MelhoresReceitasController" scope="request" />
 <c:set var="receitas" value="${melhoresReceitas.escolheReceitasParaExibir()}"/>
 <!DOCTYPE html>
 <html>

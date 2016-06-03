@@ -1,4 +1,4 @@
-package br.edu.utfpr.recipes.servlets;
+package br.edu.utfpr.recipes.controller;
 
 import br.edu.utfpr.recipes.dao.DaoUsuario;
 import br.edu.utfpr.recipes.entidade.Usuario;

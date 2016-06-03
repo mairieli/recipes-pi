@@ -2,11 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
         <filter-name>FiltroSessaoUsuario</filter-name>
-        <filter-class>br.edu.utfpr.recipes.servlets.FiltroSessaoUsuario</filter-class>
+        <filter-class>br.edu.utfpr.recipes.controller.FiltroSessaoUsuario</filter-class>
     </filter>
     <filter>
         <filter-name>FiltroAdmin</filter-name>
-        <filter-class>br.edu.utfpr.recipes.servlets.FiltroAdmin</filter-class>
+        <filter-class>br.edu.utfpr.recipes.controller.FiltroAdmin</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>FiltroAdmin</filter-name>
@@ -20,39 +20,39 @@
     </filter-mapping>
     <servlet>
         <servlet-name>CadastroReceitasServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.CadastroReceitasServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.CadastroReceitasServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ImageUpload</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.ImageUpload</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.ImageUpload</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VisualizacaoReceitasServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.VisualizacaoReceitasServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.VisualizacaoReceitasServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BuscaReceitasServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.BuscaReceitasServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.BuscaReceitasServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExibeImagem</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.ExibeImagem</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.ExibeImagem</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BuscaIngredienteServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.BuscaIngredienteServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.BuscaIngredienteServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastroDeUsuariosServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.CadastroDeUsuariosServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.CadastroDeUsuariosServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginDeUsuariosServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.LoginDeUsuariosServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.LoginDeUsuariosServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AprovacaoIngredienteServlet</servlet-name>
-        <servlet-class>br.edu.utfpr.recipes.servlets.AprovacaoIngredienteServlet</servlet-class>
+        <servlet-class>br.edu.utfpr.recipes.controller.AprovacaoIngredienteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
