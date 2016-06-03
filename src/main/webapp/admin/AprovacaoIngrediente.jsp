@@ -14,6 +14,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <title>Aprovação de Receitas</title>
+        <style>
+            body {
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <c:import url="/menu.jsp?menu=aprovacao"/>
@@ -34,7 +39,7 @@
                 Nada para aprovar no momento
             </h3>
         </c:if>
-        
+
         <c:forEach items="${daoIP.buscaIngredientesPendentes()}" var="i">
             <form class="container" action="AprovacaoIngredienteServlet" method="post">
                 <div class="col-md-12 col-md-offset-2">
