@@ -1,5 +1,6 @@
 package br.edu.utfpr.recipes.dao;
 
+import br.edu.utfpr.recipes.entidade.ComentarioReceita;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
@@ -64,6 +65,7 @@ public class HibernateConfiguration {
         cfg.addAnnotatedClass(Tag.class);
         cfg.addAnnotatedClass(TagReceita.class);
         cfg.addAnnotatedClass(Usuario.class);
+        cfg.addAnnotatedClass(ComentarioReceita.class);
     }
     
 }
