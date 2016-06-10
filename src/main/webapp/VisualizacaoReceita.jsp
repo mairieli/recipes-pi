@@ -201,22 +201,22 @@
                     </label>
                 </div>
             </div>
-             <!-- Comentário -->
-             <div class="form-group" id="alert10" style="margin-top: 50px">
-                 <label class="control-label col-md-2" style="margin-top: 50px" for="comentario">
-                     <h3>Comentário:</h3>
-                 </label>
-                <div class="col-md-8">
-                    <textarea class="form-control" row="20" name="modo_preparo" style="margin-top: 50px;" id="comentario"></textarea>
-                </div>
-            </div> 
-             
-             <!-- Botão -->        
-            <div class="form-group">
-                <button type="button" onclick="adicionarComentario(this)" style="margin-top: 15px; margin-left: 750px;"class="btn btn-success col-lg-offset-9 btn-lg">Enviar comentário</button>
-            </div>                
-            
-                    
+            <!-- Comentário -->
+            <form id="form-comentario" role="form" action="ComentarioServlet" method="post">
+                <div class="form-group" id="alert10" style="margin-top: 50px">
+                    <label class="control-label col-md-2" style="margin-top: 50px" for="comentario">
+                        <h3>Comentário:</h3>
+                    </label>
+                    <div class="col-md-8">
+                        <textarea class="form-control" row="20" name="modo_preparo" style="margin-top: 50px;" id="comentario"></textarea>
+                    </div>
+                </div> 
+
+                <!-- Botão -->        
+                <div class="form-group">
+                    <button type="submit" style="margin-top: 15px; margin-left: 750px;"class="btn btn-success col-lg-offset-9 btn-lg">Enviar comentário</button>
+                </div>                            
+            </form>     
         </div>
     </body>
 </html>
