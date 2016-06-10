@@ -60,6 +60,11 @@
                         ${r.nome}
                     </h1>
                 </label>
+                <label class="control-label" for="excluir">
+                    <c:if test="${usuarioLogado.admin}" >
+                        <button type="button" class="btn btn-danger" style="margin-bottom: 15px">Excluir</button>
+                    </c:if>
+                </label>
             </div>
             <div class="col-md-10 col-md-offset-1">
                 <div class="caption">
