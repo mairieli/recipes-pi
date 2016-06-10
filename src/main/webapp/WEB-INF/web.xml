@@ -54,6 +54,10 @@
         <servlet-name>AprovacaoIngredienteServlet</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.controller.AprovacaoIngredienteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirReceitaServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.controller.ExcluirReceitaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -89,6 +93,10 @@
     <servlet-mapping>
         <servlet-name>AprovacaoIngredienteServlet</servlet-name>
         <url-pattern>/admin/AprovacaoIngredienteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirReceitaServlet</servlet-name>
+        <url-pattern>/admin/ExcluirReceitaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
