@@ -23,8 +23,8 @@
                     <c:if test="${usuarioLogado.admin}" >  <li  <c:if test="${param.menu eq 'aprovacao'}"> class="active" </c:if>><a href="<c:url value="/admin/AprovacaoIngrediente.jsp"/>"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span> Ingredientes Pendentes</a></li> </c:if>   
                     <li  <c:if test="${param.menu eq 'sugerir'}"> class="active" </c:if>><a data-toggle="modal" data-target="#modalSugerirIngrediente"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Sugerir Ingrediente</a></li>
                     </c:if>
-            </ul>
-            <c:if test="${usuarioLogado != null}">
+            </ul
+>            <c:if test="${usuarioLogado != null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <p class="navbar-text">
