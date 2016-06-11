@@ -96,7 +96,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirReceitaServlet</servlet-name>
-        <url-pattern>/admin/ExcluirReceitaServlet</url-pattern>
+        <url-pattern>/ExcluirReceitaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
