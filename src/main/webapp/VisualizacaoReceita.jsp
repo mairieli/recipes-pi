@@ -63,7 +63,10 @@
                 </label>
                 <label class="control-label" for="excluir">
                     <c:if test="${usuarioLogado.admin}" >
-                        <button type="button" class="btn btn-danger" style="margin-bottom: 15px">Excluir</button>
+                        <form method="post" action="ExcluirReceitaServlet">
+                            <input type="hidden" name="receita_id" value="${r.id}">
+                            <button type="submit" class="btn btn-danger" style="margin-bottom: 15px">Excluir</button>
+                        </form>
                     </c:if>
                 </label>
             </div>
