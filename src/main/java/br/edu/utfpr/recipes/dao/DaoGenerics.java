@@ -50,6 +50,7 @@ public class DaoGenerics<T> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where id =:id ");
             objeto = (T) query.setParameter("id", id).uniqueResult();
+            session.close();
         }
         return objeto;
     }
