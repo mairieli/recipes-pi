@@ -27,19 +27,7 @@ public class FiltroSessaoUsuario implements Filter {
         Usuario usuarioLogado = (Usuario) req.getSession().getAttribute("usuarioLogado");
         String uri = req.getRequestURI();
 
-        if (usuarioLogado == null
-                && !uri.endsWith("VisualizacaoReceitas")
-                && !uri.endsWith("login.jsp")
-                && !uri.endsWith("CadastroDeUsuariosServlet")
-                && !uri.endsWith("login")
-                && !uri.endsWith("CadastroUsuario.jsp")
-                && !uri.endsWith(".css")
-                && !uri.endsWith(".js")
-                && !uri.endsWith(".ico")
-                && !uri.endsWith(".png")
-                && !uri.endsWith(".ttf")
-                && !uri.endsWith(".woff")
-                && !uri.endsWith(".woff2")) {
+        if (usuarioLogado == null && paginasSemValidacao(uri)) {
             res.sendRedirect("login.jsp");
             return;
         }
@@ -64,6 +52,21 @@ public class FiltroSessaoUsuario implements Filter {
             }
             sendProcessingError(problem, response);
         }
+    }
+
+    public boolean paginasSemValidacao(String uri) {
+        return !uri.endsWith("VisualizacaoReceitas")
+                && !uri.endsWith("login.jsp")
+                && !uri.endsWith("CadastroDeUsuariosServlet")
+                && !uri.endsWith("login")
+                && !uri.endsWith("CadastroUsuario.jsp")
+                && !uri.endsWith(".css")
+                && !uri.endsWith(".js")
+                && !uri.endsWith(".ico")
+                && !uri.endsWith(".png")
+                && !uri.endsWith(".ttf")
+                && !uri.endsWith(".woff")
+                && !uri.endsWith(".woff2");
     }
 
     public FilterConfig getFilterConfig() {
