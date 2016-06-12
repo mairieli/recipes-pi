@@ -58,6 +58,10 @@
         <servlet-name>ExcluirReceitaServlet</servlet-name>
         <servlet-class>br.edu.utfpr.recipes.controller.ExcluirReceitaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IngredienteSugeridoServlet</servlet-name>
+        <servlet-class>br.edu.utfpr.recipes.controller.IngredienteSugeridoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastroReceitasServlet</servlet-name>
         <url-pattern>/CadastroReceitas</url-pattern>
@@ -97,6 +101,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirReceitaServlet</servlet-name>
         <url-pattern>/ExcluirReceitaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IngredienteSugeridoServlet</servlet-name>
+        <url-pattern>/ingredientesugerido</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
