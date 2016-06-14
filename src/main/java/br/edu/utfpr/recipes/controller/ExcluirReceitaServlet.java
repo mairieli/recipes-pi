@@ -21,7 +21,7 @@ public class ExcluirReceitaServlet extends HttpServlet {
             throws ServletException, IOException {
         Integer receita_id = Integer.parseInt(request.getParameter("receita_id"));
         DaoReceita dao_receita = new DaoReceita();
-        Receita receita = dao_receita.findById(receita_id);
+        Receita receita = dao_receita.obterParaExcluir(receita_id);
         dao_receita.delete(receita);
         request.getRequestDispatcher("ConsultarReceitas.jsp").forward(request, response);
     }
