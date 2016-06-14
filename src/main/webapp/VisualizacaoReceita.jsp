@@ -40,6 +40,9 @@
             });
         </script>
         <style type="text/css">
+            body {
+                overflow-x: hidden;
+            }
             #resultado{
                 color: #006600;
                 padding: 3px;
@@ -209,23 +212,71 @@
                     </label>
                 </div>
             </div>
-            <!-- Comentário -->
-            <form id="form-comentario" role="form" action="ComentarioServlet" method="post">
-                <div class="form-group" id="alert10" style="margin-top: 50px">
-                    <input type="hidden" name="receita_id" value="${r.id}">
-                    <label class="control-label col-md-2" style="margin-top: 50px" for="comentario">
-                        <h3>Comentário:</h3>
-                    </label>
-                    <div class="col-md-8">
-                        <textarea class="form-control" row="20" name="comentario" style="margin-top: 50px;" id="comentario"></textarea>
-                    </div>
-                </div> 
 
-                <!-- Botão -->        
-                <div class="form-group">
-                    <button type="submit" style="margin-top: 15px; margin-left: 750px;"class="btn btn-success col-lg-offset-9 btn-lg">Enviar comentário</button>
-                </div>                            
-            </form>     
+            <!-- Fazer Comentário -->
+            <div class="col-md-12 col-md-offset-1" style="margin-top: 20px">
+                <hr class="col-md-10">
+                <form id="form-comentario" role="form" action="ComentarioServlet" method="post">
+                    <input type="hidden" name="receita_id" value="${r.id}">
+                    <div class="form-group col-md-10">
+                        <textarea class="form-control" rows="4" name="comentario" id="comentario"></textarea>
+                    </div> 
+                    <div class="col-md-10">
+                        <button type="submit" class="btn btn-success">Enviar Comentário</button>
+                    </div>
+                </form>
+            </div>
+
+            <!--Comentario 1-->
+            <div class="col-md-12 col-md-offset-1">
+                <div class="col-md-10"> 
+                    <hr>
+                    <h4><label class="label label-primary">Fulaninho</label>
+                        <small>23:15:01 15-06-2016</small></h4>
+                </div>
+                <span class="text-justify col-md-10">
+                    A certificação de metodologias...
+                </span>
+            </div>
+
+            <!--Comentario 2-->
+            <div class="col-md-12 col-md-offset-1">
+                <div class="col-md-10"> 
+                    <hr>
+                    <h4><label class="label label-primary">Ciclaninho</label>
+                        <small>02:02:03 02-03-2016</small></h4>
+                </div>
+                <span class="text-justify col-md-10">
+                    Lição 1: “Se te oferecerem um lugar em um foguete, não pergunte
+                    onde o assento fica”. De acordo com a COO do Facebook, este conselho
+                    foi dado por Eric Schimidt, então CEO do Google, quando ela estava
+                    em dúvida se aceitava ou não a proposta de trabalhar na empresa.
+                </span>
+            </div>
+
+            <!--Comentario 3-->
+            <div class="col-md-12 col-md-offset-1">
+                <div class="col-md-10"> 
+                    <hr>
+                    <h4><label class="label label-primary">Beltraninho</label>
+                        <small>10:23:54 02-05-2016</small></h4>
+                </div>
+                <span class="text-justify col-md-10">
+                    "Flashear" um modem (do inglês "Flash") no seu Android é fácil,
+                    por meio de um software chamado Odin. Como com qualquer outro
+                    procedimento para modificar seu telefone, trata-se de um procedimento
+                    arriscado, ficando sob sua inteira responsabilidade. Assim,
+                    leia as instruções com cuidado.
+                    Baixe um modem que você quer flashear em seu telefone. Um "modem",
+                    neste caso, é um arquivo específico para seu telefone, definido
+                    por região. Procure por uma lista de modens para seu telefone e
+                    as companhias de sua região. Você pode buscar no Google por
+                    “[seu modelo de telefone] [sua companhia e sua região] e os termos
+                    "modem" e "download”.
+                    Sites como o XDA Developers ou fóruns conhecidos sobre Android são fontes recomendáveis.
+                </span>
+            </div>
+
         </div>
     </body>
 </html>
