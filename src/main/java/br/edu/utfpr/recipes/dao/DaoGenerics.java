@@ -50,11 +50,22 @@ public class DaoGenerics<T> {
             Query query = session.createQuery(
                     "From " + clazz.getSimpleName() + " where id =:id ");
             objeto = (T) query.setParameter("id", id).uniqueResult();
+        }
+        return objeto;
+    }
+    
+    public T obterParaExcluir(int id) {
+        T objeto = null;
+        if (id > 0) {
+            session = getsession();
+            Query query = session.createQuery(
+                    "From " + clazz.getSimpleName() + " where id =:id ");
+            objeto = (T) query.setParameter("id", id).uniqueResult();
             session.close();
         }
         return objeto;
     }
-
+    
     public T obterPorId(String id) {
         T objeto = null;
         if (id != null) {
