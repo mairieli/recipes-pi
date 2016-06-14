@@ -16,7 +16,7 @@ public class DaoComentario extends DaoGenerics<ComentarioReceita> {
         super.clazz = ComentarioReceita.class;
     }
     
-    public List<ComentarioReceita> buscaReceitaPorIngredientes(int idReceita) {
+    public List<ComentarioReceita> buscaComentarioDaReceita(int idReceita) {
         session = getsession();
         String sql = "SELECT * "
                 + "FROM ComentarioReceita c "
