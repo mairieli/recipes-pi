@@ -23,6 +23,7 @@ public class ExcluirReceitaServlet extends HttpServlet {
         DaoReceita dao_receita = new DaoReceita();
         Receita receita = dao_receita.obterParaExcluir(receita_id);
         dao_receita.delete(receita);
-        request.getRequestDispatcher("ConsultarReceitas.jsp").forward(request, response);
+        request.getSession().setAttribute("message", "Receita Excluida!");
+        response.sendRedirect("index.jsp");
     }
 }
