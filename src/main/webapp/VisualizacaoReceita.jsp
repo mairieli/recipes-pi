@@ -237,6 +237,12 @@
                 <span class="text-justify col-md-10">
                     A certificação de metodologias...
                 </span>
+                <div class="col-md-10" style="margin-top: 5px">
+                    <form method="post" action="">
+                        <input type="hidden" name="receita_id" value="${r.id}">
+                        <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                </div>
             </div>
 
             <!--Comentario 2-->
@@ -252,6 +258,12 @@
                     foi dado por Eric Schimidt, então CEO do Google, quando ela estava
                     em dúvida se aceitava ou não a proposta de trabalhar na empresa.
                 </span>
+                <div class="col-md-10" style="margin-top: 5px">
+                    <form method="post" action="">
+                        <input type="hidden" name="receita_id" value="${r.id}">
+                        <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                    </form>
+                </div>
             </div>
 
             <!--Comentario 3-->
