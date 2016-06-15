@@ -15,16 +15,11 @@ public class DaoComentario extends DaoGenerics<ComentarioReceita> {
     public DaoComentario() {
         super.clazz = ComentarioReceita.class;
     }
-    
-    public List<ComentarioReceita> buscaReceitaPorIngredientes(int idReceita) {
+
+    public List<ComentarioReceita> buscaComentarioDaReceita(int idReceita) {
         session = getsession();
-        String sql = "SELECT * "
-                + "FROM ComentarioReceita c "
-                + "WHERE c.receita_id = '" + idReceita + "'"
-                + "ORDER BY dataComentario desc "
-                + ") ";
-        Query query = session.createSQLQuery(sql).addEntity(ComentarioReceita.class);
+        Query query = session.createQuery("SELECT c FROM ComentarioReceita c WHERE c.receita.id =" + idReceita + " ORDER BY c.dataComentario DESC");
         return query.list();
     }
- 
+
 }
