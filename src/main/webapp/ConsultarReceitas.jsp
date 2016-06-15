@@ -11,7 +11,6 @@
         <script type="text/javascript" src="scripts/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tag-it.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
         <link href="css/jquery.tagit.css" rel="stylesheet">
         <link href="css/tagit.ui-zendesk.css" rel="stylesheet">
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
