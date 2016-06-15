@@ -51,7 +51,7 @@
         </style>
     </head>
     <body>
-        <c:import url="menu.jsp?menu=pesquisa"/>
+        <c:import url="menu.jsp?menu=visualiza"/>
         <div class="container">
             <!-- Foto -->
             <div class="col-md-12" align="center">

@@ -6,10 +6,6 @@ import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.List;
 import org.hibernate.Query;
 
-/**
- *
- * @author Leonardo
- */
 public class DaoComentario extends DaoGenerics<ComentarioReceita> {
 
     public DaoComentario() {

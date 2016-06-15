@@ -27,7 +27,7 @@ public class IngredienteSugeridoServlet extends HttpServlet {
      * @param response servlet response
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         //doGet
     }
 
@@ -45,16 +45,21 @@ public class IngredienteSugeridoServlet extends HttpServlet {
         Ingrediente ingrediente = new Ingrediente();
         ingrediente.setStatus(Boolean.FALSE);
         String ingredienteSugerido = request.getParameter("ingrediente").trim();
-        if("".equals(ingredienteSugerido)){
+        if ("".equals(ingredienteSugerido)) {
             request.getSession().setAttribute("message_error", "Erro: nome inválido!");
             response.sendRedirect("index.jsp");
-            
-        }else{
-            ingrediente.setNome(ingredienteSugerido);
+
+        } else {
             DaoIngrediente daoIn = new DaoIngrediente();
-            daoIn.save(ingrediente);
-            request.getSession().setAttribute("message", "Ingrediente "+ingredienteSugerido +" enviado para aprovação, obrigado pela sugestão!");
-            response.sendRedirect("index.jsp");
+            if (daoIn.buscarPorNome(ingredienteSugerido) == null) {
+                ingrediente.setNome(ingredienteSugerido);
+                daoIn.save(ingrediente);
+                request.getSession().setAttribute("message", "Ingrediente " + ingredienteSugerido + " enviado para aprovação, obrigado pela sugestão!");
+                response.sendRedirect("index.jsp");
+            } else {
+                request.getSession().setAttribute("message_error", "Desculpe, mas esse ingrediente ja se encontra cadastrado!");
+                response.sendRedirect("index.jsp");
+            }
         }
     }
 
