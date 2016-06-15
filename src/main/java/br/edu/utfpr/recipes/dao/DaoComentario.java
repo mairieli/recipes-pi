@@ -17,6 +17,7 @@ public class DaoComentario extends DaoGenerics<ComentarioReceita> {
         Query query = session.createQuery("SELECT c FROM ComentarioReceita c WHERE c.receita.id =" + idReceita + " ORDER BY c.dataComentario DESC");
         return query.list();
     }
+
     public List<ComentarioReceita> buscaComentarioPorUsuario(Usuario usuario) {
         session = getsession();
         Query query = session.createQuery("SELECT c FROM ComentarioReceita c WHERE c.usuario.id =:usuario_id  ORDER BY c.dataComentario DESC");
