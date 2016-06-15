@@ -11,7 +11,7 @@
         <script type="text/javascript" src="scripts/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
         <script type="text/javascript" src="scripts/tag-it.js"></script>
-        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="bootstrap/js/bootstrap.js"></script>
         <link href="css/jquery.tagit.css" rel="stylesheet">
         <link href="css/tagit.ui-zendesk.css" rel="stylesheet">
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +19,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#pesquisa').tagit({
+                    placeholderText: 'ingrediente',
                     autocomplete: {
                         source: function (request, response) {
                             $.ajax({
@@ -33,7 +34,8 @@
                                 }
                             });
                         },
-                        removeConfirmation: true
+                        removeConfirmation: true,
+                        placeholderText: "Ingredientes"
                     }});
             });
         </script>
@@ -55,19 +57,19 @@
             </c:if>
             <form class="form-horizontal" role="form" action="BuscaReceitasServlet" method="post">
                 <div class="form-group"  id="alert1" style="float: left; width: 100%">
-                    <h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;margin-left: 10px;">Pesquisa:</h2>
+                    <!--<h2 class="control-label col-md-2" for="titulo" style="float: left; margin-top:auto;text-align: -moz-center;margin-left: 10px;">Pesquisa:</h2>-->
                     <div>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 20px; margin-top: 24px; width: 67%;float: left" value="${filtro}"> 
+                        <div class="col-md-9" style="width:70%; margin-left:85px; margin-top:13px;">
+                            <input type="text" class="form-control" name="pesquisa" id="pesquisa" style="margin-left: 140px; margin-top: 24px; width: 67%;float: left" value="${filtro}"> 
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-default" style="float: left; margin-top: 3px; margin-left: 5px;">pesquisar</button>
+                            <button type="submit" class="btn btn-default" style="float: left; margin-top: -47px; margin-left: 891px;">pesquisar</button>
                         </div>
 
                         <!-- Adicionar TAG's -->
                         <div class="form-group">
                             <div style="width: 895px; margin: 0px auto;">
-                                <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" style="float: left; margin-top: 5px; margin-left: 10.5%;" onclick="mostrarFiltro('div_tag1', 'div_tag2', 'div_tag3');";>Filtro</button>
+                                <button type="button" class="btn btn-info col-lg-offset-2 btn-lg" style="float: left; margin-top:-54px; margin-left: 98%;" onclick="mostrarFiltro('div_tag1', 'div_tag2', 'div_tag3');";>Filtro</button>
                             </div>
                         </div>    
                         <div class="form-group col-md-8" id="div_tag1" style="display:none; margin: 0px auto; width: 919px; float: none;">
@@ -156,7 +158,7 @@
                     </div>
                 </div>
             </form>
-            <hr class="featurette-divider" style="width: 100%; float: left">
+            <hr class="featurette-divider" style="width: 100%; float: left; margin-top: -5px;">
             <c:forEach items="${receitas}" var="r">
                 <div class="row featurette" style="float: left; margin-left: 226px;">
                     <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
