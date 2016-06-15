@@ -1,5 +1,6 @@
 package br.edu.utfpr.recipes.dao;
 
+import br.edu.utfpr.recipes.entidade.Usuario;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -53,7 +54,7 @@ public class DaoGenerics<T> {
         }
         return objeto;
     }
-    
+
     public T obterParaExcluir(int id) {
         T objeto = null;
         if (id > 0) {
@@ -65,7 +66,7 @@ public class DaoGenerics<T> {
         }
         return objeto;
     }
-    
+
     public T obterPorId(String id) {
         T objeto = null;
         if (id != null) {
@@ -92,6 +93,13 @@ public class DaoGenerics<T> {
         Query query = session.createQuery("From " + clazz.getSimpleName());
         List<T> lista = query.list();
         return lista;
+    }
+
+    public List<T> obterPorIdUsuario(Usuario usuario) {
+        session = HibernateConfiguration.getSessionFactory().openSession();
+        Query query = session.createQuery(
+                "From " + clazz.getSimpleName() + " o where o.usuario.id = " + usuario.getId());
+        return query.list();
     }
 
 }

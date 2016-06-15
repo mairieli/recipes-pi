@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="daor" class="br.edu.utfpr.recipes.dao.DaoReceita" scope="request" />
 <jsp:useBean id="daoTagR" class="br.edu.utfpr.recipes.dao.DaoTagReceita" scope="request" />
+<jsp:useBean id="daoComentario" class="br.edu.utfpr.recipes.dao.DaoComentario" scope="request" />
 <jsp:useBean id="daoItemR" class="br.edu.utfpr.recipes.dao.DaoItemReceita" scope="request" />
 <c:set var="tempo" value="${0}"/>
 <c:set var="r" value="${daor.findById(param.receita_id)}" scope="request"/>
@@ -50,9 +51,8 @@
         </style>
     </head>
     <body>
-        <c:import url="menu.jsp?menu=pesquisa"/>
+        <c:import url="menu.jsp?menu=visualiza"/>
         <div class="container">
-
             <!-- Foto -->
             <div class="col-md-12" align="center">
                 <img src="ExibeImagem?receita_id=${r.id}&tipo=normal" class="img-responsive">
@@ -219,7 +219,7 @@
                 <form id="form-comentario" role="form" action="ComentarioServlet" method="post">
                     <input type="hidden" name="receita_id" value="${r.id}">
                     <div class="form-group col-md-10">
-                        <textarea class="form-control" rows="4" name="comentario" id="comentario"></textarea>
+                        <textarea class="form-control" rows="4" name="comentario" id="comentario" required></textarea>
                     </div> 
                     <div class="col-md-10">
                         <button type="submit" class="btn btn-success">Enviar Comentário</button>
@@ -227,68 +227,30 @@
                 </form>
             </div>
 
-            <!--Comentario 1-->
-            <div class="col-md-12 col-md-offset-1">
-                <div class="col-md-10"> 
-                    <hr>
-                    <h4><label class="label label-primary">Fulaninho</label>
-                        <small>23:15:01 15-06-2016</small></h4>
+            <!-- Comentários -->
+            <c:forEach items="${daoComentario.buscaComentarioDaReceita(r.id)}" var="comentR">
+                <div class="col-md-12 col-md-offset-1">
+                    <div class="col-md-10"> 
+                        <hr>
+                        <h4><label class="label label-primary">${comentR.usuario.nome}</label>
+                            <small>
+                                <fmt:formatDate value="${comentR.dataComentario.getTime()}" pattern="HH:mm:ss dd/MM/yyyy" />
+                            </small>
+                        </h4>
+                    </div>
+                    <span class="text-justify col-md-10">
+                        ${comentR.comentario}
+                    </span>
+                    <c:if test="${usuarioLogado.id == comentR.usuario.id}">
+                        <div class="col-md-10" style="margin-top: 5px">
+                            <form method="post" action="">
+                                <input type="hidden" name="comentario_id" value="${comentR.id}">
+                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                            </form>
+                        </div>
+                    </c:if>
                 </div>
-                <span class="text-justify col-md-10">
-                    A certificação de metodologias...
-                </span>
-                <div class="col-md-10" style="margin-top: 5px">
-                    <form method="post" action="">
-                        <input type="hidden" name="receita_id" value="${r.id}">
-                        <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                    </form>
-                </div>
-            </div>
-
-            <!--Comentario 2-->
-            <div class="col-md-12 col-md-offset-1">
-                <div class="col-md-10"> 
-                    <hr>
-                    <h4><label class="label label-primary">Ciclaninho</label>
-                        <small>02:02:03 02-03-2016</small></h4>
-                </div>
-                <span class="text-justify col-md-10">
-                    Lição 1: “Se te oferecerem um lugar em um foguete, não pergunte
-                    onde o assento fica”. De acordo com a COO do Facebook, este conselho
-                    foi dado por Eric Schimidt, então CEO do Google, quando ela estava
-                    em dúvida se aceitava ou não a proposta de trabalhar na empresa.
-                </span>
-                <div class="col-md-10" style="margin-top: 5px">
-                    <form method="post" action="">
-                        <input type="hidden" name="receita_id" value="${r.id}">
-                        <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-                    </form>
-                </div>
-            </div>
-
-            <!--Comentario 3-->
-            <div class="col-md-12 col-md-offset-1">
-                <div class="col-md-10"> 
-                    <hr>
-                    <h4><label class="label label-primary">Beltraninho</label>
-                        <small>10:23:54 02-05-2016</small></h4>
-                </div>
-                <span class="text-justify col-md-10">
-                    "Flashear" um modem (do inglês "Flash") no seu Android é fácil,
-                    por meio de um software chamado Odin. Como com qualquer outro
-                    procedimento para modificar seu telefone, trata-se de um procedimento
-                    arriscado, ficando sob sua inteira responsabilidade. Assim,
-                    leia as instruções com cuidado.
-                    Baixe um modem que você quer flashear em seu telefone. Um "modem",
-                    neste caso, é um arquivo específico para seu telefone, definido
-                    por região. Procure por uma lista de modens para seu telefone e
-                    as companhias de sua região. Você pode buscar no Google por
-                    “[seu modelo de telefone] [sua companhia e sua região] e os termos
-                    "modem" e "download”.
-                    Sites como o XDA Developers ou fóruns conhecidos sobre Android são fontes recomendáveis.
-                </span>
-            </div>
-
+            </c:forEach>
         </div>
     </body>
 </html>
