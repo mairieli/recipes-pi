@@ -108,8 +108,9 @@ public class DaoReceita extends DaoGenerics<Receita> {
 
     public List<Receita> buscaReceitaPorUsuario(Usuario usuario) {
         session = getsession();
-        Query query = session.createQuery("SELECT r FROM Receita r WHERE r.usuario.id =:usuario_id ORDER BY r.dataCadastro DESC");
+        Query query = session.createQuery("SELECT r FROM Receita r WHERE r.usuario.id =:usuario_id AND r.status =:statusR ORDER BY r.dataCadastro DESC");
         query.setParameter("usuario_id", usuario.getId());
+        query.setParameter("statusR", true);
         return query.list();
     }
 }
