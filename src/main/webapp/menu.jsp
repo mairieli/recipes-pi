@@ -20,17 +20,16 @@
                     <c:if test="${usuarioLogado != null}">
                     <li <c:if test="${param.menu eq 'nova'}"> class="active" </c:if>><a href="<c:url value="/CadastroReceitas.jsp"/>"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Nova Receita</a></li>
                     <li  <c:if test="${param.menu eq 'pesquisa'}"> class="active" </c:if>><a href="<c:url value="/ConsultarReceitas.jsp"/>"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Pesquisar Receita</a></li>
-                    <li  <c:if test="${param.menu eq 'visualiza'}">  </c:if>><a href="<c:url value="/ConsultarReceitas.jsp"/>"><span class="glyphicon glyphicon-search" aria-hidden="true"> </span> Pesquisar Receita</a></li>
                     <c:if test="${usuarioLogado.admin}" >  <li  <c:if test="${param.menu eq 'aprovacao'}"> class="active" </c:if>><a href="<c:url value="/admin/AprovacaoIngrediente.jsp"/>"><span class="glyphicon glyphicon-stats" aria-hidden="true"> </span> Ingredientes Pendentes</a></li> </c:if>   
                     <li  <c:if test="${param.menu eq 'sugerir'}"> class="active" </c:if>><a data-toggle="modal" data-target="#modalSugerirIngrediente" style="cursor: pointer"><span class="glyphicon glyphicon-plus" aria-hidden="true"> </span> Sugerir Ingrediente</a></li>
                     </c:if>
-            </ul
-            >            <c:if test="${usuarioLogado != null}">
+            </ul>
+                <c:if test="${usuarioLogado != null}">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <p class="navbar-text">
+                        <a href="<c:url value="/PerfilUsuario.jsp?usuario_id=${usuarioLogado.id}"/>">
                             Bem-vindo ${usuarioLogado.nome}!
-                        </p>
+                        </a>
                     </li>
                     <li>
                         <a href="<c:url value="/login"/>">

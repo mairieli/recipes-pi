@@ -73,6 +73,20 @@
                     </c:if>
                 </label>
             </div>
+            <div class="col-md-12 col-md-offset-1">
+                <label class="control-label" for="autor_receita">
+                    <h3>
+                        Autor:
+                    </h3>
+                </label>
+                <label class="control-label" for="autor_receita">
+                    <h4>
+                            <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
+                                ${r.usuario.nome}
+                            </a>
+                    </h4>
+                </label>
+            </div>
             <div class="col-md-10 col-md-offset-1">
                 <div class="caption">
                     <span class="label label-primary"></span>
@@ -232,7 +246,11 @@
                 <div class="col-md-12 col-md-offset-1">
                     <div class="col-md-10"> 
                         <hr>
-                        <h4><label class="label label-primary">${comentR.usuario.nome}</label>
+                        <h4><label class="label label-primary">
+                                <a href="<c:url value="/PerfilUsuario.jsp?usuario_id=${comentR.usuario.id}"/>" style="text-decoration:none; color:#000000 ;">
+                                    ${comentR.usuario.nome}
+                                </a>
+                            </label>
                             <small>
                                 <fmt:formatDate value="${comentR.dataComentario.getTime()}" pattern="HH:mm:ss dd/MM/yyyy" />
                             </small>
