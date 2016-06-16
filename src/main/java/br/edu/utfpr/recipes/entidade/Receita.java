@@ -1,6 +1,7 @@
 package br.edu.utfpr.recipes.entidade;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -54,6 +56,8 @@ public class Receita implements Serializable {
     private int quantidadeTotalDeClassificacao;
     @Column(nullable = false)
     private double somaQualificacao;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Calendar dataCadastro;
 
     public Receita(Integer idReceita) {
         this.id = idReceita;
@@ -208,6 +212,14 @@ public class Receita implements Serializable {
 
     public void setSomaQualificacao(double somaQualificacao) {
         this.somaQualificacao = somaQualificacao;
+    }
+
+    public Calendar getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(Calendar dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
     
     public double mediaQualificacao(){
