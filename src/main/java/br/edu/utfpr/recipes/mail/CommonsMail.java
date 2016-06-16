@@ -1,18 +1,7 @@
 package br.edu.utfpr.recipes.mail;
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-//package mail;
-//
-///**
 // *
 // * @author josimar
 // */
-//public class CommonsMail {
-//    
-//}
 import java.net.MalformedURLException;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
