@@ -247,10 +247,11 @@
                     <div class="col-md-10"> 
                         <hr>
                         <h4><label class="label label-primary">
-                                <a href="<c:url value="/PerfilUsuario.jsp?usuario_id=${comentR.usuario.id}"/>" style="text-decoration:none; color:#000000 ;">
+                                <a href="<c:url value="/PerfilUsuario.jsp?usuario_id=${comentR.usuario.id}"/>" style="text-decoration:none; color:#FFFFFF ;">
                                     ${comentR.usuario.nome}
                                 </a>
                             </label>
+                                &nbsp;
                             <small>
                                 <fmt:formatDate value="${comentR.dataComentario.getTime()}" pattern="HH:mm:ss dd/MM/yyyy" />
                             </small>
