@@ -6,6 +6,7 @@ import br.edu.utfpr.recipes.dao.DaoReceita;
 import br.edu.utfpr.recipes.entidade.Ingrediente;
 import br.edu.utfpr.recipes.entidade.ItemReceita;
 import br.edu.utfpr.recipes.entidade.Receita;
+import br.edu.utfpr.recipes.mail.CommonsMail;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +33,8 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
             for (Receita receita : receitas) {
                 receita.setStatus(true);
                 daoReceita.save(receita);
+                CommonsMail email = new CommonsMail();
+                email.enviaEmai(receita.getUsuario(), receita);
             }
             request.getSession().setAttribute("message", "Ingrediente aprovado com sucesso!");
             response.sendRedirect("AprovacaoIngrediente.jsp");
