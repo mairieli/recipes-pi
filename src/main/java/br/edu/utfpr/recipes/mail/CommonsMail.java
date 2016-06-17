@@ -28,10 +28,10 @@ public class CommonsMail {
         try {
             email.addTo(destinatario); //destinatário  
 
-            email.setFrom("email@origem", "Nome email Origem"); // remetente  
+            email.setFrom("contato.recipes@gmail.com", "Recipes"); // remetente  
             email.setSubject(assunto); // assunto do e-mail  
             email.setMsg(conteudo); //conteudo do e-mail  
-            email.setAuthentication("email@origem", "senha");
+            email.setAuthentication("contato.recipes@gmail.com", "recipespi2016");
             email.setSmtpPort(587);
             email.setSSLOnConnect(true);
             email.setStartTLSEnabled(true);
@@ -108,12 +108,12 @@ public class CommonsMail {
          */
         email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio  do e-mail  
         email.addTo(destinatario); //destinatário  
-        email.setFrom("email@origem.com", "Nome do remetente"); // remetente  
+        email.setFrom("contato.recipes@gmail.com", "Recipes"); // remetente  
         // email.setFrom("teste@gmail.com", "Eu"); // remetente  
         email.setSubject(assunto); // assunto do e-mail  
         // email.setMsg("Teste de Email HTML utilizando commons-email"); //conteudo do e-mail  
         //email.setAuthentication("teste", "xxxxx");  
-        email.setAuthentication("email@origem.com", "senha");
+        email.setAuthentication("contato.recipes@gmail.com", "recipespi2016");
         email.setSmtpPort(587);
         email.setSSLOnConnect(true);
         email.setStartTLSEnabled(true);
@@ -127,7 +127,7 @@ public class CommonsMail {
      * @throws MalformedURLException
      */
     public static void main(String[] args) throws EmailException, MalformedURLException {
-        new CommonsMail().enviaEmai("TEstando", "josimar@aionjeans.com.br", "Este é o conteudo");
+        new CommonsMail().enviaEmai("TEstando", "mairieliw@gmail.com", "Este é o conteudo");
     }
 
 }

@@ -12,6 +12,8 @@ import br.edu.utfpr.recipes.entidade.Tag;
 import br.edu.utfpr.recipes.entidade.TagReceita;
 import br.edu.utfpr.recipes.entidade.Usuario;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +71,9 @@ public class CadastroReceitasServlet extends HttpServlet {
         receita.setRendimento(Integer.parseInt(rendimento));
         receita.setStatus(statusReceita);
         receita.setUsuario(usuario);
+        Calendar dataAtual = Calendar.getInstance();
+        dataAtual.setTime(new Date());
+        receita.setDataCadastro(dataAtual);
         if (!tempoPreparo.isEmpty()) {
             receita.setTempoPreparo(Integer.parseInt(tempoPreparo));
         }
