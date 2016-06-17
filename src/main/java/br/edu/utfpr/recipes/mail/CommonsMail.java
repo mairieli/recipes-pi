@@ -2,6 +2,8 @@ package br.edu.utfpr.recipes.mail;
 // *
 // * @author josimar
 // */
+import br.edu.utfpr.recipes.entidade.Receita;
+import br.edu.utfpr.recipes.entidade.Usuario;
 import java.net.MalformedURLException;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
@@ -18,18 +20,22 @@ public class CommonsMail {
      * envia email simples(somente texto)
      *
      * @param assunto
-     * @param destinatario
-     * @param conteudo
+     * @param usuario
+     * @param receita
      */
-    public void enviaEmai(String assunto, String destinatario, String conteudo) {
+    public void enviaEmai(Usuario usuario, Receita receita) {
 
+        String conteudo = "Olá " + usuario.getNome() + ", sua receita " + receita.getNome() + " foi aprovada.\n"
+                + "Obrigado, por sua colaboração.\n"
+                + "Atenciosamente,\n"
+                + "Equipe recipes-pi.";
         SimpleEmail email = new SimpleEmail();
         email.setHostName("smtp.gmail.com"); // o servidor SMTP para envio do e-mail  
         try {
-            email.addTo(destinatario); //destinatário  
+            email.addTo(usuario.getEmail()); //destinatário  
 
             email.setFrom("contato.recipes@gmail.com", "Recipes"); // remetente  
-            email.setSubject(assunto); // assunto do e-mail  
+            email.setSubject("Sua receita " + receita.getNome() + " foi aprovada."); // assunto do e-mail  
             email.setMsg(conteudo); //conteudo do e-mail  
             email.setAuthentication("contato.recipes@gmail.com", "recipespi2016");
             email.setSmtpPort(587);
@@ -121,13 +127,5 @@ public class CommonsMail {
         email.send();
     }
 
-    /**
-     * @param args
-     * @throws EmailException
-     * @throws MalformedURLException
-     */
-    public static void main(String[] args) throws EmailException, MalformedURLException {
-        new CommonsMail().enviaEmai("TEstando", "mairieliw@gmail.com", "Este é o conteudo");
-    }
 
 }
