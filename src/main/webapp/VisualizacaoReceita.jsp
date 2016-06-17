@@ -92,15 +92,22 @@
                     <span class="label label-primary"></span>
                 </div>
                 <form name="form1" id="form1">
+                    <c:set var="botaoVotar" value="true"/>
                     <c:set var="cookieName" value="rating-recipes_${r.id}-${usuarioLogado.id}" />
                     <c:set var="votar" value="" />
                     <c:forEach items="${cookie}" var="currentCookie">
                         <c:if test="${currentCookie.key == cookieName}">
                             <c:set var="votar" value="readonly" />
+                            <c:set var="botaoVotar" value="false"/>
                         </c:if>
+                        
                     </c:forEach>
                     <input id="rating_hide"  class="rating hide" value="${r.mediaQualificacao()}" data-size="sm" data-show-caption="false" type="text" ${votar}>
-                    <input type="button" id="enviar" value="Avaliar" />
+                     
+                    <c:if test="${botaoVotar}">
+                        <input type="button" id="enviar" value="Avaliar" />
+                    </c:if>
+                        
                     <div class="success"><h6 id="resultado" ></h6></div>
                 </form>
 
