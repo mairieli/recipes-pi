@@ -2,7 +2,6 @@ package br.edu.utfpr.recipes.dao;
 
 import static br.edu.utfpr.recipes.dao.DaoGenerics.session;
 import br.edu.utfpr.recipes.entidade.ComentarioReceita;
-import br.edu.utfpr.recipes.entidade.Receita;
 import java.util.List;
 import org.hibernate.Query;
 

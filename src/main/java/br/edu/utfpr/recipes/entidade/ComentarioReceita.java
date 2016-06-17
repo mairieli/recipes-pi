@@ -25,7 +25,7 @@ public class ComentarioReceita implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     @Column(columnDefinition = "TEXT")
     private String comentario;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
@@ -71,11 +71,11 @@ public class ComentarioReceita implements Serializable {
         this.usuario = usuario;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

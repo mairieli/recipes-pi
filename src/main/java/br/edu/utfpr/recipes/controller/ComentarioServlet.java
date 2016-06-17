@@ -20,6 +20,14 @@ public class ComentarioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Integer idReceita = Integer.parseInt(request.getParameter("receita_id"));
+        Integer idComentario = Integer.parseInt(request.getParameter("comentario_id"));
+        DaoComentario daoComentario = new DaoComentario();
+        ComentarioReceita comentario = daoComentario.obterParaExcluir(idComentario);
+        daoComentario.delete(comentario);
+        DaoReceita daoReceita = new DaoReceita();
+        Receita receita = daoReceita.findById(idReceita);
+        response.sendRedirect("VisualizacaoReceita.jsp?receita_id=" + receita.getId() + "#comentario");
     }
 
     @Override
@@ -45,7 +53,7 @@ public class ComentarioServlet extends HttpServlet {
         DaoComentario daoComentario = new DaoComentario();
         daoComentario.save(comentario);
 
-        response.sendRedirect("VisualizacaoReceita.jsp?receita_id=" + receita.getId());
+        response.sendRedirect("VisualizacaoReceita.jsp?receita_id=" + receita.getId() + "#comentario");
     }
 
 }

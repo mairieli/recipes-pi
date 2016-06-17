@@ -262,8 +262,9 @@
                     </span>
                     <c:if test="${usuarioLogado.id == comentR.usuario.id}">
                         <div class="col-md-10" style="margin-top: 5px">
-                            <form method="post" action="">
+                            <form method="get" action="ComentarioServlet">
                                 <input type="hidden" name="comentario_id" value="${comentR.id}">
+                                <input type="hidden" name="receita_id" value="${r.id}">
                                 <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
                             </form>
                         </div>
