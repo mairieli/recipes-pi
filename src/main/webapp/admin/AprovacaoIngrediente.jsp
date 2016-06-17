@@ -7,6 +7,7 @@
     <head>
         <link rel="shortcut icon" href="../img/recipe_search.ico">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../scripts/jquery.min.js"></script>
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <title>Aprovação de Receitas</title>
         <style>
@@ -14,6 +15,10 @@
                 overflow-x: hidden;
             }
         </style>
+        
+        <script src="../scripts/jquery-1.10.2.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+        
     </head>
     <body>
         <c:import url="/menu.jsp?menu=aprovacao"/>
@@ -51,7 +56,6 @@
                     </div>
                 </div>
 
-            </div>
         </form>
     </c:forEach>
 </body>
