@@ -66,6 +66,8 @@ public class FiltroSessaoUsuario implements Filter {
                 && !uri.endsWith(".png")
                 && !uri.endsWith(".ttf")
                 && !uri.endsWith(".woff")
+                && !uri.endsWith("PaginaNaoEncontrada.jsp")
+                && !uri.endsWith("PaginaErroGeral.jsp")
                 && !uri.endsWith(".woff2");
     }
 
