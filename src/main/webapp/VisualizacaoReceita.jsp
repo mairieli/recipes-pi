@@ -68,7 +68,24 @@
                     <c:if test="${usuarioLogado.admin}" >
                         <form method="post" action="ExcluirReceitaServlet">
                             <input type="hidden" name="receita_id" value="${r.id}">
-                            <button type="submit" class="btn btn-danger" style="margin-bottom: 15px">Excluir</button>
+                            <button type="button" onclick="abrirModal('ModalExcluirReceita')" class="btn btn-danger" style="margin-bottom: 15px">Excluir</button>
+                            <div class="modal" tabindex="-1" role="dialog" id="ModalExcluirReceita">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" onclick="fecharModal('ModalExcluirReceita')" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Confirmação de exclusão</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Você deseja excluir esta receita?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fecharModal('ModalExcluirReceita')">Não</button>
+                                            <button type="submit" class="btn btn-primary" onclick="fecharModal('ModalExcluirReceita')">Sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </c:if>
                 </label>
@@ -280,7 +297,24 @@
                             <form method="get" action="ComentarioServlet">
                                 <input type="hidden" name="comentario_id" value="${comentR.id}">
                                 <input type="hidden" name="receita_id" value="${r.id}">
-                                <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                                <button type="button" onclick="abrirModal('ModalExcluirComentario')" class="btn btn-sm btn-danger">Excluir</button>
+                                <div class="modal" tabindex="-1" role="dialog" id="ModalExcluirComentario">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" onclick="fecharModal('ModalExcluirComentario')" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Confirmação de exclusão</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Você deseja excluir este comentário?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fecharModal('ModalExcluirComentario')">Não</button>
+                                            <button type="submit" class="btn btn-primary" onclick="fecharModal('ModalExcluirComentario')">Sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </form>
                         </div>
                     </c:if>
