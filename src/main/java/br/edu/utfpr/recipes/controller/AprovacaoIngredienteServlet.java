@@ -34,7 +34,7 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
                 receita.setStatus(true);
                 daoReceita.save(receita);
                 CommonsMail email = new CommonsMail();
-                email.enviaEmai(receita.getUsuario(), receita);
+                email.enviaEmailReceita(receita.getUsuario(), receita);
             }
             request.getSession().setAttribute("message", "Ingrediente aprovado com sucesso!");
             response.sendRedirect("AprovacaoIngrediente.jsp");
@@ -47,10 +47,10 @@ public class AprovacaoIngredienteServlet extends HttpServlet {
     }
 
     /**
-     * Método que verifica as receitas que podem ser aprovadas devido a 
+     * Método que verifica as receitas que podem ser aprovadas devido a
      * aprovação do ingrediente.
      *
-     * @param receitas  para serem verificadas
+     * @param receitas para serem verificadas
      */
     private void verificaReceitaParaAprovacao(List<Receita> receitas) {
         List<Receita> receitaNaoAprovar = new LinkedList<>();
