@@ -97,19 +97,11 @@
                     </h3>
                 </label>
                 <label class="control-label" for="autor_receita">
-<<<<<<< HEAD
                     <h3>
                             <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
                                 ${r.usuario.nome}
                             </a>
                     </h3>
-=======
-                    <h4>
-                        <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
-                            ${r.usuario.nome}
-                        </a>
-                    </h4>
->>>>>>> e1c52f297a889edd75518d1fb83c9e7a70c405f8
                 </label>
             </div>
             <div class="col-md-10 col-md-offset-1">
