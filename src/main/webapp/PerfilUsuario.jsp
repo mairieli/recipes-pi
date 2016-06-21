@@ -28,7 +28,7 @@
                 location.href = "VisualizacaoReceita.jsp?receita_id=" + id;
             }
             function irComentario(comentarioId, receitaId) {
-                location.href = "VisualizacaoReceita.jsp?receita_id=" + receitaId + "#comentario";
+                location.href = "VisualizacaoReceita.jsp?receita_id=" + receitaId + "#comentario" + comentarioId;
             }
         </script>
         <title>${usuario.nome}</title>
