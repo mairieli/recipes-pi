@@ -289,8 +289,8 @@
                             <form method="get" action="ComentarioServlet">
                                 <input type="hidden" name="comentario_id" value="${comentR.id}">
                                 <input type="hidden" name="receita_id" value="${r.id}">
-                                <button type="button" onclick="abrirModal('ModalExcluirComentario')" class="btn btn-sm btn-danger">Excluir</button>
-                                <div class="modal" tabindex="-1" role="dialog" id="ModalExcluirComentario">
+                                <button type="button" onclick="abrirModal('ModalExcluirComentario${comentR.id}')" class="btn btn-sm btn-danger">Excluir</button>
+                                <div class="modal" tabindex="-1" role="dialog" id="ModalExcluirComentario${comentR.id}">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
