@@ -80,11 +80,19 @@
                     </h3>
                 </label>
                 <label class="control-label" for="autor_receita">
+<<<<<<< HEAD
                     <h3>
                             <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
                                 ${r.usuario.nome}
                             </a>
                     </h3>
+=======
+                    <h4>
+                        <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
+                            ${r.usuario.nome}
+                        </a>
+                    </h4>
+>>>>>>> e1c52f297a889edd75518d1fb83c9e7a70c405f8
                 </label>
             </div>
             <div class="col-md-10 col-md-offset-1">
@@ -100,14 +108,14 @@
                             <c:set var="votar" value="readonly" />
                             <c:set var="botaoVotar" value="false"/>
                         </c:if>
-                        
+
                     </c:forEach>
                     <input id="rating_hide"  class="rating hide" value="${r.mediaQualificacao()}" data-size="sm" data-show-caption="false" type="text" ${votar}>
-                     
+
                     <c:if test="${botaoVotar}">
                         <input type="button" class="btn btn-default" id="enviar" value="Avaliar" />
                     </c:if>
-                        
+
                     <div class="success"><h6 id="resultado" ></h6></div>
                 </form>
 
@@ -250,7 +258,7 @@
 
             <!-- Comentários -->
             <c:forEach items="${daoComentario.buscaComentarioDaReceita(r.id)}" var="comentR">
-                <div class="col-md-12 col-md-offset-1">
+                <div class="col-md-12 col-md-offset-1" id="comentario${comentR.id}">
                     <div class="col-md-10"> 
                         <hr>
                         <h4><label class="label label-primary">
@@ -258,7 +266,7 @@
                                     ${comentR.usuario.nome}
                                 </a>
                             </label>
-                                &nbsp;
+                            &nbsp;
                             <small>
                                 <fmt:formatDate value="${comentR.dataComentario.getTime()}" pattern="HH:mm:ss dd/MM/yyyy" />
                             </small>
