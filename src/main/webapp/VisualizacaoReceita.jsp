@@ -80,11 +80,11 @@
                     </h3>
                 </label>
                 <label class="control-label" for="autor_receita">
-                    <h4>
+                    <h3>
                             <a style="text-decoration:none; color:#000000 ;" href="<c:url value="/PerfilUsuario.jsp?usuario_id=${r.usuario.id}"/>">
                                 ${r.usuario.nome}
                             </a>
-                    </h4>
+                    </h3>
                 </label>
             </div>
             <div class="col-md-10 col-md-offset-1">
@@ -105,7 +105,7 @@
                     <input id="rating_hide"  class="rating hide" value="${r.mediaQualificacao()}" data-size="sm" data-show-caption="false" type="text" ${votar}>
                      
                     <c:if test="${botaoVotar}">
-                        <input type="button" id="enviar" value="Avaliar" />
+                        <input type="button" class="btn btn-default" id="enviar" value="Avaliar" />
                     </c:if>
                         
                     <div class="success"><h6 id="resultado" ></h6></div>
