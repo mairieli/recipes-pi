@@ -267,7 +267,7 @@
                     <span class="text-justify col-md-10">
                         ${comentR.comentario}
                     </span>
-                    <c:if test="${usuarioLogado.id == comentR.usuario.id}">
+                    <c:if test="${usuarioLogado.id == comentR.usuario.id or usuarioLogado.admin}">
                         <div class="col-md-10" style="margin-top: 5px">
                             <form method="get" action="ComentarioServlet">
                                 <input type="hidden" name="comentario_id" value="${comentR.id}">
