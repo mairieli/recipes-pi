@@ -9,3 +9,11 @@
 function adicionarComentario(){
     
 }
+
+function fecharModal(modal) {
+    document.getElementById(modal).style.display = "none";
+}
+
+function abrirModal(modal){
+    document.getElementById(modal).style.display = "block";
+}
