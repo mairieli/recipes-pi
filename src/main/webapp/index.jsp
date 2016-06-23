@@ -40,6 +40,7 @@
                     <h1>Receitas Melhor Qualificadas</h1>
                 </div>
                 <div class="col-md-12" style="margin-top: 3%">
+                    <c:if test="${receitas.size() > 0}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(0).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(0).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -55,6 +56,8 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
+                    <c:if test="${receitas.size() > 1}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(1).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(1).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -70,8 +73,10 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
                 </div>
                 <div class="col-md-12" style="margin-top: 3%">
+                    <c:if test="${receitas.size() > 2}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(2).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(2).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -87,6 +92,8 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
+                    <c:if test="${receitas.size() > 3}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(3).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(3).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -102,8 +109,10 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
                 </div>
                 <div class="col-md-12" style="margin-top: 3%">
+                    <c:if test="${receitas.size() > 4}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(4).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(4).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -119,6 +128,8 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
+                    <c:if test="${receitas.size() > 5}">
                     <div class="row featurette" style="float: left; width: 50%; cursor: pointer" onclick="ir(${receitas.get(5).id})">
                         <div class="col-md-4" style="float: left; width: 120px; height: 120px; padding-left: 0px">
                             <img data-holder-rendered="true" class="featurette-image img-responsive center-block" src="ExibeImagem?receita_id=${receitas.get(5).id}&tipo=mini" style="background-repeat: no-repeat; background-size: 100%; background-position: center center">
@@ -134,6 +145,7 @@
                             </div>
                         </div>
                     </div>
+                    </c:if>
                 </div>
             </div>
         </div>
