@@ -11,7 +11,8 @@ public class MelhoresReceitasController {
         DaoReceita daoReceita = new DaoReceita();
         List<Receita> receitas = daoReceita.buscaReceitasMelhorQualificadas();
         Collections.shuffle(receitas);
-        return receitas.subList(0, 6);
+        int quantidadeReceitasSelecionadas = receitas.size() < 6 ? receitas.size() : 6;
+        return receitas.subList(0, quantidadeReceitasSelecionadas);
     }
 
 }
