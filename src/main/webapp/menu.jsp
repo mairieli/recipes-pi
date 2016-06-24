@@ -49,7 +49,7 @@
                 <h4 class="modal-title">Gostaria de sugerir um novo Ingrediente?</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form" action="ingredientesugerido" method="post">
+                <form class="form-horizontal" role="form" action="<c:url value="/ingredientesugerido" />" method="post">
                     <div class="form-group">
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="ingrediente" id="ingrediente" placeholder="Ingrediente" required>
